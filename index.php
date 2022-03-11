@@ -1,1 +1,1 @@
-<?php header("Location: Ecommerce-Project/home.php"); ?>
+<?php header("Location: home.php"); ?>

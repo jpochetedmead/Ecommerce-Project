@@ -8,20 +8,21 @@
 
 </head>
 <body class="h-full">
-<nav class="bg-blue-700">
-    <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-      <div class="relative flex items-center justify-between h-16">
-        <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-          <div class="hidden sm:block sm:ml-6">
-            <div class="flex space-x-4">
-              <h1 class="text-white text-5xl">Ecommerce Project</h1>
+  <nav class="bg-blue-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center">
+          <h1 class="text-white">Ecommerce Project</h1>
+          <div>
+            <div class="ml-10 flex items-baseline space-x-4">
+              <a href="#" class="bg-gray-900 text-gray-300 hover:bg-blue-400 hover:text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Home</a>
             </div>
           </div>
         </div>
       </div>
     </div>
   </nav>
-<div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+  <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
     <div class="max-w-md w-full space-y-8">
       <div>
         <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
@@ -40,15 +41,86 @@
             <input id="password" name="password" type="password" autocomplete="current-password" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Password">
           </div>
         </div>
-        <p>Don't have an account? <a href="register.php" class="text-blue-600 hover:bg-gray-200">Register here.</a></p>
-
-        <div>
-          <button name='submit' type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+        <div class="text-sm">
+          <a href="#" class="font-medium text-blue-600 hover:text-blue-400"> Forgot your password? </a>
+        </div>
+        <p>Don't have an account? <a href="register.php" class="text-blue-600 hover:text-blue-400">Register here.</a></p>
+        <div class="flex justify-center">
+          <button name='submit' type="submit" class="group relative w-1/2 flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gray-900 hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
             Sign in
           </button>
         </div>
       </form>
     </div>
   </div>
+
+  <footer class="text-center lg:text-left bg-gray-100 text-gray-600">
+  <div class="mx-6 py-10 text-center md:text-left">
+    <div class="grid grid-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="">
+        <h6 class="
+            uppercase
+            font-semibold
+            mb-4
+            flex
+            items-center
+            justify-center
+            md:justify-start
+          ">
+          <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="cubes"
+            class="w-4 mr-3" role="img" xmlns="http://www.w3.org/2000/svg">
+          </svg>
+          CSET 2022
+        </h6>
+        <p>
+          Capstone Project
+        </p>
+      </div>
+      <div>
+        <h6 class="uppercase font-semibold mb-4 flex justify-center md:justify-start">
+          Useful links
+        </h6>
+        <p class="mb-4">
+          <a href="#!" class="text-gray-600">About us</a>
+        </p>
+        <p class="mb-4">
+          <a href="#!" class="text-gray-600">FAQ</a>
+        </p>
+      </div>
+      <div class="">
+        <h6 class="uppercase font-semibold mb-4 flex justify-center md:justify-start">
+          Contact
+        </h6>
+        <p class="flex items-center justify-center md:justify-start mb-4">
+          <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="home"
+            class="w-4 mr-4" role="img" xmlns="http://www.w3.org/2000/svg">
+          </svg>
+          Lancaster, PA, US
+        </p>
+        <p class="flex items-center justify-center md:justify-start mb-4">
+          <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope"
+            class="w-4 mr-4" role="img" xmlns="http://www.w3.org/2000/svg">
+          </svg>
+          info@example.com
+        </p>
+        <p class="flex items-center justify-center md:justify-start mb-4">
+          <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="phone"
+            class="w-4 mr-4" role="img" xmlns="http://www.w3.org/2000/svg">
+          </svg>
+          + 01 234 567 88
+        </p>
+        <p class="flex items-center justify-center md:justify-start">
+          <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="print"
+            class="w-4 mr-4" role="img" xmlns="http://www.w3.org/2000/svg">
+          </svg>
+          + 01 234 567 89
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="text-center p-6 bg-gray-100">
+    <span>© 2022 Copyright: CSET 2022</span>
+  </div>
+</footer>
 </body>
 </html>

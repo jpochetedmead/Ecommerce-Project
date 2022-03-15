@@ -25,7 +25,7 @@
 </form>
 
 <form action="home.php" method="POST" id="form5">
-  <button type="submit" value="cart">Cart</button>
+  <button type="submit" value="cart">Cart!</button>
 </form>
 </div>
 

@@ -8,7 +8,7 @@
 
         $sql = "SELECT * FROM Seller
         WHERE LOWER(email) = '$email' AND password = '$_POST[password]' AND approval = 1;";
-        
+
         $result = $conn->query($sql);
         $cnt = mysqli_num_rows($result);
         if ( 0===$cnt ) {
@@ -23,7 +23,7 @@
         if($check == false){
             $sql = "SELECT * FROM Users
             WHERE LOWER(email) = '$email' AND password = '$_POST[password]';";
-            
+
             $result = $conn->query($sql);
             $cnt = mysqli_num_rows($result);
             if ( 0===$cnt ) {
@@ -32,11 +32,11 @@
                 while( false!=($res=mysqli_fetch_array($result)) ) {
                     $sql = "SELECT * FROM Users
                     WHERE LOWER(email) = '$email' AND password = '$_POST[password]';";
-                    
+
                     $result = $conn->query($sql);
                     $user = $result->fetch_assoc();
                     $role = $user['role'];
-                    $check = true;  
+                    $check = true;
                 }
             }
         }
@@ -93,7 +93,7 @@
 
         if($_SESSION['role'] == 'seller'){
             header('location:sellerHome.php');
-        }elseif($_SESSION['role'] == 'buyer' || $_SESSION['role'] == 'moderator'){
+        }elseif($_SESSION['role'] == 'buyer' || $_SESSION['role'] == 'Buyer' || $_SESSION['role'] == 'moderator'){
             header('location:home.php');
         }elseif($_SESSION['role'] == 'admin'){
             header('location:adminHome.php');

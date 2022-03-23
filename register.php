@@ -9,56 +9,61 @@
 <?php
 include 'db_connection.php';
 $error = 0;
-$id = 0;
 if(isset($_POST['register'])){
-  if($_POST['role'] == 'buyer'){
-    $sql = "SELECT * FROM Users WHERE email='$_POST[email]'";
-    $result = $conn->query($sql);
-    $sel = $result->fetch_assoc();
-    if($sel['email'] == $_POST['email']){
-      $error = 2;
-    }
-  }elseif($_POST['role'] == 'seller'){
-    $sql = "SELECT * FROM Seller WHERE email='$_POST[email]'";
-    $result = $conn->query($sql);
-    $sel = $result->fetch_assoc();
-    if($sel['email'] == $_POST['email']) $error = 2;
+  $sql = "SELECT * FROM Users WHERE email='$_POST[email]'";
+  $result = $conn->query($sql);
+  $sel = $result->fetch_assoc();
+  if($sel['email'] == $_POST['email']){
+    $error = 2;
   }
   if($_POST['role'] == 'seller'){
-    if($_POST['state'] == 'Nothing') $error = 3;
+    if($_POST['state'] == '') $error = 3;
   }
   if($_POST['password'] != $_POST['conPassword']) $error = 1;
   if($error > 0){
     header("location:register.php?error=" . $error);
   }else{
+    $id = rand(pow(10, 5-1), pow(10, 5)-1);
+    while(true){
+      $sql = "SELECT * FROM Users WHERE user_ID=$id";
+      $result = $conn->query($sql);
+      $sel = $result->fetch_assoc();
+      if($sel['user_ID'] == $id){
+        $id = rand(pow(10, 5-1), pow(10, 5)-1);
+        continue;
+      }else{
+        break;
+      }
+    }
     if($_POST['role'] == 'buyer'){
       if(strlen($_POST['firstAddress'])>0 && strlen($_POST['city'])>0 && strlen($_POST['state'])>0 && $_POST['firstAddress']>0){
-        $sql = "INSERT INTO Users (first_name,last_name,email,password,user_ID,role,address_first_line,address_second_line,city,state_abbreviation,zip_code,telephone_number,gender)
-        VALUES ('$_POST[fname]','$_POST[lname]','$_POST[email]','$_POST[password]',$id,'buyer','$_POST[firstAddress]','$_POST[secondAddress]','$_POST[city]','$_POST[state]',$_POST[zip],$_POST[phone],'$_POST[gender]')";
+        $sql = "INSERT INTO Users (first_name,last_name,email,password,user_ID,role,address_first_line,address_second_line,city,state_abbreviation,zip_code,telephone_number,gender,approval)
+        VALUES ('$_POST[fname]','$_POST[lname]','$_POST[email]','$_POST[password]',$id,'buyer','$_POST[firstAddress]','$_POST[secondAddress]','$_POST[city]','$_POST[state]',$_POST[zip],$_POST[phone],'$_POST[gender]',0)";
         if ($conn->query($sql) === TRUE) {
-            echo "New record created successfully";
+            //"echo New record created successfully";
         } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+            //"echo Error: " . $sql . "<br>" . $conn->error;
         }
       }else{
-        $sql = "INSERT INTO Users (first_name,last_name,email,password,user_ID,role,telephone_number,gender)
-        VALUES ('$_POST[fname]','$_POST[lname]','$_POST[email]','$_POST[password]',$id,'buyer',$_POST[phone],'$_POST[gender]')";
+        $sql = "INSERT INTO Users (first_name,last_name,email,password,user_ID,role,telephone_number,gender,approval)
+        VALUES ('$_POST[fname]','$_POST[lname]','$_POST[email]','$_POST[password]',$id,'buyer',$_POST[phone],'$_POST[gender]',0)";
         if ($conn->query($sql) === TRUE) {
-            echo "New record created successfully";
+            //"echo New record created successfully";
         } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+            //"echo Error: " . $sql . "<br>" . $conn->error;
         }
       }
       
     }elseif($_POST['role'] == 'seller'){
-      $sql = "INSERT INTO Seller (first_name,last_name,email,password,user_ID,role,address_first_line,address_second_line,city,state_abbreviation,zip_code,telephone_number,gender)
-        VALUES ('$_POST[fname]','$_POST[lname]','$_POST[email]','$_POST[password]',$id,'buyer','$_POST[firstAddress]','$_POST[secondAddress]','$_POST[city]','$_POST[state]',$_POST[zip],$_POST[phone],'$_POST[gender]')";
+      $sql = "INSERT INTO Users (first_name,last_name,email,password,user_ID,role,address_first_line,address_second_line,city,state_abbreviation,zip_code,telephone_number,gender,approval)
+        VALUES ('$_POST[fname]','$_POST[lname]','$_POST[email]','$_POST[password]',$id,'seller','$_POST[firstAddress]','$_POST[secondAddress]','$_POST[city]','$_POST[state]',$_POST[zip],$_POST[phone],'$_POST[gender]',0)";
         if ($conn->query($sql) === TRUE) {
-            echo "New record created successfully";
+            //"echo New record created successfully";
         } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+            //"echo Error: " . $sql . "<br>" . $conn->error;
         }
     }
+    header("location:login.php");
   }
 }
 

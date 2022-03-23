@@ -2,6 +2,10 @@
     include 'db_connection.php';
 ?>
 
+<?php // TEMPLATES
+  include 'templates/head.html';
+?>
+
 <div id="forms">
   <form action="home.php" method="POST" id="logo">
     <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwallpaperaccess.com%2Fskrillex-logo&psig=AOvVaw1sGiyQm4zClbiMB--ZRfxd&ust=1647090381536000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCLDjyfuPvvYCFQAAAAAdAAAAABAv" alt="logo">

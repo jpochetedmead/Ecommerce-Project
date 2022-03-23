@@ -19,7 +19,7 @@
           <h1 class="text-white">Ecommerce Project</h1>
           <div>
             <div class="ml-10 flex items-baseline space-x-4">
-              <a href="#" class="bg-gray-900 text-gray-300 hover:bg-blue-400 hover:text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Home</a>
+              <a href="home.php" class="bg-gray-900 text-gray-300 hover:bg-blue-400 hover:text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Home</a>
             </div>
           </div>
         </div>

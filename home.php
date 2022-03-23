@@ -4,7 +4,7 @@
 
 <?php
 session_start();
-if (isset($_SESSION['ID'])) {
+if (!isset($_SESSION['ID'])) {
 ?>
 <!DOCTYPE html>
 <html class="h-full bg-gray-50" lang="en">
@@ -29,11 +29,13 @@ if (isset($_SESSION['ID'])) {
               <a href="login.php" class="bg-gray-900 text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Sign In</a>
 
               <a href="register.php" class="bg-gray-900 text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Sign Up</a>
+
+              <a href="logout.php" class="bg-gray-900 text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Log Out</a>
             </div>
           </div>
         </div>
         <div>
-            <a href="#" class="bg-gray-900 text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+            <a href="cart.php" class="bg-gray-900 text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                 Cart
                 <span></span>
             </a>
@@ -42,10 +44,6 @@ if (isset($_SESSION['ID'])) {
       </div>
     </div>
   </nav>
-
-<?php
-} else if (!isset($_SESSION['ID'])) {
-?>
 
   <!--Search bar-->
     <div class="flex justify-center">
@@ -62,10 +60,6 @@ if (isset($_SESSION['ID'])) {
             </form>
         </div>
     </div>
-
-<?php
-}
-?>
 
     <!--Popular Products-->
     <div class="bg-white">
@@ -237,10 +231,13 @@ if (isset($_SESSION['ID'])) {
                     Useful links
                     </h6>
                     <p class="mb-4">
-                    <a href="#!" class="text-gray-600">About us</a>
+                    <a href="about.php" class="text-gray-600">About us</a>
                     </p>
                     <p class="mb-4">
-                    <a href="#!" class="text-gray-600">FAQ</a>
+                    <a href="faqs.php" class="text-gray-600">FAQ</a>
+                    </p>
+                    <p class="mb-4">
+                    <a href="policies.php" class="text-gray-600">Policies</a>
                     </p>
                 </div>
                 <div class="">
@@ -295,3 +292,6 @@ if (isset($_SESSION['ID'])) {
     </footer>
 </body>
 </html>
+<?php
+}
+?>

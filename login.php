@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html class="h-full bg-gray-50" lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-  <title>Login</title>
-</head>
+<?php // TEMPLATES
+  include 'templates/head.html';
+?>
 
 <?php
     include 'db_connection.php';
@@ -63,78 +58,6 @@
     </div>
   </div>
 
-  <footer class="text-center lg:text-left bg-gray-100 text-gray-600">
-  <div class="mx-6 py-10 text-center md:text-left">
-    <div class="grid grid-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-      <div class="">
-        <h6 class="
-            uppercase
-            font-semibold
-            mb-4
-            flex
-            items-center
-            justify-center
-            md:justify-start
-          ">
-          <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="cubes"
-            class="w-4 mr-3" role="img" xmlns="http://www.w3.org/2000/svg">
-          </svg>
-          CSET 2022
-        </h6>
-        <p>
-          Capstone Project
-        </p>
-      </div>
-      <div>
-        <h6 class="uppercase font-semibold mb-4 flex justify-center md:justify-start">
-          Useful links
-        </h6>
-        <p class="mb-4">
-          <a href="#!" class="text-gray-600">About us</a>
-        </p>
-        <p class="mb-4">
-          <a href="#!" class="text-gray-600">FAQ</a>
-        </p>
-      </div>
-      <div class="">
-        <h6 class="uppercase font-semibold mb-4 flex justify-center md:justify-start">
-          Contact
-        </h6>
-        <p class="flex items-center justify-center md:justify-start mb-4">
-          <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="home"
-            class="w-4 mr-4" role="img" xmlns="http://www.w3.org/2000/svg">
-          </svg>
-          Lancaster, PA, US
-        </p>
-        <p class="flex items-center justify-center md:justify-start mb-4">
-          <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope"
-            class="w-4 mr-4" role="img" xmlns="http://www.w3.org/2000/svg">
-          </svg>
-          info@example.com
-        </p>
-        <p class="flex items-center justify-center md:justify-start mb-4">
-          <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="phone"
-            class="w-4 mr-4" role="img" xmlns="http://www.w3.org/2000/svg">
-          </svg>
-          + 01 234 567 88
-        </p>
-        <p class="flex items-center justify-center md:justify-start">
-          <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="print"
-            class="w-4 mr-4" role="img" xmlns="http://www.w3.org/2000/svg">
-          </svg>
-          + 01 234 567 89
-        </p>
-      </div>
-    </div>
-  </div>
-  <div class="text-center p-6 bg-gray-100">
-    <span>© 2022 Copyright: CSET 2022</span>
-  </div>
-</footer>
-
 <?php // TEMPLATES
   include 'templates/footer.html';
 ?>
-
-</body>
-</html>

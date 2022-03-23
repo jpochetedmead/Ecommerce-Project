@@ -205,7 +205,3 @@ session_start();
 <?php // TEMPLATES
 include 'templates/footer.html';
 ?>
-
-<?php
-}
-?>

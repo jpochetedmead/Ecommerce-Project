@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html class="h-full bg-gray-50" lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>List of Accounts</title>
-</head>
-<?php     include 'db_connection.php';
+<?php
+  include 'db_connection.php';
 ?>
+
+<?php // TEMPLATES
+  include 'templates/head.html';
+?>
+
 <div>
 <form action="accountList.php" method="POST" id="form1">
   <label for="search">Search: </label>
@@ -24,6 +23,7 @@
   <button type="submit" value="search" id="search">Search</button>
 </form>
 </div>
+
 <?php
 if(isset($_POST['search'])){
     $sql ='';
@@ -82,4 +82,8 @@ if(isset($_POST['search'])){
 
     echo "</table>";
 }
+?>
+
+<?php // TEMPLATES
+  include 'templates/footer.html';
 ?>

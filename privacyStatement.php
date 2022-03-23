@@ -56,7 +56,6 @@ session_start();
 <h2>Contact Information</h2>
 <p>BuyMerca.com welcomes your comments regarding this Statement of Privacy. If you believe that BuyMerca.com has not adhered to this Statement, please contact BuyMerca.com at <a class="text-info" href="mailto:notify@BuyMerca.com">notify@BuyMerca.com</a>. We will use commercially reasonable efforts to promptly determine and remedy the problem.</p>
 
-/* */
 <?php // TEMPLATES
   //include 'templates/footer.html';
 ?>

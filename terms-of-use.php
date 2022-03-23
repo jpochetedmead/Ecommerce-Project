@@ -109,7 +109,6 @@ BuyMerca.com does not claim ownership of the materials you provide to BuyMerca.c
 
 <p>Pursuant to Title 17, United States Code, Section 512(c)(2), notifications of claimed copyright infringement under United States copyright law should be sent to Service Provider's Designated Agent. ALL INQUIRIES NOT RELEVANT TO THE FOLLOWING PROCEDURE WILL RECEIVE NO RESPONSE. See Notice and Procedure for Making Claims of Copyright Infringement.</p>
 
-
 <?php // TEMPLATES
-  //include 'templates/footer.html';
+  include 'templates/footer.html';
 ?>

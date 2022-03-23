@@ -53,7 +53,7 @@ if(isset($_POST['register'])){
             //"echo Error: " . $sql . "<br>" . $conn->error;
         }
       }
-      
+
     }elseif($_POST['role'] == 'seller'){
       $sql = "INSERT INTO Users (first_name,last_name,email,password,user_ID,role,address_first_line,address_second_line,city,state_abbreviation,zip_code,telephone_number,gender,approval)
         VALUES ('$_POST[fname]','$_POST[lname]','$_POST[email]','$_POST[password]',$id,'seller','$_POST[firstAddress]','$_POST[secondAddress]','$_POST[city]','$_POST[state]',$_POST[zip],$_POST[phone],'$_POST[gender]',0)";
@@ -135,7 +135,7 @@ if(isset($_POST['register'])){
                 </div>
                 <div>
                     <label for="firstAddress"><b>Address First Line</b></label>
-                    <input id="firstAddress" name="firstAddress" <?php 
+                    <input id="firstAddress" name="firstAddress" <?php
                     if(isset($_POST['role'])){
                       if($_POST['role'] == 'seller'){
                         echo 'required';
@@ -147,13 +147,13 @@ if(isset($_POST['register'])){
                 </div>
                 <div>
                     <label for="secondAddress"><b>Address Second Line</b></label>
-                    <input id="secondAddress" name="secondAddress" <?php 
+                    <input id="secondAddress" name="secondAddress" <?php
                       if(!isset($_POST['role'])) echo 'disabled';
                     ?> type="text" class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"><br>
                 </div>
                 <div>
                     <label for="city"><b>City</b></label>
-                    <input id="city" name="city" <?php 
+                    <input id="city" name="city" <?php
                     if(isset($_POST['role'])){
                       if($_POST['role'] == 'seller'){
                         echo 'required';
@@ -165,7 +165,7 @@ if(isset($_POST['register'])){
                 </div>
                 <div>
                     <label for="state"><b>State</b></label>
-                    <select id="state" name="state" <?php 
+                    <select id="state" name="state" <?php
                     if(isset($_POST['role'])){
                       if($_POST['role'] == 'seller'){
                         echo 'required';
@@ -230,7 +230,7 @@ if(isset($_POST['register'])){
                 </div>
                 <div>
                     <label for="zip"><b>Zipcode</b></label>
-                    <input id="zip" name="zip" <?php 
+                    <input id="zip" name="zip" <?php
                     if(isset($_POST['role'])){
                       if($_POST['role'] == 'seller'){
                         echo 'required';
@@ -348,5 +348,10 @@ if(isset($_POST['register'])){
     <span>© 2022 Copyright: CSET 2022</span>
   </div>
 </footer>
+
+<?php // TEMPLATES
+  include 'templates/footer.html';
+?>
+
 </body>
 </html>

@@ -9,10 +9,7 @@
 
 <?php
     include 'db_connection.php';
-
-
 ?>
-
 
 <body class="h-full">
   <nav class="bg-blue-800">
@@ -134,5 +131,10 @@
     <span>© 2022 Copyright: CSET 2022</span>
   </div>
 </footer>
+
+<?php // TEMPLATES
+  include 'templates/footer.html';
+?>
+
 </body>
 </html>

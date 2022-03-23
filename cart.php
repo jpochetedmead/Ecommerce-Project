@@ -72,3 +72,7 @@ if (isset($_SESSION['password']) && isset($_SESSION['email'])) {
   <button type="submit" value="register">Sign up</button>
 </form>
 </div>
+
+<?php // TEMPLATES
+  include 'templates/footer.html';
+?>

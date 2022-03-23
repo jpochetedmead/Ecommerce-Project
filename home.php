@@ -8,13 +8,14 @@ if (isset($_SESSION['ID'])) {
 ?>
 <!DOCTYPE html>
 <html class="h-full bg-gray-50" lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
   <title>Home</title>
-
 </head>
+
 <body class="h-full">
   <nav class="bg-blue-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -27,19 +28,6 @@ if (isset($_SESSION['ID'])) {
 
               <a href="login.php" class="bg-gray-900 text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Sign In</a>
 
-<<<<<<< HEAD
-<form action="home.php" method="POST" id="form5">
-  <button type="submit" value="cart">Cart!</button>
-</form>
-</div>
-
-<footer>
-<p id="About">About Us</p>
-<p id="contact">Contact Us</p>
-<p id="policies">Policies</p>
-<p id="faq">FAQS</p>
-</footer>
-=======
               <a href="register.php" class="bg-gray-900 text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Sign Up</a>
             </div>
           </div>
@@ -54,9 +42,11 @@ if (isset($_SESSION['ID'])) {
       </div>
     </div>
   </nav>
+
 <?php
 } else if (!isset($_SESSION['ID'])) {
 ?>
+
   <!--Search bar-->
     <div class="flex justify-center">
         <div class="mb-3 pt-6 xl:w-3/5">
@@ -72,9 +62,11 @@ if (isset($_SESSION['ID'])) {
             </form>
         </div>
     </div>
+
 <?php
 }
 ?>
+
     <!--Popular Products-->
     <div class="bg-white">
         <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
@@ -213,7 +205,7 @@ if (isset($_SESSION['ID'])) {
             </div>
         </div>
     </div>
-    
+
     <footer class="text-center lg:text-left bg-gray-100 text-gray-600">
         <div class="mx-6 py-10 text-center md:text-left">
             <div class="grid grid-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -303,4 +295,3 @@ if (isset($_SESSION['ID'])) {
     </footer>
 </body>
 </html>
->>>>>>> b04ce5607d542a8b46f5ac60ce81fcfce251c6c2

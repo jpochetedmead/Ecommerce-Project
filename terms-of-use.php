@@ -1,16 +1,15 @@
 <?php
-session_start();
 //TEMPLATES
-/*
-    include 'templates/header.html';
+    include 'templates/head.html';
+    /*
     switch($_SESSION['level']) {
       case '1':
-        include 'templates/main-nav-bar.php';
+        include 'templates/main-navbar.php';
         break;
       case '2':
-        include 'templates/main-nav-bar.php';
+        include 'templates/side-menu.php';
       default:
-        include 'templates/alert-message-before-login.html';
+        include 'templates/alert-message.html';
     }
 */
 ?>

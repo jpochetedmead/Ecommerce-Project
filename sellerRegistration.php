@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html class="h-full bg-gray-50" lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-  <title>Seller Registration</title>
-</head>
 <?php
 include 'db_connection.php';
 session_start();
@@ -32,12 +24,25 @@ if(isset($_POST['register'])){
         }
     }
     header('location:home.php');
-    
 }
-
-
-
 ?>
+
+<?php
+//TEMPLATES
+    include 'templates/head.html';
+    /*
+    switch($_SESSION['level']) {
+      case '1':
+        include 'templates/main-navbar.php';
+        break;
+      case '2':
+        include 'templates/side-menu.php';
+      default:
+        include 'templates/alert-message.html';
+    }
+*/
+?>
+
 <form action="sellerRegistration.php" method="POST">
     <div>
         <label for="fname"><b>First Name</b></label>
@@ -128,3 +133,7 @@ if(isset($_POST['register'])){
         <input value='Register' name='register' type="submit" class="group relative w-1/2 flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gray-900 hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
     </div>
 </form>
+
+<?php // TEMPLATES
+  include 'templates/footer.html';
+?>

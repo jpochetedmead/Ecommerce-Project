@@ -1,18 +1,17 @@
 <?php
-session_start();
 //TEMPLATES
-/*
-    include 'templates/header.html';
+    include 'templates/head.html';
+    /*
     switch($_SESSION['level']) {
       case '1':
-        include 'templates/main-nav-bar.php';
+        include 'templates/main-navbar.php';
         break;
       case '2':
-        include 'templates/main-nav-bar.php';
+        include 'templates/side-menu.php';
       default:
-        include 'templates/alert-message-before-login.html';
+        include 'templates/alert-message.html';
     }
-    */
+*/
 ?>
 
 <h1>Privacy Statement</h1>
@@ -57,5 +56,5 @@ session_start();
 <p>BuyMerca.com welcomes your comments regarding this Statement of Privacy. If you believe that BuyMerca.com has not adhered to this Statement, please contact BuyMerca.com at <a class="text-info" href="mailto:notify@BuyMerca.com">notify@BuyMerca.com</a>. We will use commercially reasonable efforts to promptly determine and remedy the problem.</p>
 
 <?php // TEMPLATES
-  //include 'templates/footer.html';
+  include 'templates/footer.html';
 ?>

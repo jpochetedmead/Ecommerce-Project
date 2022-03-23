@@ -1,12 +1,11 @@
-<?php // TEMPLATES
-  include 'templates/head.html';
-?>
-
 <?php
     include 'db_connection.php';
 ?>
 
-<body class="h-full">
+<?php // TEMPLATES
+  include 'templates/head.html';
+?>
+
   <nav class="bg-blue-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">

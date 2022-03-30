@@ -3,5 +3,5 @@
 POSTED!
 Button -> (Share to get More Views)
 Icon -> Post Another Item (<?php header("Location: list_NewProduct.php"); ?>)
-Button -> Done (<?php header("Location: selling.php"); ?>)
+Button -> Done (-)
 -->

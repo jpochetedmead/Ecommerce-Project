@@ -63,6 +63,8 @@ if(isset($_POST['register'])){
 <?php
 //TEMPLATES
     include 'templates/head.html';
+    include 'templates/nav-bar.php';
+    //include 'templates/search-bar.html';
     /*
     switch($_SESSION['level']) {
       case '1':
@@ -76,21 +78,6 @@ if(isset($_POST['register'])){
 */
 ?>
 
-<nav class="bg-blue-800">
-    <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-      <div class="relative flex items-center justify-between h-16">
-        <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-            <div class="flex space-x-4">
-              <h1 class="text-white">Ecommerce Project</h1>
-            </div>
-            <div class="ml-10 flex items-baseline space-x-4">
-              <a href="index.php" class="bg-gray-900 text-gray-300 hover:bg-blue-400 hover:text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Home</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-</nav>
 <div class="mx-auto mt-10">
   <div class="flex shadow-md my-10">
     <div class="w-full bg-white px-10 py-10">

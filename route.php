@@ -4,7 +4,7 @@
     if(isset($_POST['submit'])){
         $email = strtolower($_POST['email']);
         $check = false;
-        
+
         $sql = "SELECT * FROM Users
         WHERE LOWER(email) = '$email' AND password = '$_POST[password]';";
 
@@ -26,7 +26,7 @@
             header("location:login.php?error=1&send=" . $_POST['email']);
         }elseif($check === true){
             session_start();
-            
+
             $sql = "SELECT * FROM Users
             WHERE LOWER(email) = '$email' AND password = '$_POST[password]';";
             $result = $conn->query($sql);
@@ -55,6 +55,4 @@
         }
 
     }
-
-
 ?>

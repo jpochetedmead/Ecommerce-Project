@@ -19,13 +19,31 @@
         SET role = 'buyer'
         WHERE user_ID=$_POST[decline]";
         //Will eventually send message about decline
-        
+
         if ($conn->query($sql) === TRUE) {
             echo "Record updated successfully";
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
     }
+?>
+
+<?php
+//TEMPLATES
+    include 'templates/head.html';
+    include 'templates/nav-bar.php';
+    //include 'templates/search-bar.html';
+    /*
+    switch($_SESSION['level']) {
+      case '1':
+        include 'templates/main-navbar.php';
+        break;
+      case '2':
+        include 'templates/side-menu.php';
+      default:
+        include 'templates/alert-message.html';
+    }
+*/
 ?>
 
 <div class="m-5">
@@ -57,3 +75,7 @@
         </table>
         </form>
 </div>
+
+<?php // TEMPLATES
+  include 'templates/footer.html';
+?>

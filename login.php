@@ -5,6 +5,8 @@
 <?php
 //TEMPLATES
     include 'templates/head.html';
+    //include 'templates/nav-bar.php';
+    //include 'templates/search-bar.html';
     /*
     switch($_SESSION['level']) {
       case '1':

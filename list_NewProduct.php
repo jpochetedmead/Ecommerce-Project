@@ -7,6 +7,8 @@ include('db_connection.php');
 <?php
 //TEMPLATES
     include 'templates/head.html';
+    include 'templates/nav-bar.php';
+    include 'templates/search-bar.html';
     /*
     switch($_SESSION['level']) {
       case '1':
@@ -91,11 +93,13 @@ include('db_connection.php');
 <?php
 // if submit is not blanked i.e. it is clicked.
 {
-  $sql="insert into products(product_ID, title, price, list_price, brand, categories, image, description, featured, sizes, seller_ID, quantity, create_date, discount_percent)
-  values ('".$_REQUEST['product_ID']."','".$_REQUEST['title']."','".$_REQUEST['price']."','".$_REQUEST['list_price']."','".$_REQUEST['brand']."','".$_REQUEST['categories']."','".$_REQUEST['image']."',
-  '".$_REQUEST['description']."','".$_REQUEST['featured']."','".$_REQUEST['sizes']."','".$_REQUEST['seller_ID']."','".$_REQUEST['quantity']."','".$_REQUEST['create_date']."','".$_REQUEST['discount_percent']."');
+  $sql="insert into products(product_ID, title, price, list_price, brand, categories, image, description, featured, sizes, seller_ID, quantity, create_date, discount_percent),
+  values (
+    '".$_REQUEST['product_ID']."','".$_REQUEST['title']."','".$_REQUEST['price']."','".$_REQUEST['list_price']."','".$_REQUEST['brand']."','".$_REQUEST['categories']."','".$_REQUEST['image']."',
+    '".$_REQUEST['description']."','".$_REQUEST['featured']."','".$_REQUEST['sizes']."','".$_REQUEST['seller_ID']."','".$_REQUEST['quantity']."','".$_REQUEST['create_date']."','".$_REQUEST['discount_percent']."'
+  );
 
-  $res=mysql_query($sql);
+  $res=mysql_query($sql)
   if($res){
     header('Location: newProduct-success.php');
   }

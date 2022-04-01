@@ -1,6 +1,7 @@
 <?php
 include 'db_connection.php';
 session_start();
+
 if(isset($_POST['register'])){
     if(strlen($_POST['secondAddress']) > 0){
         $sql = "UPDATE Users

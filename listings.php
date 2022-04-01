@@ -16,7 +16,7 @@ session_start();
 <?php
 //TEMPLATES
     include 'templates/head.html';
-    include 'templates/nav-bar.html';
+    include 'templates/nav-bar.php';
     include 'templates/search-bar.html';
     /*
     switch($_SESSION['level']) {

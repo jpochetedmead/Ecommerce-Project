@@ -63,7 +63,7 @@ if(isset($_POST['register'])){
 <?php
 //TEMPLATES
     include 'templates/head.html';
-    include 'templates/nav-bar.php';
+    //include 'templates/nav-bar.php';
     //include 'templates/search-bar.html';
     /*
     switch($_SESSION['level']) {
@@ -78,6 +78,21 @@ if(isset($_POST['register'])){
 */
 ?>
 
+<nav class="bg-blue-800">
+    <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+      <div class="relative flex items-center justify-between h-16">
+        <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+            <div class="flex space-x-4">
+              <h1 class="text-white">Ecommerce Project</h1>
+            </div>
+            <div class="ml-10 flex items-baseline space-x-4">
+              <a href="index.php" class="bg-gray-900 text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Home</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</nav>
 <div class="mx-auto mt-10">
   <div class="flex shadow-md my-10">
     <div class="w-full bg-white px-10 py-10">
@@ -103,7 +118,7 @@ if(isset($_POST['register'])){
                           </select>
                         </div>
                         <div class="flex justify-center pt-12">
-                            <input value='Select Role' name='roleButton' type="submit" class="group relative w-1/2 flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gray-900 hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            <input value='Select Role' name='roleButton' type="submit" class="group relative w-1/2 flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gray-900 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                         </div>
                         <div>
                             <label for="fname"><b>First Name</b></label>
@@ -252,7 +267,7 @@ if(isset($_POST['register'])){
                         </div>
                         <p>Already have an account? <a href="login.php" class="text-blue-600 hover:text-blue-400">Login here.</a></p>
                         <div class="flex justify-center pt-12">
-                            <input value='Register' name='register' type="submit" class="group relative w-1/2 flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gray-900 hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            <input value='Register' name='register' type="submit" class="group relative w-1/2 flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gray-900 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                         </div>
                     </div>
                 </form>

@@ -21,7 +21,7 @@
 ?>
 
 <!--shopping cart-->
-  <div class="container mx-auto mt-10">
+  <form action="" method="POST" class="container mx-auto mt-10">
     <div class="flex shadow-md my-10">
       <div class="w-3/4 bg-white px-10 py-10">
         <div class="flex justify-between border-b pb-8">
@@ -37,7 +37,7 @@
         <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
           <div class="flex w-2/5"> <!-- product -->
             <div class="w-20">
-            <img src="https://via.placeholder.com/150" alt="placeholder">
+              <img src="https://via.placeholder.com/150" alt="placeholder">
             </div>
             <div class="flex flex-col justify-between ml-4 flex-grow">
               <span class="font-bold text-sm">Product 1</span>
@@ -71,12 +71,11 @@
             <span>Total cost</span>
             <span>$400</span>
           </div>
-          <button class="bg-gray-900 font-semibold hover:bg-gray-700 py-3 text-sm text-white uppercase w-full">Checkout</button>
+          <button name='submit' type="submit" class="rounded bg-gray-900 font-semibold hover:bg-gray-700 py-3 text-sm text-white uppercase w-full">Checkout</button>
         </div>
       </div>
-
     </div>
-  </div>
+  </form>
 
 <?php // TEMPLATES
   include 'templates/footer.html';

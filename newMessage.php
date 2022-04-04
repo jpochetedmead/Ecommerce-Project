@@ -26,23 +26,11 @@
         $row = $result->fetch_assoc();
         $previousMessage = $row['message'];
         $subject = $row['subject'];
-            
-    }
-    if(isset($_POST['send'])){
-        //if based on if previous message isset
-        $futureDate=date('Y-m-d', strtotime('+1 year'));
-        $sql = "INSERT INTO Messages (sender_ID, recipient_ID,message,subject,expire_date)
-        VALUES ($_SESSION[ID],$_POST[ID],'$_POST[message]','$_POST[subject]','$futureDate');";
-        if ($conn->query($sql) === TRUE) {
-            echo "New record created successfully";
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
-        }
     }
 ?>
 
 <body>
-    <form action="newMessage.php" method="POST" >
+    <form action="send.php" method="POST" >
     <div>
         <label for="to">To: </label>
         <input id="to" name="to" disabled type="text" value="<?php echo $sellerName ?>">
@@ -50,6 +38,8 @@
     <input id="ID" name="ID" type="text" hidden value="<?php echo $recipientID ?>">
     <?php if($_GET['new'] == 0){
         echo "<input id='previousID' name='previousID' type='text' hidden value='" . $_GET['messageID'] . "'>";
+    }else{
+        echo "<input id='product' name='product' type='text' hidden value='" . $_GET['productID'] . "'>";
     }
     ?>
     <div>

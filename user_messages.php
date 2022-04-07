@@ -84,7 +84,7 @@ session_start();
 								                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
 									                <div class="flex items-center">
 											            <div class="ml-3">
-												            <a href="test-1.php" class="text-blue-500 hover:text-blue-300 whitespace-no-wrap">
+												            <a href="newMessage.php" class="text-blue-500 hover:text-blue-300 whitespace-no-wrap">
                                                                 Example name</a>
 											            </div>
 										            </div>

@@ -7,18 +7,8 @@
 //TEMPLATES
     include 'templates/head.html';
     include 'templates/nav-bar.php';
-    include 'templates/search-bar.html';
-    /*
-    switch($_SESSION['level']) {
-      case '1':
-        include 'templates/main-navbar.php';
-        break;
-      case '2':
-        include 'templates/side-menu.php';
-      default:
-        include 'templates/alert-message.html';
-    }
-*/
+    include 'templates/search-bar.php';
+
 if(isset($_POST['checkout'])){
   header("location:checkout.php");
 }
@@ -147,7 +137,7 @@ $sql="SELECT * FROM Cart WHERE user_ID=$_SESSION[ID]";
           <h1 class="font-semibold text-2xl">Your Cart is Empty</h1>
         </div>
       </div>
-
+  </form>
 <?php // TEMPLATES
   include 'templates/footer.html';
 ?>

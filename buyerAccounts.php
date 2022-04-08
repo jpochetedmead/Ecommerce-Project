@@ -1,48 +1,13 @@
 <?php
     include 'db_connection.php';
-    session_start();
-
-    if(isset($_POST['accept'])){
-        $sql = "UPDATE Users
-        SET approval = 1
-        WHERE user_ID=$_POST[accept]";
-
-        //will eventually send message about accept
-
-        if ($conn->query($sql) === TRUE) {
-            echo "Record updated successfully";
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
-        }
-    }elseif(isset($_POST['decline'])){
-        $sql = "UPDATE Users
-        SET role = 'buyer'
-        WHERE user_ID=$_POST[decline]";
-        //Will eventually send message about decline
-
-        if ($conn->query($sql) === TRUE) {
-            echo "Record updated successfully";
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
-        }
-    }
 ?>
 
 <?php
-//TEMPLATES
-    include 'templates/head.html';
-    //include 'templates/search-bar.html';
-    /*
-    switch($_SESSION['level']) {
-      case '1':
-        include 'templates/main-navbar.php';
-        break;
-      case '2':
-        include 'templates/side-menu.php';
-      default:
-        include 'templates/alert-message.html';
-    }
-*/
+session_start();
+?>
+
+<?php
+include 'templates/head.html';
 ?>
 
 <nav class="bg-blue-800">
@@ -97,32 +62,60 @@
         </div>
     </aside>
 
-<div class="m-5">
-    <form action="approval.php" id="form1" method="POST">
-    <table>
-            <tr>
-                <th>Name</th>
-                <th>ID Number</th>
-                <th>Email</th>
-                <th>Select</th>
-            </tr>
+    <form action="buyerAccounts.php" method="POST">
+      <input type="submit" value="View All" name="search">
+    </form>
 
-            <?php
-            $sql = "SELECT * FROM Users WHERE role='seller' && approval=0";
-            $result = $conn->query($sql);
+  <?php
+  if(isset($_POST['search'])){
+    $search = $_POST['search'];
+    $sql = "SELECT first_name, last_name, email, user_ID, telephone_number
+    FROM Users
+    WHERE role = 'buyer'";
 
-            while($res = mysqli_fetch_array($result)) {
-                echo "<tr>";
-                echo "<td>" . $res['first_name'] . " " . $res['last_name'] . "</td>";
-                echo "<td>" . $res['user_ID'] . "</td>";
-                echo "<td>" . $res['email'] . "</td>";
-                ?>
-                <td><button type="submit" name="accept" form="form1" id="accept" value="<?php echo $res['user_ID']?>">✅</button>
-                <button type="submit" name="decline" form="form1" id="decline" value="<?php echo $res['user_ID']?>">❌</button></td>
-                <?php
-            }
-            ?>
+    $sql = "SELECT first_name, last_name
+    FROM Users";
+    $result = $conn->query($sql);
+    $userN = $result->fetch_assoc();
+    $usersFullName = $userN['first_name'] . " " . $userN['last_name'];
 
-        </table>
-        </form>
-</div>
+    $sql = "SELECT email
+    FROM Users";
+    $result = $conn->query($sql);
+    $userE = $result->fetch_assoc();
+    $usersEmail = $userE['email'];
+
+    $sql = "SELECT user_ID
+    FROM Users";
+    $result = $conn->query($sql);
+    $userID = $result->fetch_assoc();
+    $usersId = $userID['user_ID'];
+
+    $sql = "SELECT telephone_number
+    FROM Users";
+    $result = $conn->query($sql);
+    $userP = $result->fetch_assoc();
+    $usersPhone = $userP['telephone_number'];
+  ?>
+
+  <table>
+  <tr>
+    <th>Users Name</th>
+    <th>Users Email</th>
+    <th>Users ID</th>
+    <th>Users Phone Number</th>
+  </tr>
+
+<form method="post" action="buyerAccounts.php">
+<?php
+    while($res = mysqli_fetch_array($result)) {
+    echo "<tr>";
+    echo "<td>".$userN['first_name']. " " .$userN['last_name']."</td>";
+    echo "<td>".$userE['email']. "</td>";
+    echo "<td>".$userID['user_ID']. "</td>";
+    echo "<td>".$userP['telephone_number']. "</td>";
+  }
+}
+?>
+</form>
+</table>

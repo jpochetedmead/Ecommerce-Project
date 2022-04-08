@@ -44,6 +44,7 @@
             $_SESSION['zip'] = $user['zip_code'];
             $_SESSION['gender'] = $user['gender'];
             $_SESSION['approval'] = $user['approval'];
+            $_SESSION['email'] = $user['email'];
         }
 
         if($_SESSION['role'] == 'seller' && $_SESSION['approval'] == 1){

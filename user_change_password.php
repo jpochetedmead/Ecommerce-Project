@@ -17,7 +17,7 @@ session_start();
     <aside class="w-80 h-screen bg-white shadow-md w-fulll">
         <div class="flex flex-col justify-between h-screen p-4 bg-white">
             <div class="text-sm">
-                <div class="bg-gray-900 text-white p-5 rounded">User Name</div>
+                <div class="bg-gray-900 text-white p-5 rounded"><?php echo strtoupper($_SESSION['firstName']) . " " . strtoupper($_SESSION['lastName']) ?></div>
                 <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">
                     <a href="user_account.php">Personal Info</a>
                 </div>

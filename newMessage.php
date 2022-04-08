@@ -39,38 +39,10 @@ session_start();
 ?>
 
 <main class="flex w-full">
-    <!--Side Bar-->
-    <aside class="w-80 h-screen bg-white shadow-md w-fulll">
-        <div class="flex flex-col justify-between h-screen p-4 bg-white">
-            <div class="text-sm">
-                <div class="bg-gray-900 text-white p-5 rounded">User Name</div>
-                <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">
-                    <a href="user_account.php">Personal Info</a>
-                </div>
-                <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">
-                    <a href="user_wishlist.php">Wishlist</a>
-                </div>
-                <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">
-                    <a href="user_order_history.php">Order History</a>
-                </div>
-                <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">
-                    <a href="user_messages.php">Messages</a>
-                </div>
-                <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">
-                    <a href="user_change_shipping.php">Change Shipping</a>
-                </div>
-                <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">
-                    <a href="user_change_payment.php">Change Payment</a>
-                </div>
-                <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">
-                    <a href="user_change_password.php">Change Password</a>
-                </div>
-                <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">
-                    <a href="seller_account.php">Seller account</a>
-                </div>
-            </div>
-        </div>
-    </aside>
+    <?php
+    //TEMPLATES
+        include 'templates/user-side-bar.php';
+    ?>
     <!--Reply to message-->
     <section class="w-1/2 p-4">
         <div class="w-full text-md">

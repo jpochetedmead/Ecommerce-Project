@@ -19,12 +19,13 @@
   <div class="container">
 
     <div class="py-5 text-center">
-      <h1>Contact Us</h1>
+      <hr class="text-danger">
+      <h1 class="h1">Contact Us</h1>
       <p class="lead">BuyMerca wants to hear from you...</p>
     </div>
 
     <fieldset>
-      <form name="ContactUs" class="needs-validation" method="POST" action="contact.php">
+      <form name="Contact" class="needs-validation" method="POST" action="contact.php">
         <p>
           <label for="fName">First Name</label>
           <input type="text" class="form-control" name="fName" id="fName" placeholder="Your First Name" value="" required>
@@ -50,7 +51,7 @@
         <p>
           <br>
           <input type="submit" name="contact" id="contact" class="btn btn-info btn-lg btn-block" value="Send Message">
-          <input type="reset" name="reset" id="reset" class="btn btn-danger btn-lg btn-block" value="Reset">
+          <input type="reset" name="reset" id="reset" class="btn btn-danger btn-lg btn-block mb-5" value="Reset">
         </p>
       </form>
     <fieldset>
@@ -136,47 +137,51 @@
     ?>
 
         <!-- Success Message -->
-        <p class="alert alert-success mt-5 text-center">Thank you for contacting BuyMerca. We will be in touch with you as soon as possible.</p>
+        <p class="alert alert-success mt-5 mb-5 text-center">Thank you for contacting BuyMerca. We will be in touch with you as soon as possible.</p>
 
     <?php
   }
     ?>
 
-<!--
-/* BELOW IM WORKING ON A WAY TO SEND THE DATA TO OUR OWN DATABASE INSTEAD OF SENDING IT TO OUR EMAIL
+
+<?php
+/* BELOW IM WORKING ON A WAY TO SEND THE DATA TO OUR OWN DATABASE INSTEAD OF SENDING IT TO OUR EMAIL */
+/*
 include 'db_connection.php';
 // database connection code
-if($_POST['txtMessage'])
-{
+if (isset($_POST['Email'])) {
+
 // get the post records
-$fName = $_POST['fName'];
-$lName = $_POST['lName'];
-$email = $_POST['email'];
-$telephoneNumber = $_POST['telephoneNumber'];
-$txtMessage = $_POST['txtMessage'];
+$fName = $_POST['fName']; // required
+$lName = $_POST['lName']; // required
+$email = $_POST['Email']; // required
+$telephoneNumber = $_POST['telephoneNumber']; // required
+$message = $_POST['Message']; // required
 
 // database insert SQL code
-$sql = "INSERT INTO 'ContactUs' ('id', 'fName', 'lName', 'email', 'telephoneNumber', 'txtMessage')
-VALUES ('0', '$fName', '$lName', '$email', '$telephoneNumber', '$txtMessage')";
+$sql = "INSERT INTO 'Contact' ('id', 'fName', 'lName', 'Email', 'telephoneNumber', 'Message')
+VALUES ('0', '$fName', '$lName', '$email', '$telephoneNumber', '$message')";
+
 
 // insert in database
+
 /*
-$rs = mysqli_query($con, $sql);
+$rs = mysqli_query($conn, $sql);
 if($rs) {
   echo "Contact Records Inserted";
+} else {
+  echo "SOMETHING IS WRONG!";
 }
 */
 
-
 /*
 if ($conn->query($sql) === TRUE) {
-    echo "Record updated successfully";
+    echo Record updated successfully;
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
 */
 ?>
--->
 
 <?php // TEMPLATES
   include 'templates/footer.html';

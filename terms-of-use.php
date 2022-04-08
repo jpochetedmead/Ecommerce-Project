@@ -16,23 +16,24 @@
 */
 ?>
 
-<h1>Terms of Use</h1>
+<div class="container m-10">
+<h1 class="h1">Terms of Use</h1>
 <hr>
 <br>
 <h2>Agreement Between User and BuyMerca.com</h2>
 <p>The BuyMerca.com Web Site is comprised of various Web pages operated by BuyMerca.com.</p>
 <p>The BuyMerca.com Web Site is offered to you conditioned on your acceptance without modification of the terms, conditions, and notices contained herein. Your use of the BuyMerca.com Web Site constitutes your agreement to all such terms, conditions, and notices.</p>
 
-<h2>Modification of These Terms of Use</h2>
+<h2 class="h2">Modification of These Terms of Use</h2>
 <p>BuyMerca.com reserves the right to change the terms, conditions, and notices under which the BuyMerca.com Web Site is offered, including but not limited to the charges associated with the use of the BuyMerca.com Web Site.</p>
 
-<h2>Links to Third Party Sites</h2>
+<h2 class="h2">Links to Third Party Sites</h2>
 <p>The BuyMerca.com Web Site may contain links to other Web Sites ("Linked Sites"). The Linked Sites are not under the control of BuyMerca.com and BuyMerca.com is not responsible for the contents of any Linked Site, including without limitation any link contained in a Linked Site, or any changes or updates to a Linked Site. BuyMerca.com is not responsible for webcasting or any other form of transmission received from any Linked Site. BuyMerca.com is providing these links to you only as a convenience, and the inclusion of any link does not imply endorsement by BuyMerca.com of the site or any association with its operators</p>
 
-<h2>No Unlawful or Prohibited Use</h2>
+<h2 class="h2">No Unlawful or Prohibited Use</h2>
 <p>As a condition of your use of the BuyMerca.com Web Site, you warrant to BuyMerca.com that you will not use the BuyMerca.com Web Site for any purpose that is unlawful or prohibited by these terms, conditions, and notices. You may not use the BuyMerca.com Web Site in any manner which could damage, disable, overburden, or impair the BuyMerca.com Web Site or interfere with any other party's use and enjoyment of the BuyMerca.com Web Site. You may not obtain or attempt to obtain any materials or information through any means not intentionally made available or provided for through the BuyMerca.com Web Sites.</p>
 
-<h2>Use of Communication Services</h2>
+<h2 class="h2">Use of Communication Services</h2>
 <p>The BuyMerca.com Web Site may contain bulletin board services, chat areas, news groups, forums, communities, personal web pages, calendars, and/or other message or communication facilities designed to enable you to communicate with the public at large or with a group (collectively, "Communication Services"), you agree to use the Communication Services only to post, send and receive messages and material that are proper and related to the particular Communication Service. By way of example, and not as a limitation, you agree that when using a Communication Service, you will not:</p>
 
 <ul>
@@ -78,7 +79,7 @@ BuyMerca.com does not claim ownership of the materials you provide to BuyMerca.c
 
 <p>By posting, uploading, inputting, providing or submitting your Submission you warrant and represent that you own or otherwise control all of the rights to your Submission as described in this section including, without limitation, all the rights necessary for you to provide, post, upload, input or submit the Submissions.</p>
 
-<h2>Liability Disclaimer</h2>
+<h2 class="h2">Liability Disclaimer</h2>
 <p>THE INFORMATION, SOFTWARE, PRODUCTS, AND SERVICES INCLUDED IN OR AVAILABLE THROUGH THE BuyMerca.com WEB SITE MAY INCLUDE INACCURACIES OR TYPOGRAPHICAL ERRORS. CHANGES ARE PERIODICALLY ADDED TO THE INFORMATION HEREIN. BuyMerca.com AND/OR ITS SUPPLIERS MAY MAKE IMPROVEMENTS AND/OR CHANGES IN THE BuyMerca.com WEB SITE AT ANY TIME. ADVICE RECEIVED VIA THE BuyMerca.com WEB SITE SHOULD NOT BE RELIED UPON FOR PERSONAL, MEDICAL, LEGAL OR FINANCIAL DECISIONS AND YOU SHOULD CONSULT AN APPROPRIATE PROFESSIONAL FOR SPECIFIC ADVICE TAILORED TO YOUR SITUATION.</p>
 
 <p>BuyMerca.com AND/OR ITS SUPPLIERS MAKE NO REPRESENTATIONS ABOUT THE SUITABILITY, RELIABILITY, AVAILABILITY, TIMELINESS, AND ACCURACY OF THE INFORMATION, SOFTWARE, PRODUCTS, SERVICES AND RELATED GRAPHICS CONTAINED ON THE BuyMerca.com WEB SITE FOR ANY PURPOSE. TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, ALL SUCH INFORMATION, SOFTWARE, PRODUCTS, SERVICES AND RELATED GRAPHICS ARE PROVIDED "AS IS" WITHOUT WARRANTY OR CONDITION OF ANY KIND. BuyMerca.com AND/OR ITS SUPPLIERS HEREBY DISCLAIM ALL WARRANTIES AND CONDITIONS WITH REGARD TO THIS INFORMATION, SOFTWARE, PRODUCTS, SERVICES AND RELATED GRAPHICS, INCLUDING ALL IMPLIED WARRANTIES OR CONDITIONS OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT.</p>
@@ -87,7 +88,7 @@ BuyMerca.com does not claim ownership of the materials you provide to BuyMerca.c
 
 <p>Service Contact: <a class="text-info" href="mailto:notify@BuyMerca.com">notify@BuyMerca.com</a></p>
 
-<h2>Termination/Access Restriction</h2>
+<h2 class="h2">Termination/Access Restriction</h2>
 <p>BuyMerca.com reserves the right, in its sole discretion, to terminate your access to the BuyMerca.com Web Site and the related services or any portion thereof at any time, without notice. General To the maximum extent permitted by law, this agreement is governed by the laws of the State of Washington, U.S.A. and you hereby consent to the exclusive jurisdiction and venue of courts in King County, Washington, U.S.A. in all disputes arising out of or relating to the use of the BuyMerca.com Web Site.</p>
 
 <p>Use of the BuyMerca.com Web Site is unauthorized in any jurisdiction that does not give effect to all provisions of these terms and conditions, including without limitation this paragraph. You agree that no joint venture, partnership, employment, or agency relationship exists between you and BuyMerca.com as a result of this agreement or use of the BuyMerca.com Web Site.</p>
@@ -96,10 +97,10 @@ BuyMerca.com does not claim ownership of the materials you provide to BuyMerca.c
 
 <p>A printed version of this agreement and of any notice given in electronic form shall be admissible in judicial or administrative proceedings based upon or relating to this agreement to the same extent an d subject to the same conditions as other business documents and records originally generated and maintained in printed form. It is the express wish to the parties that this agreement and all related documents be drawn up in English.</p>
 
-<h2>Copyright and Trademark Notices</h2>
+<h2 class="h2">Copyright and Trademark Notices</h2>
 <p>All contents of the BuyMerca.com Web Site are copyright © 2022 by BuyMerca.com and/or its suppliers. All rights reserved.</p>
 
-<h2>Trademarks</h2>
+<h2 class="h2">Trademarks</h2>
 <p>The names of actual companies and products mentioned herein may be the trademarks of their respective owners.</p>
 
 <p>The example companies, organizations, products, people and events depicted herein are fictitious. No association with any real company, organization, product, person, or event is intended or should be inferred.</p>
@@ -109,6 +110,7 @@ BuyMerca.com does not claim ownership of the materials you provide to BuyMerca.c
 <p>NOTICES AND PROCEDURE FOR MAKING CLAIMS OF COPYRIGHT INFRINGEMENT</p>
 
 <p>Pursuant to Title 17, United States Code, Section 512(c)(2), notifications of claimed copyright infringement under United States copyright law should be sent to Service Provider's Designated Agent. ALL INQUIRIES NOT RELEVANT TO THE FOLLOWING PROCEDURE WILL RECEIVE NO RESPONSE. See Notice and Procedure for Making Claims of Copyright Infringement.</p>
+</div>
 
 <?php // TEMPLATES
   include 'templates/footer.html';

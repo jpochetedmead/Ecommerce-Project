@@ -7,18 +7,8 @@
 //TEMPLATES
     include 'templates/head.html';
     include 'templates/nav-bar.php';
-    include 'templates/search-bar.html';
-    /*
-    switch($_SESSION['level']) {
-      case '1':
-        include 'templates/main-navbar.php';
-        break;
-      case '2':
-        include 'templates/side-menu.php';
-      default:
-        include 'templates/alert-message.html';
-    }
-*/
+    include 'templates/search-bar.php';
+
 if(isset($_POST['checkout'])){
   header("location:checkout.php");
 }
@@ -75,7 +65,9 @@ $sql="SELECT * FROM Cart WHERE user_ID=$_SESSION[ID]";
 ?>
 
 <!--shopping cart-->
-  <form action="cart.php" method="POST" id="form1" class="container mx-auto mt-10">
+<form action="cart.php" method="POST" id="form1" class="container mx-auto mt-10">
+  <!--Display when item is added-->
+  <div <?php //hidden if empty ?>>
     <div class="flex shadow-md my-10">
       <div class="w-3/4 bg-white px-10 py-10">
         <div class="flex justify-between border-b pb-8">
@@ -142,12 +134,29 @@ $sql="SELECT * FROM Cart WHERE user_ID=$_SESSION[ID]";
         </div>
       </div>
     </div>
-    <div class="w-3/4 bg-white px-10 py-10">
+  </div>
+
+  <!--If Cart is Empty-->
+  <div <?php //hidden if item is added?>>
+    <div class="flex shadow-md my-10">
+      <div class="w-3/4 bg-white px-10 py-10">
         <div class="flex justify-between border-b pb-8">
           <h1 class="font-semibold text-2xl">Your Cart is Empty</h1>
         </div>
       </div>
-
+      <div id="summary" class="w-1/4 px-8 py-10">
+        <h1 class="font-semibold text-2xl border-b pb-8">Order Summary</h1>
+        <div class="flex justify-between mt-10 mb-5">
+        </div>
+        <div class="border-t mt-8">
+          <div class="flex font-semibold justify-between py-6 text-sm uppercase">
+          </div>
+          <button hidden name='submit' type="submit" class="rounded bg-gray-900 font-semibold hover:bg-gray-700 py-3 text-sm text-white uppercase w-full">Checkout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
 <?php // TEMPLATES
   include 'templates/footer.html';
 ?>

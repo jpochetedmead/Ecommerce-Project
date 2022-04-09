@@ -7,8 +7,8 @@
           <div>
             <div class="ml-10 flex items-baseline space-x-4">
 
-              <a href="index.php" class="bg-gray-900 text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Home</a>
-
+              <a href="index.php" class="bg-gray-900 text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+              <a href="products.php" class="bg-gray-900 text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Products</a>
               <?php
               if (isset($_SESSION['ID'])) {
               ?>

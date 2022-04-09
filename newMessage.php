@@ -44,16 +44,13 @@ session_start();
         include 'templates/user-side-bar.php';
     ?>
     <!--Reply to message-->
-    <section class="w-1/2 p-4">
+    <section class="w-full p-4">
         <div class="w-full text-md">
-            <form action="send.php" method="POST">
+            <form action="send.php" method="POST" class="w-1/2">
                 <div class="bg-white shadow overflow-hidden sm:rounded-lg">
                     <div class="px-4 py-5 sm:px-6">
                         <h3 class="text-lg leading-6 font-medium text-gray-900">Reply </h3>
-                        <label for="to">To: </label>
-                        <input id="to" name="to" disabled type="text" value="<?php echo $sellerName ?>" class="appearance-none rounded block w-2/5 px-3 py-2 border border-gray-300 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                     </div>
-                    <input id="ID" name="ID" type="text" hidden value="<?php echo $recipientID ?>">
                     <?php if($_GET['new'] == 0){
                         echo "<input id='previousID' name='previousID' type='text' hidden value='" . $_GET['messageID'] . "'>";
                     }else{
@@ -79,6 +76,11 @@ session_start();
                     <div class="mt-5 md:mt-0 md:col-span-2">
                         <div class="shadow sm:rounded-md">
                             <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
+                                <div>
+                                    <label for="to">To: </label>
+                                    <input id="to" name="to" disabled type="text" value="<?php echo $sellerName ?>" class="appearance-none rounded block w-2/5 px-3 py-2 border border-gray-300 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                </div>
+                                <input id="ID" name="ID" type="text" hidden value="<?php echo $recipientID ?>">
                                 <div>
                                     <label for="subject">Subject: </label>
                                     <input id="subject" disabled required name="subject" type="text" value="<?php echo (strlen($previousMessage) > 0)?"Re: " . $subject:'';?>" class="appearance-none rounded block w-2/5 px-3 py-2 border border-gray-300 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">

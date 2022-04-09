@@ -160,9 +160,7 @@ session_start();
                     <div class="py-4 px-4 bg-white">
                         <a href="#" class="text-md font-semibold text-gray-600 hover:text-blue-500">Apple MacBook Pro M1 13.3&quot; Silver 16GB/512GB (MYDC2FN/A-16GB)</a>
                         <p class="mt-4 text-lg font-thin">$ 2400</p>
-                        <span class="flex items-center justify-center mt-4 w-full bg-gray-900 hover:bg-gray-700 py-1 rounded">
-                        <button class="font-semibold text-white">Add to Cart</button>
-                        </span>
+                        <a href="#" class="mt-4 text-lg font-thin hover:text-blue-500">click for details</a>
                     </div>
                 </div>
 
@@ -174,9 +172,7 @@ session_start();
                     <div class="py-4 px-4 bg-white">
                         <a href="#" class="text-md font-semibold text-gray-600 hover:text-blue-500">Apple MacBook Pro M1 13.3&quot; Silver 16GB/512GB (MYDC2FN/A-16GB)</a>
                         <p class="mt-4 text-lg font-thin">$ 2400</p>
-                        <span class="flex items-center justify-center mt-4 w-full bg-gray-900 hover:bg-gray-700 py-1 rounded">
-                        <button class="font-semibold text-white">Add to Cart</button>
-                        </span>
+                        <a href="#" class="mt-4 text-lg font-thin hover:text-blue-500">click for details</a>
                     </div>
                 </div>
                 <div class="max-w-xs rounded-md overflow-hidden shadow-lg">
@@ -186,9 +182,7 @@ session_start();
                     <div class="py-4 px-4 bg-white">
                         <a href="#" class="text-md font-semibold text-gray-600 hover:text-blue-500">Apple MacBook Pro M1 13.3&quot; Silver 16GB/512GB (MYDC2FN/A-16GB)</a>
                         <p class="mt-4 text-lg font-thin">$ 2400</p>
-                        <span class="flex items-center justify-center mt-4 w-full bg-gray-900 hover:bg-gray-700 py-1 rounded">
-                        <button class="font-semibold text-white">Add to Cart</button>
-                        </span>
+                        <a href="#" class="mt-4 text-lg font-thin hover:text-blue-500">click for details</a>
                     </div>
                 </div>
                 <div class="max-w-xs rounded-md overflow-hidden shadow-lg">
@@ -198,9 +192,7 @@ session_start();
                     <div class="py-4 px-4 bg-white">
                         <a href="#" class="text-md font-semibold text-gray-600 hover:text-blue-500">Apple MacBook Pro M1 13.3&quot; Silver 16GB/512GB (MYDC2FN/A-16GB)</a>
                         <p class="mt-4 text-lg font-thin">$ 2400</p>
-                        <span class="flex items-center justify-center mt-4 w-full bg-gray-900 hover:bg-gray-700 py-1 rounded">
-                        <button class="font-semibold text-white">Add to Cart</button>
-                        </span>
+                        <a href="#" class="mt-4 text-lg font-thin hover:text-blue-500">click for details</a>
                     </div>
                 </div>
                 <div class="max-w-xs rounded-md overflow-hidden shadow-lg">
@@ -210,9 +202,7 @@ session_start();
                     <div class="py-4 px-4 bg-white">
                         <a href="#" class="text-md font-semibold text-gray-600 hover:text-blue-500">Apple MacBook Pro M1 13.3&quot; Silver 16GB/512GB (MYDC2FN/A-16GB)</a>
                         <p class="mt-4 text-lg font-thin">$ 2400</p>
-                        <span class="flex items-center justify-center mt-4 w-full bg-gray-900 hover:bg-gray-700 py-1 rounded">
-                        <button class="font-semibold text-white">Add to Cart</button>
-                        </span>
+                        <a href="#" class="mt-4 text-lg font-thin hover:text-blue-500">click for details</a>
                     </div>
                 </div>
                 <div class="max-w-xs rounded-md overflow-hidden shadow-lg">
@@ -222,9 +212,7 @@ session_start();
                     <div class="py-4 px-4 bg-white">
                         <a href="#" class="text-md font-semibold text-gray-600 hover:text-blue-500">Apple MacBook Pro M1 13.3&quot; Silver 16GB/512GB (MYDC2FN/A-16GB)</a>
                         <p class="mt-4 text-lg font-thin">$ 2400</p>
-                        <span class="flex items-center justify-center mt-4 w-full bg-gray-900 hover:bg-gray-700 py-1 rounded">
-                        <button class="font-semibold text-white">Add to Cart</button>
-                        </span>
+                        <a href="#" class="mt-4 text-lg font-thin hover:text-blue-500">click for details</a>
                     </div>
                 </div>
 
@@ -235,9 +223,7 @@ session_start();
                     <div class="py-4 px-4 bg-white">
                         <a href="#" class="text-md font-semibold text-gray-600 hover:text-blue-500">Apple MacBook Pro M1 13.3&quot; Silver 16GB/512GB (MYDC2FN/A-16GB)</a>
                         <p class="mt-4 text-lg font-thin">$ 2400</p>
-                        <span class="flex items-center justify-center mt-4 w-full bg-gray-900 hover:bg-gray-700 py-1 rounded">
-                        <button class="font-semibold text-white">Add to Cart</button>
-                        </span>
+                        <a href="#" class="mt-4 text-lg font-thin hover:text-blue-500">click for details</a>
                     </div>
                 </div>
                 <div class="max-w-xs rounded-md overflow-hidden shadow-lg">
@@ -247,9 +233,7 @@ session_start();
                     <div class="py-4 px-4 bg-white">
                         <a href="#" class="text-md font-semibold text-gray-600 hover:text-blue-500">Apple MacBook Pro M1 13.3&quot; Silver 16GB/512GB (MYDC2FN/A-16GB)</a>
                         <p class="mt-4 text-lg font-thin">$ 2400</p>
-                        <span class="flex items-center justify-center mt-4 w-full bg-gray-900 hover:bg-gray-700 py-1 rounded">
-                        <button class="font-semibold text-white">Add to Cart</button>
-                        </span>
+                        <a href="#" class="mt-4 text-lg font-thin hover:text-blue-500">click for details</a>
                     </div>
                 </div>
                 <div class="max-w-xs rounded-md overflow-hidden shadow-lg">
@@ -259,9 +243,7 @@ session_start();
                     <div class="py-4 px-4 bg-white">
                         <a href="#" class="text-md font-semibold text-gray-600 hover:text-blue-500">Apple MacBook Pro M1 13.3&quot; Silver 16GB/512GB (MYDC2FN/A-16GB)</a>
                         <p class="mt-4 text-lg font-thin">$ 2400</p>
-                        <span class="flex items-center justify-center mt-4 w-full bg-gray-900 hover:bg-gray-700 py-1 rounded">
-                        <button class="font-semibold text-white">Add to Cart</button>
-                        </span>
+                        <a href="#" class="mt-4 text-lg font-thin hover:text-blue-500">click for details</a>
                     </div>
                 </div>
                 <div class="max-w-xs rounded-md overflow-hidden shadow-lg">
@@ -271,9 +253,7 @@ session_start();
                     <div class="py-4 px-4 bg-white">
                         <a href="#" class="text-md font-semibold text-gray-600 hover:text-blue-500">Apple MacBook Pro M1 13.3&quot; Silver 16GB/512GB (MYDC2FN/A-16GB)</a>
                         <p class="mt-4 text-lg font-thin">$ 2400</p>
-                        <span class="flex items-center justify-center mt-4 w-full bg-gray-900 hover:bg-gray-700 py-1 rounded">
-                        <button class="font-semibold text-white">Add to Cart</button>
-                        </span>
+                        <a href="#" class="mt-4 text-lg font-thin hover:text-blue-500">click for details</a>
                     </div>
                 </div>
                 <div class="max-w-xs rounded-md overflow-hidden shadow-lg">
@@ -283,9 +263,7 @@ session_start();
                     <div class="py-4 px-4 bg-white">
                         <a href="#" class="text-md font-semibold text-gray-600 hover:text-blue-500">Apple MacBook Pro M1 13.3&quot; Silver 16GB/512GB (MYDC2FN/A-16GB)</a>
                         <p class="mt-4 text-lg font-thin">$ 2400</p>
-                        <span class="flex items-center justify-center mt-4 w-full bg-gray-900 hover:bg-gray-700 py-1 rounded">
-                        <button class="font-semibold text-white">Add to Cart</button>
-                        </span>
+                        <a href="#" class="mt-4 text-lg font-thin hover:text-blue-500">click for details</a>
                     </div>
                 </div>
                 <div class="max-w-xs rounded-md overflow-hidden shadow-lg">
@@ -295,9 +273,7 @@ session_start();
                     <div class="py-4 px-4 bg-white">
                         <a href="#" class="text-md font-semibold text-gray-600 hover:text-blue-500">Apple MacBook Pro M1 13.3&quot; Silver 16GB/512GB (MYDC2FN/A-16GB)</a>
                         <p class="mt-4 text-lg font-thin">$ 2400</p>
-                        <span class="flex items-center justify-center mt-4 w-full bg-gray-900 hover:bg-gray-700 py-1 rounded">
-                        <button class="font-semibold text-white">Add to Cart</button>
-                        </span>
+                        <a href="#" class="mt-4 text-lg font-thin hover:text-blue-500">click for details</a>
                     </div>
                 </div>
                 <!--examples ends-->

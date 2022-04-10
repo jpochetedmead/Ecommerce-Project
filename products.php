@@ -16,7 +16,7 @@ session_start();
 <main class="flex w-full">
     <!--Product filering -->
     <aside class="w-80 bg-white shadow-md w-fulll">
-        <div class="flex flex-col justify-between h-screen p-4 bg-white">
+        <div class="flex flex-col justify-between p-4 bg-white">
             <div class="text-sm">
                 <form action="" method="POST">
                     <!--Sorting-->
@@ -158,9 +158,9 @@ session_start();
                         <img class="h-40" src="https://www.apple.com/newsroom/images/product/mac/standard/Apple_MacBook-Pro_16-inch-Screen_10182021_big_carousel.jpg.large.jpg" alt="" />
                     </div>
                     <div class="py-4 px-4 bg-white">
-                        <a href="#" class="text-md font-semibold text-gray-600 hover:text-blue-500">Apple MacBook Pro M1 13.3&quot; Silver 16GB/512GB (MYDC2FN/A-16GB)</a>
+                        <a href="product_details.php" class="text-md font-semibold text-gray-600 hover:text-blue-500">Apple MacBook Pro M1 13.3&quot; Silver 16GB/512GB (MYDC2FN/A-16GB)</a>
                         <p class="mt-4 text-lg font-thin">$ 2400</p>
-                        <a href="#" class="mt-4 text-lg font-thin hover:text-blue-500">click for details</a>
+                        <a href="product_details.php" class="mt-4 text-lg font-thin hover:text-blue-500">click for details</a>
                     </div>
                 </div>
 

@@ -29,7 +29,7 @@
         <div>
             <a href="cart.php" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                 Cart
-                <span></span>
+                <span class="text-gray-300">0</span>
             </a>
             <a href="user_account.php" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">My Account</a>
         </div>

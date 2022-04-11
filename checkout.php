@@ -15,30 +15,65 @@ session_start();
 
 <main class="flex w-full">
     
-    <section class="w-full p-4">
+<section class="w-full p-4">
         <div class="w-full text-md">
             <div class="bg-white shadow overflow-hidden sm:rounded-lg">
-                <div <?php //hidden if item is added?>>
+                <div class="px-4 py-5 bg-white sm:p-6">
+                    <h1 class="text-lg leading-6 font-medium text-gray-900">Cash Payments Only!!</h1>
+                </div>
+                <div <?php //hidden if empty ?>>
                     <div class="flex shadow-md my-10">
                         <div class="w-3/4 bg-white px-10 py-10">
                             <div class="flex justify-between border-b pb-8">
-                            <h1 class="font-semibold text-1xl">Your Cart is Empty</h1>
+                                <h1 class="font-semibold">Shopping Cart</h1>
+                                <h2 class="font-semibold"><?php //echo $totalQuantity ?> Items</h2>
                             </div>
+                            <div class="flex mt-10 mb-5">
+                                <h3 class="font-semibold text-gray-600 text-xs uppercase w-2/5">Product Details</h3>
+                                <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Quantity</h3>
+                                <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Price</h3>
+                                <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Total</h3>
+                            </div>
+                    
+
+                            <div class='flex items-center hover:bg-gray-100 -mx-8 px-6 py-5'>
+                                <div class='flex w-2/5'>
+                                    <div class='w-20'>
+                                        <img src='https://via.placeholder.com/150'alt='placeholder'>
+                                    </div>
+                                    <div class='flex flex-col justify-between ml-4 flex-grow'>
+                                        <span class='font-bold text-sm'>Title</span>
+                                        <span class='text-blue-500 text-xs'>Brand</span>
+                                        <button form='form1' name='delete' type='submit' value='' class='font-semibold text-left hover:text-red-500 text-gray-500 text-xs'>Remove</button>
+                                    </div>
+                                </div>
+                                <div class='flex justify-center w-1/5'>
+                                    <button form='form1' name='minus' type='submit' value=''>-</button>
+
+                                    <input class='mx-2 border text-center w-8' disabled type='text' value=''>
+
+                                    <button form='form1' name='plus' type='submit' value=''>+</button>
+                                </div>
+                                <span class='text-center w-1/5 font-semibold text-sm'>Price</span>
+                                <span class='text-center w-1/5 font-semibold text-sm'>total</span>
+                            </div>
+
                         </div>
+
                         <div id="summary" class="w-1/4 px-8 py-10">
-                            <h1 class="font-semibold text-1xl border-b pb-8">Order Summary</h1>
+                            <h1 class="font-semibold border-b pb-8">Order Summary</h1>
                             <div class="flex justify-between mt-10 mb-5">
+                                <span class="font-semibold text-sm">Items</span>
+                                <span class="font-semibold text-sm"><?php //echo $totalQuantity ?></span>
                             </div>
                             <div class="border-t mt-8">
-                                <div class="flex font-semibold justify-between py-6 text-sm uppercase">
+                                <div class="flex font-semibold justify-between py-6 text-sm">
+                                    <span>Total cost</span>
+                                    <span><?php //echo $totalPrice ?></span>
                                 </div>
-                                <button hidden name='submit' type="submit" class="rounded bg-gray-900 font-semibold hover:bg-gray-700 py-3 text-sm text-white uppercase w-full">Checkout</button>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="px-4 py-5 bg-white sm:p-6">
-                    <h1 class="text-lg leading-6 font-medium text-gray-900">Cash Payments Only!!</h1>
                 </div>
             </div>
         </div>

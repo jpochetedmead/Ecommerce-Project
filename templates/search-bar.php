@@ -1,9 +1,9 @@
 <!--Search bar-->
-  <div class="flex justify-center">
+<div class="flex justify-center">
       <div class="mb-3 pt-6 xl:w-3/5">
-          <form class="input-group relative flex flex-row items-stretch w-full mb-4">
-              <select class="form-select appearance-none block w-1/6 px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
-                  <option value="0">All Products</option>
+          <form action="products.php" class="input-group relative flex flex-row items-stretch w-full mb-4">
+              <select class="form-select appearance-none block w-3/8 px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
+                  <option value="0">All Categories</option>
                   <option value="1">One</option>
                   <option value="2">Two</option>
                   <option value="3">Three</option>

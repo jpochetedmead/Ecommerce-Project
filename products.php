@@ -16,13 +16,13 @@ session_start();
 <main class="flex w-full">
     <!--Product filering -->
     <aside class="w-80 bg-white shadow-md w-fulll">
-        <div class="flex flex-col justify-between h-screen p-4 bg-white">
+        <div class="flex flex-col justify-between p-4 bg-white">
             <div class="text-sm">
-                <form action="" method="POST">
+                <form action="products.php" method="POST">
                     <!--Sorting-->
                     <div class="col-span-6 sm:col-span-3">
-                        <label for="catagory" class="block text-sm font-medium text-gray-700">Sort</label>
-                        <select id="categories" name="categories" class="appearance-none rounded relative block w-1/2 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">>
+                        <button type="submit" name="filter" class="inline-flex justify-center w-full py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-900 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Filter</button>
+                        <select id="categories" name="categories" class="appearance-none rounded inline-flex justify-center block w-full px-4 py-2 border border-gray-300 placeholder-gray-500 text-center text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                             <option value="Best Match">Best Match</option>
                             <option value="Lowest">Lowest Price</option>
                             <option value="Highest">Highest Price</option>
@@ -158,9 +158,9 @@ session_start();
                         <img class="h-40" src="https://www.apple.com/newsroom/images/product/mac/standard/Apple_MacBook-Pro_16-inch-Screen_10182021_big_carousel.jpg.large.jpg" alt="" />
                     </div>
                     <div class="py-4 px-4 bg-white">
-                        <a href="#" class="text-md font-semibold text-gray-600 hover:text-blue-500">Apple MacBook Pro M1 13.3&quot; Silver 16GB/512GB (MYDC2FN/A-16GB)</a>
+                        <a href="product_details.php" class="text-md font-semibold text-gray-600 hover:text-blue-500">Apple MacBook Pro M1 13.3&quot; Silver 16GB/512GB (MYDC2FN/A-16GB)</a>
                         <p class="mt-4 text-lg font-thin">$ 2400</p>
-                        <a href="#" class="mt-4 text-lg font-thin hover:text-blue-500">click for details</a>
+                        <a href="product_details.php" class="mt-4 text-lg font-thin hover:text-blue-500">click for details</a>
                     </div>
                 </div>
 

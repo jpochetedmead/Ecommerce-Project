@@ -1,73 +1,86 @@
-<!DOCTYPE html>
-<html class="h-full bg-gray-50" lang="en">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<?php
+    include 'db_connection.php';
+?>
 
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<?php
+session_start();
+?>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/contact.css">
+<?php
+//TEMPLATES
+    include 'templates/head.html';
+    include 'templates/nav-bar.php';
+    include 'templates/search-bar.php';
+?>
 
-  <!-- Tailwind CSS -->
-  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700" rel="stylesheet"/>
+<div class="w-full">
+    <div class="flex shadow-md my-10">
+        <div class="w-full bg-white px-10 py-10">
+            <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+                <div class="max-w-md w-full space-y-8">
+                    <div>
 
-  <title>BuyMerca - Contact Us</title>
-</head>
-<body class="h-full">
-
-  <?php
-  //TEMPLATES
-      //include 'templates/head.html';
-      include 'templates/nav-bar.php';
-      //include 'templates/search-bar.html';
-  ?>
-
-<div class="container contact-form">
-
-            <div class="contact-image-form">
-                <img src="images/contact-us.jpeg" alt="dice_contact"/>
-            </div>
-
-            <fieldset>
-            <form name="Contact" class="needs-validation" method="POST" action="contact-page.php">
-
-              <div class="py-5 text-center">
-                <h3 class="h1">Contact Us</h3>
-                <p class="lead">BuyMerca wants to hear from you...</p>
-                <hr class="mb-1">
-              </div>
-
-               <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="fName" id="fName" placeholder="Your First Name *" value="" required />
+                        <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+                        <div class="container">
+                            <div class="">
+                                <img class="w-20 rounded-full" src="images/contact-us.jpeg" alt="dice_contact"/>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="lName" id="lName" placeholder="Your Last Name *" value="" required />
-                        </div>
-                        <div class="form-group">
-                          <input type="email" class="form-control" name="Email" id="Email" placeholder="Your Email *" required />
-                          <div class="invalid-feedback">A valid email is required.</div>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" class="form-control" name="telephoneNumber" id="telephoneNumber" placeholder="Your Phone #: 123-456-7890 *" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required />
-                            <div class="invalid-feedback">Format: 123-456-7890</div>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" name="btnSubmit" id="btnSubmit" class="btnContact" value="Send Message" />
-                            <input type="reset" name="btnReset" id="btnReset" class="btnResetContact" value="Reset" />
-                        </div>
+                        Contact Us
+                        </h2>
+                        <p class="mt-6 text-center text-gray-900">BuyMerca wants to hear from you...</p>
                     </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <textarea class="form-control" name="Message" id="Message" placeholder="Your Message *" maxlength="300" style="width: 100%; height: 150px;" required></textarea>
+                    <div class="mt-10 sm:mt-0">
+                        <div class="w-full">
+                            <div class="mt-5 md:mt-0 md:col-span-2">
+                                <form action="contact.php" method="POST">
+                                    <div class="shadow overflow-hidden sm:rounded-md">
+                                    <div class="px-4 py-5 bg-white sm:p-6">
+                                        <div class="grid grid-cols-6 gap-6">
+
+                                            <div class="col-span-6 sm:col-span-3">
+                                                <label for="fname" class="block text-sm font-medium text-gray-700">First Name</label>
+                                                <input id="fname" name="fname" type="text" required class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                            </div>
+
+                                            <div class="col-span-6 sm:col-span-3">
+                                                <label for="lname" class="block text-sm font-medium text-gray-700">Last Name</label>
+                                                <input id="lname" name="lname" type="text" required class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                            </div>
+
+                                            <div class="col-span-6 sm:col-span-4">
+                                                <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                                                <input id="email" name="email" required type="email" autocomplete="email" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                            </div>
+
+                                            <div class="col-span-6 sm:col-span-4">
+                                                <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                                                <input id="phone" name="phone" required type="tel"  pattern="[0-9]{3}[0-9]{3}[0-9]{4}" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                                            <div class="mt-1">
+                                                <textarea required id="message" name="Message" row="20" cols="40" wrap="soft" class="resize-none h-40 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder="Send a brief message."></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="px-4 py-3 bg-gray-50 text-left sm:px-6">
+                                        <div class="flex justify-around w-full pt-12">
+                                            <input value='Reset' name='btnReset' type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-900 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                            <input value='Send' name='btnSubmit' type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-900 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                        </div>
+                                    </div>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </form>
-            </fieldset>
+            </div>
+        </div>
+    </div>
 </div>
 
 <?php
@@ -162,21 +175,16 @@ if (isset($_POST['Email'])) {
 include 'db_connection.php';
 // database connection code
 if (isset($_POST['Email'])) {
-
 // get the post records
 $fName = $_POST['fName']; // required
 $lName = $_POST['lName']; // required
 $email = $_POST['Email']; // required
 $telephoneNumber = $_POST['telephoneNumber']; // required
 $message = $_POST['Message']; // required
-
 // database insert SQL code
 $sql = "INSERT INTO 'Contact' ('id', 'fName', 'lName', 'Email', 'telephoneNumber', 'Message')
 VALUES ('0', '$fName', '$lName', '$email', '$telephoneNumber', '$message')";
-
-
 // insert in database
-
 /*
 $rs = mysqli_query($conn, $sql);
 if($rs) {

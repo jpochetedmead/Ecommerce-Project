@@ -2,7 +2,7 @@
 //TEMPLATES
     include 'templates/head.html';
     include 'templates/nav-bar.php';
-    include 'templates/search-bar.html';
+    include 'templates/search-bar.php';
 ?>
 
 <?php // TEMPLATES

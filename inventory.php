@@ -61,39 +61,3 @@ include 'templates/head.html';
             </div>
         </div>
     </aside>
-
-    <h1>Buyer Accounts</h1>
-
-    <form action="buyerAccounts.php" method="POST">
-      <input type="submit" value="View All" name="search">
-    </form>
-
-  <?php
-  if(isset($_POST['search'])){
-    $search = $_POST['search'];
-    $sql = "SELECT *
-    FROM Users";
-    $result = $conn->query($sql);
-    $res = $result->fetch_assoc();
-  ?>
-  <table>
-  <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th>ID</th>
-    <th>Phone Number</th>
-  </tr>
-
-  <?php
-  while($res = mysqli_fetch_array($result)) {
-      if($res['role'] == 'buyer' && $res['approval'] == '0'){
-        echo "<tr>";
-        echo "<td>".$res['first_name']. " " .$res['last_name']."</td>";
-        echo "<td>".$res['email']."</td>";
-        echo "<td>".$res['user_ID']."</td>";
-        echo "<td>".$res['telephone_number']."</td>";
-    }
-  }
-}
-?>
-</table>

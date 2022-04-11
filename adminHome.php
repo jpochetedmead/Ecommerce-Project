@@ -39,12 +39,12 @@ include 'templates/head.html';
         <div class="flex flex-col p-10">
           <div class="flex justify-between text-medium">
             <a href="buyerAccounts.php" class="bg-gray-900 text-white p-3 rounded mt-2 cursor-pointer hover:bg-gray-700">Buyer Accounts</a>
-            <a href="#" class="bg-gray-900 text-white p-3 rounded mt-2 cursor-pointer hover:bg-gray-700">Seller Accounts</a>
-            <a href="#" class="bg-gray-900 text-white p-3 rounded mt-2 cursor-pointer hover:bg-gray-700">Inventory</a>
+            <a href="sellerAccounts.php" class="bg-gray-900 text-white p-3 rounded mt-2 cursor-pointer hover:bg-gray-700">Seller Accounts</a>
+            <a href="inventory.php" class="bg-gray-900 text-white p-3 rounded mt-2 cursor-pointer hover:bg-gray-700">Inventory</a>
           </div>
           <div class="flex justify-between text-medium">
-            <a href="#" class="bg-gray-900 text-white p-3 rounded mt-2 cursor-pointer hover:bg-gray-700">Edit Categories</a>
+            <a href="editCategories.php" class="bg-gray-900 text-white p-3 rounded mt-2 cursor-pointer hover:bg-gray-700">Edit Categories</a>
             <a href="approval.php" class="bg-gray-900 text-white p-3 rounded mt-2 cursor-pointer hover:bg-gray-700">Account Approval</a>
-            <a href="#" class="bg-gray-900 text-white p-3 rounded mt-2 cursor-pointer hover:bg-gray-700">Disabled Accounts</a>
+            <a href="disabledAccounts.php" class="bg-gray-900 text-white p-3 rounded mt-2 cursor-pointer hover:bg-gray-700">Disabled Accounts</a>
           </div>
         </div>

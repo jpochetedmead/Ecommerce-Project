@@ -9,7 +9,7 @@
   <!-- Icons -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- CSS File -->
-  <link rel="stylesheet" href="css/our-team-page.css">
+  <link rel="stylesheet" href="css/our-team.css">
 
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700" rel="stylesheet"/>

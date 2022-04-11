@@ -79,7 +79,7 @@ session_start();
         </div>
     </section>
 
-    <form action="" method="POST" class="w-2/3">
+    <form action="order_confirmation.php" method="POST" class="w-2/3">
         <div class="shadow overflow-hidden sm:rounded-md">
             <div class="px-5 py-5 bg-white sm:p-6">
                 <div class="grid grid-cols-6 gap-6">

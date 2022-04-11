@@ -1,0 +1,90 @@
+body {
+  background: -webkit-linear-gradient(left, #0072ff, #00c6ff);
+}
+
+.contact-form {
+  background: white;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  width: 75%;
+  border-radius: 3rem;
+}
+
+.contact-form .form-control {
+  border-radius:1rem;
+}
+
+.contact-image-form {
+  text-align: center;
+}
+
+.contact-image-form img {
+  border-radius: 12rem;
+  width: 9%;
+  margin-top: -3%;
+  transform: rotate(1deg);
+  margin-left: 46%;
+  margin-bottom: 1%;
+}
+
+.contact-form form {
+  padding: 5%;
+}
+
+.contact-form form .row {
+  margin-bottom: -3%;
+}
+
+.contact-form h3 {
+  margin-bottom: 8%;
+  margin-top: -10%;
+  text-align: center;
+  color: blue;
+}
+
+.contact-form .btnContact {
+  width: 50%;
+  border: none;
+  border-radius: 1rem;
+  padding: 1.5%;
+  background: #349A0C;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  margin: 1%;
+}
+
+.btnContactSubmit {
+  width: 50%;
+  border-radius: 2rem;
+  padding: 1.5%;
+  color: white;
+  background-color: #349A0C;
+  border: none;
+  cursor: pointer;
+}
+
+.contact-form .btnResetContact {
+  width: 50%;
+  border: none;
+  border-radius: 1rem;
+  padding: 1.5%;
+  background: #D10404;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  margin: 1%;
+}
+
+.btnResetContactReset {
+  width: 50%;
+  border-radius: 2rem;
+  padding: 1.5%;
+  color: white;
+  background-color: #D10404;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 5%;
+}

@@ -79,19 +79,19 @@
                     <a href="buyerAccounts.php">Buyer Accounts</a>
                 </div>
                 <div class="bg-gray-900 text-white p-3 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300 font-medium">
-                    <a href="#">Seller Accounts</a>
+                    <a href="sellerAccounts.php">Seller Accounts</a>
                 </div>
                 <div class="bg-gray-900 text-white p-3 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300 font-medium">
-                    <a href="#">Inventory</a>
+                    <a href="inventory.php">Inventory</a>
                 </div>
                 <div class="bg-gray-900 text-white p-3 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300 font-medium">
-                    <a href="#">Edit Categories</a>
+                    <a href="editCategories.php">Edit Categories</a>
                 </div>
                 <div class="bg-gray-900 text-white p-3 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300 font-medium">
                     <a href="approval.php">Account Approval</a>
                 </div>
                 <div class="bg-gray-900 text-white p-3 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300 font-medium">
-                    <a href="#">Disabled Accounts</a>
+                    <a href="disabledAccounts.php">Disabled Accounts</a>
                 </div>
             </div>
         </div>

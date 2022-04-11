@@ -2,23 +2,44 @@
     include 'db_connection.php';
 ?>
 
-<?php
-//TEMPLATES
-    include 'templates/head.html';
-    include 'templates/nav-bar.php';
-    //include 'templates/search-bar.html';
-    /*
-    switch($_SESSION['level']) {
-      case '1':
-        include 'templates/main-navbar.php';
-        break;
-      case '2':
-        include 'templates/side-menu.php';
-      default:
-        include 'templates/alert-message.html';
-    }
-*/
-?>
+<!DOCTYPE html>
+<html class="h-full bg-gray-50" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Tailwind CSS -->
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700" rel="stylesheet"/>
+
+  <title>BuyMerca</title>
+</head>
+<body class="h-full">
+
+  <?php
+  //TEMPLATES
+      //include 'templates/head.html';
+      include 'templates/nav-bar.php';
+      //include 'templates/search-bar.html';
+      /*
+      switch($_SESSION['level']) {
+        case '1':
+          include 'templates/main-navbar.php';
+          break;
+        case '2':
+          include 'templates/side-menu.php';
+        default:
+          include 'templates/alert-message.html';
+      }
+  */
+  ?>
 
 <form class="form-horizontal">
 <fieldset>

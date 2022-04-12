@@ -43,6 +43,11 @@ session_start();
                                             <label for="price" class="block text-sm font-medium text-gray-700">Price</label>
                                             <input required type="text" id="price" name="price" placeholder="Price" class="appearance-none rounded relative block w-1/3 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                         </div>
+                                        <!--Product size-->
+                                        <div class="col-span-6 sm:col-span-3">
+                                            <label for="size" class="block text-sm font-medium text-gray-700">Size</label>
+                                            <input type="text" id="size" name="size" placeholder="Size" class="appearance-none rounded relative block w-1/3 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                        </div>
                                         <!--Product quantity-->
                                         <div class="col-span-6 sm:col-span-3">
                                             <label for="quantity" class="block text-sm font-medium text-gray-700">Quantity</label>

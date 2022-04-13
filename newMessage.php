@@ -1,34 +1,38 @@
 <?php
     include 'db_connection.php';
-?>
 
-<?php
 session_start();
+
     $recipientID = 0;
-    $sellerName = '';
-    $previousMessage = '';
+    $recipientName = '';
     $subject = '';
     //If they click on the message seller link/button
-    if($_GET['new'] == 1){
-        $recipientID = $_GET['recipient'];
+    if($_SESSION['new'] == 1){
+        $recipientID = $_SESSION['recipient'];
         $sql = "SELECT * FROM Users WHERE user_ID=$recipientID;";
         $result = $conn->query($sql);
         $row = $result->fetch_assoc();
-        $sellerName = $row['first_name'] . " " . $row['last_name'];
-    }elseif($_GET['new'] == 0){
+        $recipientName = $row['first_name'] . " " . $row['last_name'];
+    }elseif($_SESSION['new'] == 0){
         //Need 3 things new,recipient, and messageID
-        $recipientID = $_GET['recipient'];
+        $recipientID = $_SESSION['recipient'];
         $sql = "SELECT * FROM Users WHERE user_ID=$recipientID;";
         $result = $conn->query($sql);
         $row = $result->fetch_assoc();
-        $sellerName = $row['first_name'] . " " . $row['last_name'];
+        $recipientName = $row['first_name'] . " " . $row['last_name'];
 
-        $sql = "SELECT * FROM Messages WHERE message_ID=$_GET[messageID]";
+        $sql = "SELECT * FROM Messages WHERE message_ID=$_SESSION[messageID]";
         $result = $conn->query($sql);
         $row = $result->fetch_assoc();
-        $previousMessage = $row['message'];
+        $message = explode('&break&',$row['message']);
         $subject = $row['subject'];
     }
+    if(isset($_POST['cancel'])){
+        echo "hello";
+        //header('location:user_messages.php');
+    }
+
+    
 ?>
 
 <?php
@@ -46,29 +50,34 @@ session_start();
     <!--Reply to message-->
     <section class="w-full p-4">
         <div class="w-full text-md">
-            <form action="send.php" method="POST" class="w-1/2">
+            <form action="send.php" method="POST" id="form4">
                 <div class="bg-white shadow overflow-hidden sm:rounded-lg">
                     <div class="px-4 py-5 sm:px-6">
                         <h3 class="text-lg leading-6 font-medium text-gray-900">Reply </h3>
+                        <label for="to">To: </label>
+                        <input id="to" name="to" disabled type="text" value="<?php echo $recipientName ?>" class="appearance-none rounded block w-2/5 px-3 py-2 border border-gray-300 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                     </div>
-                    <?php if($_GET['new'] == 0){
-                        echo "<input id='previousID' name='previousID' type='text' hidden value='" . $_GET['messageID'] . "'>";
-                    }else{
-                        echo "<input id='product' name='product' type='text' hidden value='" . $_GET['productID'] . "'>";
-                    }
+                    <?php
+
                     ?>
                     <div class="border-t border-gray-200">
                         <dl>
-                            <!--message-->
-                            <p class="font-semibold text-gray-500 text-xs"><!--display "you" or "recipient"-->you and recipient's history</p>
-                        <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                            <dt class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">message</dt>
-                        </div>
-                            <!--message-->
-                            <p class="font-semibold text-gray-500 text-xs"><!--display "you" or "recipient"-->you and recipient's history</p>
-                        <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                            <dt class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">message</dt>
-                        </div>
+                            <?php
+                            $check = 0;
+                            //<!--messages-->
+                            while($check < count($message)){
+                                $sql = "SELECT * FROM Users WHERE user_ID=$message[$check]";
+                                $sec = $conn->query($sql);
+                                $user = $sec->fetch_assoc();
+
+                                    echo "<p class='font-semibold " . (($message[$check] == $_SESSION['ID'])? 'text-blue-500': 'text-green-500') . " text-xs'>" . $user['first_name'] . " " . $user['last_name'] . "</p>";
+                                echo "<div class='bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>";
+                                    echo "<dt class='mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2'>" . $message[$check + 1] . "</dt>";
+                                echo "</div>";
+
+                                $check += 2;
+                            }
+                        ?>
                         </dl>
                     </div>
                 </div>
@@ -83,7 +92,7 @@ session_start();
                                 <input id="ID" name="ID" type="text" hidden value="<?php echo $recipientID ?>">
                                 <div>
                                     <label for="subject">Subject: </label>
-                                    <input id="subject" disabled required name="subject" type="text" value="<?php echo (strlen($previousMessage) > 0)?"Re: " . $subject:'';?>" class="appearance-none rounded block w-2/5 px-3 py-2 border border-gray-300 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                    <input id="subject" disabled required name="subject" type="text" value="<?php echo ((count($message) > 0)? 'RE: ' . $subject : $subject);?>" class="appearance-none rounded block w-2/5 px-3 py-2 border border-gray-300 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                 </div>
                                 <div>
                                     <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
@@ -93,9 +102,17 @@ session_start();
                                 </div>
                             </div>
                         </div>
+
+                        <!--Extra data to send along with submit-->
+                            <!--The message that's being responded to-->
+                            <input type="text" name='oldMessage' hidden value='<?php echo $row['message'];?>'>
+                            <!--Recipients ID-->
+                            <input type="text" name='recipientID' hidden value='<?php echo $recipientID;?>'>
+
+
                         <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                            <button name="send" id="send" type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-900 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Send</button>
-                            <button name="cancel" id="cancel" type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-900 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Cancel</button>
+                            <button form='form4' name="send" id="send" type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-900 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Send</button>
+                            <button form='form4' name="cancel" id="cancel" type="submit" formnovalidate class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-900 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Cancel</button>
                         </div>
                     </div>
                 </div>

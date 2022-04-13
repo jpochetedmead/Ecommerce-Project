@@ -124,7 +124,7 @@ session_start();
                             echo "<div class='flex flex-col justify-between ml-4 flex-grow'>";
                                 echo "<span class='font-bold text-sm'>" . $thing['title'] . "</span>";
                                 echo "<span class='text-blue-500 text-xs'>" . $thing['brand'] . "</span>";
-                                echo "<button form='form2' name='delete' type='submit' value='". $thing['product_ID'] ."' class='font-semibold hover:text-red-500 text-gray-500 text-xs'>Remove</button>";
+                                echo "<button form='form2' name='delete' type='submit' value='". $thing['product_ID'] ."' class='font-semibold text-left hover:text-red-500 text-gray-500 text-xs'>Remove</button>";
                                 echo "<button form='form2' name='move' type='submit' value='". $thing['product_ID'] . " " . $res['quantity']."' class='font-semibold hover:text-red-500 text-gray-500 text-xs'>Move To Cart</button>";
                             echo "</div>";
                         echo "</div>";

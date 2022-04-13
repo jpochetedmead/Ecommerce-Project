@@ -68,6 +68,10 @@
 									                class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
 									                Subject
 								                </th>
+                                                <th
+                                                    class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                                    
+                                                    </th>
 							                </tr>
 						                </thead>
                                         <!--Table Body-->
@@ -86,9 +90,6 @@
                                                 // Creating new date format from that timestamp
                                                 $new_date = date("F-d-Y", $timestamp);
 							                echo "<tr>";
-                                                echo "<td class='px-5 py-5 border-b border-gray-200 bg-white text-sm'>";
-                                                    echo "<button name='delete' form='form3' value='" . $user['message_ID'] . "'>Delete</button>";
-								                echo "</td>";
                                                 //Name of sender
 								                echo "<td class='px-5 py-5 border-b border-gray-200 bg-white text-sm'>";
 									                echo "<div class='flex items-center'>";
@@ -105,6 +106,10 @@
 								                echo "<td class='px-5 py-5 border-b border-gray-200 bg-white text-sm'>";
                                                     echo "<p class='text-gray-900 whitespace-no-wrap'>" . $user['subject'] . "</p>";
 								                echo "</td>";
+                                                //Delete
+                                                echo "<td class='px-5 py-5 border-b border-gray-200 bg-white text-xs text-gray-500 font-semibold hover:text-red-500'>";
+                                                    echo "<button name='delete' form='form3' value='" . $user['message_ID'] . "'>Delete</button>";
+                                                echo "</td>";
 							                echo "</tr>";
                                             }
 							                ?>

@@ -101,7 +101,7 @@ $sql="SELECT * FROM Cart WHERE user_ID=$_SESSION[ID]";
               echo "<div class='flex flex-col justify-between ml-4 flex-grow'>";
               echo "<span class='font-bold text-sm'>" . $thing['title'] . "</span>";
                 echo "<span class='text-blue-500 text-xs'>" . $thing['brand'] . "</span>";
-                echo "<button form='form1' name='delete' type='submit' value='". $thing['product_ID'] ."' class='font-semibold hover:text-red-500 text-gray-500 text-xs'>Remove</button>";
+                echo "<button form='form1' name='delete' type='submit' value='". $thing['product_ID'] ."' class='font-semibold text-left hover:text-red-500 text-gray-500 text-xs'>Remove</button>";
               echo "</div>";
             echo "</div>";
             echo "<div class='flex justify-center w-1/5'>";

@@ -42,7 +42,7 @@ session_start();
                                 <div class="flex flex-col justify-between ml-4 flex-grow">
                                     <span class="font-bold text-sm">Product 1</span>
                                     <span class="text-blue-500 text-xs">Brand</span>
-                                    <a href="#" class="font-semibold hover:text-red-500 text-gray-500 text-xs">Remove</a>
+                                    <a href="#" class="font-semibold text-left hover:text-red-500 text-gray-500 text-xs">Remove</a>
                                 </div>
                             </div>
                             <div class="flex justify-center w-1/5">

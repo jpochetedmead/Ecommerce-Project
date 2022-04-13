@@ -92,7 +92,7 @@ session_start();
                                 <input id="ID" name="ID" type="text" hidden value="<?php echo $recipientID ?>">
                                 <div>
                                     <label for="subject">Subject: </label>
-                                    <input id="subject" disabled required name="subject" type="text" value="<?php echo ((count($message) > 0)? 'RE: ' . $subject : $subject);?>" class="appearance-none rounded block w-2/5 px-3 py-2 border border-gray-300 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                    <input id="subject" required name="subject" type="text" value="<?php echo ((count($message) > 0 && count($message) < 3)? 'RE: ' . $subject : $subject);?>" class="appearance-none rounded block w-2/5 px-3 py-2 border border-gray-300 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                 </div>
                                 <div>
                                     <label for="message" class="block text-sm font-medium text-gray-700">Message</label>

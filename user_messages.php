@@ -43,6 +43,11 @@
                             </div>
 		                    <div class="flex items-center justify-between"></div>
                         </div>
+                        <?php
+                            if(isset($_GET['success'])) {
+                                echo "<P class='text-red-500'>Message was sent!</p>";
+                            }
+                            ?>
                         <div>
                             <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                                 <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
@@ -68,7 +73,7 @@
                                         <!--Table Body-->
                                         <tbody>
                                             <?php
-                                            $sql="SELECT * FROM Messages WHERE recipient_ID=$_SESSION[ID]";
+                                            $sql="SELECT * FROM Messages WHERE recipient_ID=$_SESSION[ID] ORDER BY create_date DESC";
                                             $result = $conn->query($sql);
 
                                             while($res = mysqli_fetch_array($result)) {

@@ -92,134 +92,119 @@ session_start();
 
                     <!-- Product info -->
                     <div class="max-w-2xl mx-auto pt-10 pb-16 px-4 sm:px-6 lg:max-w-7xl lg:pt-16 lg:pb-24 lg:px-8 lg:grid lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8">
-                    <div class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
-                        <h1 class="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">Product Title</h1>
-                    </div>
-
-                     <!--details-->
-                    <aside class="mt-4 lg:mt-0 lg:row-span-3">
-                        <h2 class="text-gray-900">Price</h2>
-                        <p class="text-3xl text-gray-900">$192</p>
-
-                        <form class="mt-10">
-                            <label for="quantity" class="block text-sm font-medium text-gray-700">Quantity / Available: </label>
-                            <input required type="text" id="quantity" name="quantity" class="appearance-none rounded relative block w-1/6 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
-
-                        <div class="w-80 bg-white shadow-md w-fulll">
-                            <div class="flex flex-col justify-between p-4 bg-white">
-                                <div class="text-sm">
-                                    <!--Category or whatever we want-->
-                                    <div class="border-b border-gray-200 py-6">
-                                        <h3 class="-my-3 flow-root">
-                                        <div class="py-3 bg-white w-full flex items-center justify-between text-sm">
-                                            <span class="font-medium text-gray-900">Category</span>
-                                        </div>
-                                        </h3>
-                                        <!-- Display one
-                                        <div class="pt-6" id="filter-section-1">
-                                            <div class="space-y-4">
-                                                <div class="flex items-center">
-                                                    <input id="filter-category-0" name="category[]" value="new-arrivals" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                                                    <label for="filter-category-0" class="ml-3 text-sm text-gray-600"> New Arrivals </label>
-                                                </div>
-
-                                                <div class="flex items-center">
-                                                    <input id="filter-category-1" name="category[]" value="sale" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                                                    <label for="filter-category-1" class="ml-3 text-sm text-gray-600"> Sale </label>
-                                                </div>
-
-                                                <div class="flex items-center">
-                                                    <input id="filter-category-2" name="category[]" value="travel" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                                                    <label for="filter-category-2" class="ml-3 text-sm text-gray-600"> Travel </label>
-                                                </div>
-
-                                                <div class="flex items-center">
-                                                    <input id="filter-category-3" name="category[]" value="organization" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                                                    <label for="filter-category-3" class="ml-3 text-sm text-gray-600"> Organization </label>
-                                                </div>
-
-                                                <div class="flex items-center">
-                                                    <input id="filter-category-4" name="category[]" value="accessories" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                                                    <label for="filter-category-4" class="ml-3 text-sm text-gray-600"> Accessories </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                            -->
-                                    </div>
-                                    <!--Brand or whatever we want-->
-                                    <div class="border-b border-gray-200 py-6">
-                                        <h3 class="-my-3 flow-root">
-                                        <div class="py-3 bg-white w-full flex items-center justify-between text-sm">
-                                            <span class="font-medium text-gray-900">Brand</span>
-                                        </div>
-                                        </h3>
-                                        <!--Display one
-                                        <div class="pt-6" id="filter-section-1">
-                                            <div class="space-y-4">
-                                                <div class="flex items-center">
-                                                    <input id="filter-category-0" name="category[]" value="new-arrivals" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                                                    <label for="filter-category-0" class="ml-3 text-sm text-gray-600"> New Arrivals </label>
-                                                </div>
-
-                                                <div class="flex items-center">
-                                                    <input id="filter-category-1" name="category[]" value="sale" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                                                    <label for="filter-category-1" class="ml-3 text-sm text-gray-600"> Sale </label>
-                                                </div>
-
-                                                <div class="flex items-center">
-                                                    <input id="filter-category-2" name="category[]" value="travel" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                                                    <label for="filter-category-2" class="ml-3 text-sm text-gray-600"> Travel </label>
-                                                </div>
-
-                                                <div class="flex items-center">
-                                                    <input id="filter-category-3" name="category[]" value="organization" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                                                    <label for="filter-category-3" class="ml-3 text-sm text-gray-600"> Organization </label>
-                                                </div>
-
-                                                <div class="flex items-center">
-                                                    <input id="filter-category-4" name="category[]" value="accessories" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
-                                                    <label for="filter-category-4" class="ml-3 text-sm text-gray-600"> Accessories </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                            -->
-                                    </div>
-                                    
-                                    <!---->
-                                </div>
-                            </div>
+                        <div class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
+                            <h1 class="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">Product Title</h1>
                         </div>
-                        <button type="submit" class="mt-10 w-1/2 bg-gray-900 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Add to Cart</button>
-                        </form>
+
+                    <!-- -->
+                        <aside class="mt-4 lg:mt-0 lg:row-span-3">
+                            <h2 class="text-gray-900">Price</h2>
+                            <p class="text-3xl text-gray-900">$192</p>
+
+                            <form class="mt-10">
+                                <label for="quantity" class="block text-sm font-medium text-gray-700">Quantity / Available: <span>10</span></label>
+                                <input type="text" id="quantity" name="quantity" class="appearance-none rounded relative block w-1/6 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+
+                                <div class="w-80 bg-white shadow-md w-fulll">
+                                    <div class="flex flex-col justify-between p-4 bg-white">
+                                        <div class="text-sm">
+                                            <div class="border-b border-gray-200 py-6">
+                                                <h3 class="-my-3 flow-root">
+                                                <div class="py-3 bg-white w-full flex items-center justify-between text-sm">
+                                                    <p class="font-medium text-gray-700">Sold by: seller name</p>
+                                                </div>
+                                                </h3>
+                                            </div>
+                                            <!--Contact seller-->
+                                            <div class="border-b border-gray-200 py-6">
+                                                <h3 class="-my-3 flow-root">
+                                                <div class="py-3 bg-white w-full flex items-center justify-between text-sm">
+                                                    <a href="contact_seller.php" class="font-medium text-blue-500 hover:text-blue-300">Contact Seller</a>
+                                                </div>
+                                                </h3>
+                                                <!--add to cart / add to wishlist-->
+                                                <div class="pt-6" id="filter-section-1">
+                                                    <div class="space-y-4">
+                                                        <div class="flex items-center">
+                                                            <button type="submit" class="inline-flex justify-between py-2 px-4 border border-transparent shadow-sm text-sm rounded-md text-white bg-gray-900 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Add to Cart</button>
+                                                        </div>
+                                                        <div class="flex items-center">
+                                                            <button type="submit" class="inline-flex justify-between py-2 px-4 border border-transparent shadow-sm text-sm rounded-md text-white bg-gray-900 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Add to Wishlist</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--size or whatever we want-->
+                                            <div class="border-b border-gray-200 py-6">
+                                                <h3 class="-my-3 flow-root">
+                                                <div class="py-3 bg-white w-full flex items-center justify-between text-sm">
+                                                    <span class="font-medium text-gray-900">Size</span>
+                                                </div>
+                                                </h3>
+                                                
+                                                <div class="pt-6" id="filter-section-1">
+                                                    <div class="space-y-4">
+                                                        <div class="flex items-center">
+                                                            <input id="filter-category-0" name="category[]" value="size-1" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+                                                            <label for="filter-category-0" class="ml-3 text-sm text-gray-600">1</label>
+                                                        </div>
+                                                        <div class="flex items-center">
+                                                            <input id="filter-category-0" name="category[]" value="size-1" type="checkbox" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+                                                            <label for="filter-category-0" class="ml-3 text-sm text-gray-600">2</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!---->
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
                         </aside>
 
-                    <div class="py-10 lg:pt-6 lg:pb-16 lg:col-start-1 lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
-                        <!-- Description and details -->
-                        <div>
-                        <h3 class="text-gray-900">Description</h3>
+                        <div class="py-10 lg:pt-6 lg:pb-16 lg:col-start-1 lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
+                            <!-- Description and details -->
+                            <div>
+                            <h3 class="text-gray-900">Description</h3>
 
-                        <div class="space-y-6">
-                            <p class="text-base text-gray-600">The Basic Tee 6-Pack allows you to fully express your vibrant personality with three grayscale options. Feeling adventurous? Put on a heather gray tee. Want to be a trendsetter? Try our exclusive colorway: &quot;Black&quot;. Need to add an extra pop of color to your outfit? Our white tee has you covered.</p>
+                            <div class="space-y-6">
+                                <p class="text-base text-gray-600">The Basic Tee 6-Pack allows you to fully express your vibrant personality with three grayscale options. Feeling adventurous? Put on a heather gray tee. Want to be a trendsetter? Try our exclusive colorway: &quot;Black&quot;. Need to add an extra pop of color to your outfit? Our white tee has you covered.</p>
+                            </div>
+                            </div>
+                            <!--Category-->
+                            <div class="border-b border-gray-200 py-6">
+                                <h3 class="-my-3 flow-root">
+                                <div class="py-3 bg-white w-full flex items-center justify-between text-sm">
+                                    <span class="font-medium text-gray-900">Category</span>
+                                </div>
+                                </h3>
+                                <div class="pt-6" id="filter-section-1">
+                                    <div class="space-y-4">
+                                        <div class="flex items-center">
+                                            <label for="filter-category-0" class="ml-3 text-sm text-gray-600">Shoes</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Brand or whatever we want-->
+                            <div class="border-b border-gray-200 py-6">
+                                <h3 class="-my-3 flow-root">
+                                <div class="py-3 bg-white w-full flex items-center justify-between text-sm">
+                                    <span class="font-medium text-gray-900">Brand</span>
+                                </div>
+                                </h3>
+
+                                <div class="pt-6" id="filter-section-1">
+                                    <div class="space-y-4">
+                                        <div class="flex items-center">
+                                            <label for="filter-category-0" class="ml-3 text-sm text-gray-600">Nike</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            
                         </div>
-                        </div>
-                        <!--
-                        <div class="mt-10">
-                        <h3 class="text-sm font-medium text-gray-900">Highlights</h3>
-
-                        <div class="mt-4">
-                            <ul role="list" class="pl-4 list-disc text-sm space-y-2">
-                            <li class="text-gray-400"><span class="text-gray-600">Hand cut and sewn locally</span></li>
-
-                            <li class="text-gray-400"><span class="text-gray-600">Dyed with our proprietary colors</span></li>
-
-                            <li class="text-gray-400"><span class="text-gray-600">Pre-washed &amp; pre-shrunk</span></li>
-
-                            <li class="text-gray-400"><span class="text-gray-600">Ultra-soft 100% cotton</span></li>
-                            </ul>
-                        </div>
-                        </div>
-                        -->
-                    </div>
                     </div>
                 </div>
             </div>

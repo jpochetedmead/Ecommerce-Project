@@ -30,6 +30,7 @@ $ans = $result->fetch_assoc();
 $a = $ans['answer'];
 ?>
 
+<!--This needs to be merged with the table below-->
 <table>
   <tr>
     <th>Question</th>
@@ -57,7 +58,7 @@ while($res = mysqli_fetch_array($result)) {
   }
 ?>
 </table>
-
+<!-------------->
 
 
   <main class="flex w-full">
@@ -113,7 +114,7 @@ while($res = mysqli_fetch_array($result)) {
 			          </div>
 		          </div>
               <!------>
-              
+
 	          </div>
           </div>
         </div>

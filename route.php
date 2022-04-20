@@ -48,7 +48,7 @@
         }
 
         if($_SESSION['role'] == 'seller' && $_SESSION['approval'] == 1){
-            header('location:sellerHome.php');
+            header('location:seller_account.php');
         }elseif($_SESSION['role'] == 'buyer' || $_SESSION['role'] == 'moderator' || ($_SESSION['role'] == 'seller' && $_SESSION['approval'] == 0)){
             header('location:home.php');
         }elseif($_SESSION['role'] == 'admin'){

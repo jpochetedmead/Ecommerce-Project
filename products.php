@@ -1,9 +1,6 @@
 <?php
     include 'db_connection.php';
-?>
-
-<?php
-session_start();
+    session_start();
 ?>
 
 <?php
@@ -11,6 +8,8 @@ session_start();
     include 'templates/head.html';
     include 'templates/nav-bar.php';
     include 'templates/search-bar.php';
+
+    
 ?>
 <!-- Product page -->
 <main class="flex w-full">
@@ -152,131 +151,52 @@ session_start();
         <div class="w-full">
             <div class="px-10 py-20 bg-white grid gap-10 lg:grid-cols-3 xl:grid-cols-4 sm:grid-cols-2">
                 <!--Distplay products below-->
-
-                <div class="max-w-xs rounded-md overflow-hidden shadow-lg">
-                    <div class="flex justify-center">
-                        <img class="h-40" src="https://www.apple.com/newsroom/images/product/mac/standard/Apple_MacBook-Pro_16-inch-Screen_10182021_big_carousel.jpg.large.jpg" alt="" />
-                    </div>
-                    <div class="py-4 px-4 bg-white">
-                        <a href="product_details.php" class="text-md font-semibold text-gray-600 hover:text-blue-500">Apple MacBook Pro M1 13.3&quot; Silver 16GB/512GB (MYDC2FN/A-16GB)</a>
-                        <p class="mt-4 text-lg font-thin">$ 2400</p>
-                        <a href="product_details.php" class="mt-4 text-lg font-thin hover:text-blue-500">click for details</a>
-                    </div>
-                </div>
-
-                <!--More product examples can be deleted-->
-                <div class="max-w-xs rounded-md overflow-hidden shadow-lg">
-                    <div class="flex justify-center">
-                        <img class="h-40" src="https://media.cnn.com/api/v1/images/stellar/prod/201116214440-9-macbook-air-review-silicon-underscoredjpg.jpg?q=w_2615,h_1556,x_0,y_0,c_fill" alt="" />
-                    </div>
-                    <div class="py-4 px-4 bg-white">
-                        <a href="#" class="text-md font-semibold text-gray-600 hover:text-blue-500">Apple MacBook Pro M1 13.3&quot; Silver 16GB/512GB (MYDC2FN/A-16GB)</a>
-                        <p class="mt-4 text-lg font-thin">$ 2400</p>
-                        <a href="#" class="mt-4 text-lg font-thin hover:text-blue-500">click for details</a>
-                    </div>
-                </div>
-                <div class="max-w-xs rounded-md overflow-hidden shadow-lg">
-                    <div class="flex justify-center">
-                        <img class="h-40" src="https://www.macworld.com/wp-content/uploads/2022/01/macbook-pro-compare.jpg?quality=50&strip=all&w=1024" alt="" />
-                    </div>
-                    <div class="py-4 px-4 bg-white">
-                        <a href="#" class="text-md font-semibold text-gray-600 hover:text-blue-500">Apple MacBook Pro M1 13.3&quot; Silver 16GB/512GB (MYDC2FN/A-16GB)</a>
-                        <p class="mt-4 text-lg font-thin">$ 2400</p>
-                        <a href="#" class="mt-4 text-lg font-thin hover:text-blue-500">click for details</a>
-                    </div>
-                </div>
-                <div class="max-w-xs rounded-md overflow-hidden shadow-lg">
-                    <div class="flex justify-center">
-                        <img class="h-40" src="https://img.republicworld.com/republic-prod/stories/promolarge/xhdpi/g1jzwrwrlfim5wux_1623141909.jpeg" alt="" />
-                    </div>
-                    <div class="py-4 px-4 bg-white">
-                        <a href="#" class="text-md font-semibold text-gray-600 hover:text-blue-500">Apple MacBook Pro M1 13.3&quot; Silver 16GB/512GB (MYDC2FN/A-16GB)</a>
-                        <p class="mt-4 text-lg font-thin">$ 2400</p>
-                        <a href="#" class="mt-4 text-lg font-thin hover:text-blue-500">click for details</a>
-                    </div>
-                </div>
-                <div class="max-w-xs rounded-md overflow-hidden shadow-lg">
-                    <div class="flex justify-center">
-                        <img class="h-40" src="https://cdn.mos.cms.futurecdn.net/GfinEMFXnT42BFxAcDc2rA.jpg" alt="" />
-                    </div>
-                    <div class="py-4 px-4 bg-white">
-                        <a href="#" class="text-md font-semibold text-gray-600 hover:text-blue-500">Apple MacBook Pro M1 13.3&quot; Silver 16GB/512GB (MYDC2FN/A-16GB)</a>
-                        <p class="mt-4 text-lg font-thin">$ 2400</p>
-                        <a href="#" class="mt-4 text-lg font-thin hover:text-blue-500">click for details</a>
-                    </div>
-                </div>
-                <div class="max-w-xs rounded-md overflow-hidden shadow-lg">
-                    <div class="flex justify-center">
-                        <img class="h-40" src="https://images.indianexpress.com/2021/12/macbook-pro-2021-review-featured-image.jpg" alt="" />
-                    </div>
-                    <div class="py-4 px-4 bg-white">
-                        <a href="#" class="text-md font-semibold text-gray-600 hover:text-blue-500">Apple MacBook Pro M1 13.3&quot; Silver 16GB/512GB (MYDC2FN/A-16GB)</a>
-                        <p class="mt-4 text-lg font-thin">$ 2400</p>
-                        <a href="#" class="mt-4 text-lg font-thin hover:text-blue-500">click for details</a>
-                    </div>
-                </div>
-
-                <div class="max-w-xs rounded-md overflow-hidden shadow-lg">
-                    <div class="flex justify-center">
-                        <img class="h-40" src="https://www.apple.com/newsroom/images/product/mac/standard/Apple_MacBook-Pro_16-inch-Screen_10182021_big_carousel.jpg.large.jpg" alt="" />
-                    </div>
-                    <div class="py-4 px-4 bg-white">
-                        <a href="#" class="text-md font-semibold text-gray-600 hover:text-blue-500">Apple MacBook Pro M1 13.3&quot; Silver 16GB/512GB (MYDC2FN/A-16GB)</a>
-                        <p class="mt-4 text-lg font-thin">$ 2400</p>
-                        <a href="#" class="mt-4 text-lg font-thin hover:text-blue-500">click for details</a>
-                    </div>
-                </div>
-                <div class="max-w-xs rounded-md overflow-hidden shadow-lg">
-                    <div class="flex justify-center">
-                        <img class="h-40" src="https://media.cnn.com/api/v1/images/stellar/prod/201116214440-9-macbook-air-review-silicon-underscoredjpg.jpg?q=w_2615,h_1556,x_0,y_0,c_fill" alt="" />
-                    </div>
-                    <div class="py-4 px-4 bg-white">
-                        <a href="#" class="text-md font-semibold text-gray-600 hover:text-blue-500">Apple MacBook Pro M1 13.3&quot; Silver 16GB/512GB (MYDC2FN/A-16GB)</a>
-                        <p class="mt-4 text-lg font-thin">$ 2400</p>
-                        <a href="#" class="mt-4 text-lg font-thin hover:text-blue-500">click for details</a>
-                    </div>
-                </div>
-                <div class="max-w-xs rounded-md overflow-hidden shadow-lg">
-                    <div class="flex justify-center">
-                        <img class="h-40" src="https://www.macworld.com/wp-content/uploads/2022/01/macbook-pro-compare.jpg?quality=50&strip=all&w=1024" alt="" />
-                    </div>
-                    <div class="py-4 px-4 bg-white">
-                        <a href="#" class="text-md font-semibold text-gray-600 hover:text-blue-500">Apple MacBook Pro M1 13.3&quot; Silver 16GB/512GB (MYDC2FN/A-16GB)</a>
-                        <p class="mt-4 text-lg font-thin">$ 2400</p>
-                        <a href="#" class="mt-4 text-lg font-thin hover:text-blue-500">click for details</a>
-                    </div>
-                </div>
-                <div class="max-w-xs rounded-md overflow-hidden shadow-lg">
-                    <div class="flex justify-center">
-                        <img class="h-40" src="https://img.republicworld.com/republic-prod/stories/promolarge/xhdpi/g1jzwrwrlfim5wux_1623141909.jpeg" alt="" />
-                    </div>
-                    <div class="py-4 px-4 bg-white">
-                        <a href="#" class="text-md font-semibold text-gray-600 hover:text-blue-500">Apple MacBook Pro M1 13.3&quot; Silver 16GB/512GB (MYDC2FN/A-16GB)</a>
-                        <p class="mt-4 text-lg font-thin">$ 2400</p>
-                        <a href="#" class="mt-4 text-lg font-thin hover:text-blue-500">click for details</a>
-                    </div>
-                </div>
-                <div class="max-w-xs rounded-md overflow-hidden shadow-lg">
-                    <div class="flex justify-center">
-                        <img class="h-40" src="https://cdn.mos.cms.futurecdn.net/GfinEMFXnT42BFxAcDc2rA.jpg" alt="" />
-                    </div>
-                    <div class="py-4 px-4 bg-white">
-                        <a href="#" class="text-md font-semibold text-gray-600 hover:text-blue-500">Apple MacBook Pro M1 13.3&quot; Silver 16GB/512GB (MYDC2FN/A-16GB)</a>
-                        <p class="mt-4 text-lg font-thin">$ 2400</p>
-                        <a href="#" class="mt-4 text-lg font-thin hover:text-blue-500">click for details</a>
-                    </div>
-                </div>
-                <div class="max-w-xs rounded-md overflow-hidden shadow-lg">
-                    <div class="flex justify-center">
-                        <img class="h-40" src="https://images.indianexpress.com/2021/12/macbook-pro-2021-review-featured-image.jpg" alt="" />
-                    </div>
-                    <div class="py-4 px-4 bg-white">
-                        <a href="#" class="text-md font-semibold text-gray-600 hover:text-blue-500">Apple MacBook Pro M1 13.3&quot; Silver 16GB/512GB (MYDC2FN/A-16GB)</a>
-                        <p class="mt-4 text-lg font-thin">$ 2400</p>
-                        <a href="#" class="mt-4 text-lg font-thin hover:text-blue-500">click for details</a>
-                    </div>
-                </div>
-                <!--examples ends-->
+                <?php
+                $sql = '';
+                if(isset($_POST['cate'])){
+                    if($_POST['cate'] == 1 && strlen($_POST['item_search']) > 0){
+                        $sql = "SELECT * FROM Products WHERE title LIKE '%$_POST[item_search]%' OR description LIKE '%$_POST[item_search]%'";
+            
+                    }elseif($_POST['cate'] == 1 && strlen($_POST['item_search']) == 0){
+                        $sql = "SELECT * FROM Products";
+                    }elseif($_POST['cate'] != 1 && strlen($_POST['item_search']) == 0){
+                        $sql = "SELECT * FROM Products p INNER JOIN categories c ON p.categories = c.categories_ID
+                        WHERE categories_ID = $_POST[cate]";
+                    }else{
+                        $sql = "SELECT * FROM Products p INNER JOIN categories c ON p.categories = c.categories_ID
+                        WHERE categories_ID = $_POST[cate] AND title LIKE '%$_POST[item_search]%' OR description LIKE '%$_POST[item_search]%'";
+                    }
+                    $result = $conn->query($sql);
+                    while($res = mysqli_fetch_array($result)) {
+                        echo "<div class='max-w-xs rounded-md overflow-hidden shadow-lg'>";
+                            echo "<div class='flex justify-center'>";
+                                echo "<img class='h-40' src='" . $res['image'] . "' alt='' />";
+                            echo "</div>";
+                            echo "<div class='py-4 px-4 bg-white'>";
+                                echo "<a href='product_details.php' class='text-md font-semibold text-gray-600 hover:text-blue-500'>" . $res['title'] . "</a>";
+                                echo "<p class='mt-4 text-lg font-thin'>$" . $res['price'] . "</p>";
+                                echo "<a href='product_details.php' class='mt-4 text-lg font-thin hover:text-blue-500'>click for details</a>";
+                            echo "</div>";
+                        echo "</div>";
+                    }
+                }else{
+                    $sql = "SELECT * FROM Products";
+                    $result = $conn->query($sql);
+                    while($res = mysqli_fetch_array($result)) {
+                        echo "<div class='max-w-xs rounded-md overflow-hidden shadow-lg'>";
+                            echo "<div class='flex justify-center'>";
+                                echo "<img class='h-40' src='" . $res['image'] . "' alt='' />";
+                            echo "</div>";
+                            echo "<div class='py-4 px-4 bg-white'>";
+                                echo "<a href='product_details.php' class='text-md font-semibold text-gray-600 hover:text-blue-500'>" . $res['title'] . "</a>";
+                                echo "<p class='mt-4 text-lg font-thin'>$" . $res['price'] . "</p>";
+                                echo "<a href='product_details.php' class='mt-4 text-lg font-thin hover:text-blue-500'>click for details</a>";
+                            echo "</div>";
+                        echo "</div>";
+                    }
+                }
+                
+                ?>
 
             </div>
         </div>

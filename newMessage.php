@@ -28,8 +28,7 @@ session_start();
         $subject = $row['subject'];
     }
     if(isset($_POST['cancel'])){
-        echo "hello";
-        //header('location:user_messages.php');
+        header('location:user_messages.php');
     }
 
     
@@ -52,30 +51,24 @@ session_start();
         <div class="w-full text-md">
             <form action="send.php" method="POST" id="form4">
                 <div class="bg-white shadow overflow-hidden sm:rounded-lg">
-                    <div class="px-4 py-5 sm:px-6">
-                        <h3 class="text-lg leading-6 font-medium text-gray-900">Reply </h3>
-                        <label for="to">To: </label>
-                        <input id="to" name="to" disabled type="text" value="<?php echo $recipientName ?>" class="appearance-none rounded block w-2/5 px-3 py-2 border border-gray-300 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
-                    </div>
-                    <?php
-
-                    ?>
                     <div class="border-t border-gray-200">
                         <dl>
                             <?php
-                            $check = 0;
-                            //<!--messages-->
-                            while($check < count($message)){
-                                $sql = "SELECT * FROM Users WHERE user_ID=$message[$check]";
-                                $sec = $conn->query($sql);
-                                $user = $sec->fetch_assoc();
+                            if($_SESSION['new'] == 0){
+                                //<!--messages-->
+                                $check = 0;
+                                while($check < count($message)){
+                                    $sql = "SELECT * FROM Users WHERE user_ID=$message[$check]";
+                                    $sec = $conn->query($sql);
+                                    $user = $sec->fetch_assoc();
 
-                                    echo "<p class='font-semibold " . (($message[$check] == $_SESSION['ID'])? 'text-blue-500': 'text-green-500') . " text-xs'>" . $user['first_name'] . " " . $user['last_name'] . "</p>";
-                                echo "<div class='bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>";
-                                    echo "<dt class='mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2'>" . $message[$check + 1] . "</dt>";
-                                echo "</div>";
+                                        echo "<p class='font-semibold " . (($message[$check] == $_SESSION['ID'])? 'text-blue-500': 'text-green-500') . " text-xs'>" . $user['first_name'] . " " . $user['last_name'] . "</p>";
+                                    echo "<div class='bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>";
+                                        echo "<dt class='mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2'>" . $message[$check + 1] . "</dt>";
+                                    echo "</div>";
 
-                                $check += 2;
+                                    $check += 2;
+                                }
                             }
                         ?>
                         </dl>
@@ -87,12 +80,23 @@ session_start();
                             <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
                                 <div>
                                     <label for="to">To: </label>
-                                    <input id="to" name="to" disabled type="text" value="<?php echo $sellerName ?>" class="appearance-none rounded block w-2/5 px-3 py-2 border border-gray-300 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                    <input id="to" name="to" disabled type="text" value="<?php echo $recipientName ?>" class="appearance-none rounded block w-2/5 px-3 py-2 border border-gray-300 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                 </div>
                                 <input id="ID" name="ID" type="text" hidden value="<?php echo $recipientID ?>">
                                 <div>
                                     <label for="subject">Subject: </label>
-                                    <input id="subject" required name="subject" type="text" value="<?php echo ((count($message) > 0 && count($message) < 3)? 'RE: ' . $subject : $subject);?>" class="appearance-none rounded block w-2/5 px-3 py-2 border border-gray-300 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                    <input id="subject" required name="subject" type="text" value="<?php 
+                                    if($_SESSION['new'] == 0){
+                                        if(count($message) > 0 && count($message) < 3){
+                                            echo "RE: " . $subject;
+                                        }else{
+                                            echo $subject;
+                                        }
+                                    }else{
+                                        echo $subject;
+                                    }
+                                    
+                                    ?>" class="appearance-none rounded block w-2/5 px-3 py-2 border border-gray-300 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                 </div>
                                 <div>
                                     <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
@@ -105,7 +109,11 @@ session_start();
 
                         <!--Extra data to send along with submit-->
                             <!--The message that's being responded to-->
-                            <input type="text" name='oldMessage' hidden value='<?php echo $row['message'];?>'>
+                            <?php
+                            if($_SESSION['new'] == 0){
+                                echo "<input type='text' name='oldMessage' hidden value='" . $row['message'] . "'>";
+                            }
+                            ?>
                             <!--Recipients ID-->
                             <input type="text" name='recipientID' hidden value='<?php echo $recipientID;?>'>
 

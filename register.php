@@ -1,5 +1,6 @@
 <?php
 include 'db_connection.php';
+session_start();
 $error = 0;
 if(isset($_POST['register'])){
   $sql = "SELECT * FROM Users WHERE email='$_POST[email]'";

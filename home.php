@@ -27,6 +27,7 @@
 
     <!--Popular Products-->
     <div class="bg-white">
+        <form action="product_details.php" method="POST" id="transfer">
         <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
             <h2 class="text-2xl font-extrabold tracking-tight text-gray-900">Popular Products</h2>
             <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
@@ -46,10 +47,10 @@
                     echo "<div class='mt-4 flex justify-between'>";
                         echo "<div>";
                             echo "<h3 class='text-sm text-gray-700'>";
-                            echo "<a href='#'>";
+                            echo "<button form='transfer' name='product' value='" . $product['product_ID'] . "'>";
                             echo "<span aria-hidden='true' class='absolute inset-0'></span>";
                                 echo $product['title'];
-                            echo "</a>";
+                            echo "</button>";
                             echo "</h3>";
                         echo "</div>";
                     echo "</div>";
@@ -58,6 +59,7 @@
                 ?>
             </div>
         </div>
+        </form>
     </div>
 
 <?php // TEMPLATES

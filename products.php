@@ -33,25 +33,35 @@
                         <div class="pt-6" id="filter-section-1">
                             <div class="space-y-4">
                                 <div class="flex items-center">
-                                    <input id="highPrice" name="price" value="highPrice" type="radio" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+                                    <input id="highPrice" name="price" <?php if(isset($_POST['price'])){
+                                        if($_POST['price'] == 'highPrice') echo 'checked';
+                                    } ?> value="highPrice" type="radio" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
                                     <label for="highPrice" class="ml-3 text-sm text-gray-600"> Highest to Lowest </label>
                                 </div>
                                 <div class="flex items-center">
-                                    <input id="lowPrice" name="price" value="lowPrice" type="radio" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+                                    <input id="lowPrice" name="price" <?php if(isset($_POST['price'])){
+                                        if($_POST['price'] == 'lowPrice') echo 'checked';
+                                    } ?> value="lowPrice" type="radio" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
                                     <label for="lowPrice" class="ml-3 text-sm text-gray-600"> Lowest to Highest </label>
                                 </div>
                                 <div class="flex items-center">
-                                    <input id="newArrivals" name="price" value="newArrivals" type="radio" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+                                    <input id="newArrivals" name="price" <?php if(isset($_POST['price'])){
+                                        if($_POST['price'] == 'newArrivals') echo 'checked';
+                                    } ?> value="newArrivals" type="radio" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
                                     <label for="newArrivals" class="ml-3 text-sm text-gray-600"> Newest Arrival </label>
                                 </div>
 
                                 <div class="flex items-center">
-                                    <input id="onSale" name="price" value="onSale" type="radio" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+                                    <input id="onSale" name="price" <?php if(isset($_POST['price'])){
+                                        if($_POST['price'] == 'onSale') echo 'checked';
+                                    } ?> value="onSale" type="radio" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
                                     <label for="onSale" class="ml-3 text-sm text-gray-600"> On Sale </label>
                                 </div>
 
                                 <div class="flex items-center">
-                                    <input id="popular" name="price" value="popular" type="radio" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
+                                    <input id="popular" name="price" <?php if(isset($_POST['price'])){
+                                        if($_POST['price'] == 'popular') echo 'checked';
+                                    } ?> value="popular" type="radio" class="h-4 w-4 border-gray-300 rounded text-indigo-600 focus:ring-indigo-500">
                                     <label for="popular" class="ml-3 text-sm text-gray-600"> Most Popular </label>
                                 </div>
                             </div>
@@ -66,6 +76,7 @@
 
     <!--Display products-->
     <section class="w-full p-4">
+        <form action="product_details.php" method="POST" id="transfer">
         <div class="w-full">
             <div class="px-10 py-20 bg-white grid gap-10 lg:grid-cols-3 xl:grid-cols-4 sm:grid-cols-2">
                 <!--Display products below-->
@@ -91,12 +102,12 @@
                                 echo "<img class='h-40' src='" . $res['image'] . "' alt='' />";
                             echo "</div>";
                             echo "<div class='py-4 px-4 bg-white'>";
-                                echo "<a href='product_details.php' class='text-md font-semibold text-gray-600 hover:text-blue-500'>" . $res['title'] . "</a>";
-                                if($res['price'] != $res['list_price']){
+                            echo "<p class='text-md font-semibold text-gray-600'>" . $res['title'] . "</p>";
+                            if($res['price'] != $res['list_price']){
                                     echo "<p class='mt-4 text-lg font-thin text-red-900 text-decoration-line: line-through'>$" . $res['list_price'] . "</p>";
                                 }
                                 echo "<p class='mt-4 text-lg font-thin'>$" . $res['price'] . "</p>";
-                                echo "<a href='product_details.php' class='mt-4 text-lg font-thin hover:text-blue-500'>click for details</a>";
+                                echo "<button form='transfer' name='product' value='" . $res['product_ID'] . "' class='mt-4 text-lg font-thin hover:text-blue-500'>click for details</button>";
                             echo "</div>";
                         echo "</div>";
                     }
@@ -109,12 +120,12 @@
                                 echo "<img class='h-40' src='" . $res['image'] . "' alt='' />";
                             echo "</div>";
                             echo "<div class='py-4 px-4 bg-white'>";
-                                echo "<a href='product_details.php' class='text-md font-semibold text-gray-600 hover:text-blue-500'>" . $res['title'] . "</a>";
+                            echo "<p class='text-md font-semibold text-gray-600'>" . $res['title'] . "</p>";
                                 if($res['price'] != $res['list_price']){
                                     echo "<p class='mt-4 text-lg font-thin text-red-900 text-decoration-line: line-through'>$" . $res['list_price'] . "</p>";
-                                }                                
+                                }                          
                                 echo "<p class='mt-4 text-lg font-thin'>$" . $res['price'] . "</p>";
-                                echo "<a href='product_details.php' class='mt-4 text-lg font-thin hover:text-blue-500'>click for details</a>";
+                                echo "<button form='transfer' name='product' value='" . $res['product_ID'] . "' class='mt-4 text-lg font-thin hover:text-blue-500'>click for details</button>";
                             echo "</div>";
                         echo "</div>";
                     }
@@ -140,13 +151,13 @@
                                     echo "<img class='h-40' src='" . $res['image'] . "' alt='' />";
                                 echo "</div>";
                                 echo "<div class='py-4 px-4 bg-white'>";
-                                    echo "<a href='product_details.php' class='text-md font-semibold text-gray-600 hover:text-blue-500'>" . $res['title'] . "</a>";
-                                    if($res['price'] != $res['list_price']){
+                                echo "<p class='text-md font-semibold text-gray-600'>" . $res['title'] . "</p>";
+                                if($res['price'] != $res['list_price']){
                                         echo "<p class='mt-4 text-lg font-thin text-red-900 text-decoration-line: line-through'>$" . $res['list_price'] . "</p>";
                                     }                 
                                     echo "<p class='mt-4 text-lg font-thin'>$" . $res['price'] . "</p>";
-                                    echo "<a href='product_details.php' class='mt-4 text-lg font-thin hover:text-blue-500'>click for details</a>";
-                                echo "</div>";
+                                    echo "<button form='transfer' name='product' value='" . $res['product_ID'] . "' class='mt-4 text-lg font-thin hover:text-blue-500'>click for details</button>";
+                                    echo "</div>";
                             echo "</div>";
                         }
                     
@@ -225,12 +236,12 @@
                                 echo "<img class='h-40' src='" . $res['image'] . "' alt='' />";
                             echo "</div>";
                             echo "<div class='py-4 px-4 bg-white'>";
-                                echo "<a href='product_details.php' class='text-md font-semibold text-gray-600 hover:text-blue-500'>" . $res['title'] . "</a>";
+                            echo "<p class='text-md font-semibold text-gray-600'>" . $res['title'] . "</p>";
                                 if($res['price'] != $res['list_price']){
                                     echo "<p class='mt-4 text-lg font-thin text-red-900 text-decoration-line: line-through'>$" . $res['list_price'] . "</p>";
                                 }                                    
                                 echo "<p class='mt-4 text-lg font-thin'>$" . $res['price'] . "</p>";
-                                echo "<a href='product_details.php' class='mt-4 text-lg font-thin hover:text-blue-500'>click for details</a>";
+                                echo "<button form='transfer' name='product' value='" . $res['product_ID'] . "' class='mt-4 text-lg font-thin hover:text-blue-500'>click for details</button>";
                             echo "</div>";
                         echo "</div>";
                         }
@@ -241,6 +252,7 @@
 
             </div>
         </div>
+        </form>
     </section>
 </main>
 

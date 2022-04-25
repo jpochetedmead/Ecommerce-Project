@@ -25,7 +25,7 @@ include 'templates/nav-admin.php';
                                 <h2 class="text-gray-600 font-semibold">Seller Accounts</h2>
                             </div>
 		                    <div class="flex items-center justify-between">
-                                <form action="buyerAccounts.php" method="POST">
+                                <form action="sellerAccounts.php" method="POST">
                                     <input type="submit" value="View All" name="search" class="px-5 py-5 border-b border-gray-200 bg-white cursor-pointer text-xs text-gray-600 font-semibold hover:text-gray-400">
                                 </form>
                             </div>
@@ -36,6 +36,14 @@ include 'templates/nav-admin.php';
                             <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                                 <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
                                     <!--Table Header-->
+                                    <?php
+                                    if(isset($_POST['search'])){
+                                      $search = $_POST['search'];
+                                      $sql = "SELECT *
+                                      FROM Users";
+                                      $result = $conn->query($sql);
+                                      $res = $result->fetch_assoc();
+                                    ?>
                                     <table class="min-w-full leading-normal">
                                         <thead>
                                             <tr>
@@ -58,34 +66,43 @@ include 'templates/nav-admin.php';
                                             </tr>
                                         </thead>
                                         <!--Table Body-->
+                                        <?php
+                                        while($res = mysqli_fetch_array($result)) {
+                                          if($res['role'] == 'seller' && $res['approval'] == '1'){
+                                        ?>
                                         <tbody>
                                             <tr>
                                             <!--Name-->
                                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                                 <p class="text-gray-900 whitespace-no-wrap">
-                                                Random text:
+                                                <?php echo $res['first_name']. " " .$res['last_name']?>
                                                 </p>
                                             </td>
                                             <!--Email-->
                                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                                 <p class="text-gray-900 whitespace-no-wrap">
-                                                Random text: 
+                                                <?php echo $res['email']?>
                                                 </p>
                                             </td>
                                             <!--ID-->
                                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                                 <p class="text-gray-900 whitespace-no-wrap">
-                                                Random text: 
+                                                <?php echo $res['user_ID']?>
                                                 </p>
                                             </td>
                                             <!--Phone Number-->
                                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                                 <p class="text-gray-900 whitespace-no-wrap">
-                                                Random text: 
+                                                <?php echo $res['telephone_number']?>
                                                 </p>
                                             </td>
                                             </tr>
                                         </tbody>
+                                        <?php
+                                            }
+                                          }
+                                        }
+                                        ?>
                                     </table>
                                 </div>
                             </div>
@@ -97,31 +114,6 @@ include 'templates/nav-admin.php';
         </div>
     </section>
 </main>
-
-<!---This needs to merged with the table above--->
-<?php
-if(isset($_POST['search'])){
-  $search = $_POST['search'];
-  $sql = "SELECT *
-  FROM Users";
-  $result = $conn->query($sql);
-  $res = $result->fetch_assoc();
-?>
-  <table>
-
-<?php
-  while($res = mysqli_fetch_array($result)) {
-    if($res['role'] == 'seller' && $res['approval'] == '1'){
-      echo "<tr>";
-      echo "<td>".$res['first_name']. " " .$res['last_name']."</td>";
-      echo "<td>".$res['email']."</td>";
-      echo "<td>".$res['user_ID']."</td>";
-      echo "<td>".$res['telephone_number']."</td>";
-    }
-  }
-}
-?>
-</table>
 
 <?php
 include 'templates/footer.html';

@@ -1,5 +1,14 @@
 <?php
     include 'db_connection.php';
+
+    if(isset($_GET['categories'])) {
+      $cName = $_GET['categories'];
+      $delete = mysqli_query($conn, "DELETE FROM `categories` WHERE `categories` = '$cName'");
+      header("location:editCategories.php");
+    }
+
+    $table = "select * from categories";
+    $query = mysqli_query($conn, $table);
 ?>
 
 <?php
@@ -61,3 +70,52 @@ include 'templates/head.html';
             </div>
         </div>
     </aside>
+
+<!--Merge-->
+    <?php
+    if(isset($_POST['add'])) {
+      $sql = "INSERT INTO categories (categories) VALUES ('$_POST[cat]')";
+      if ($conn->query($sql) === TRUE) {
+        //echo "Updated";
+      } else {
+        //echo "Error: " . $sql . "<br>" . $conn->error;
+      }
+      header("location:editCategories.php");
+    }
+    ?>
+
+    <form action="editCategories.php" method="POST">
+      <button type="submit" name="edit" id="edit">Edit</button>
+      <?php
+      if(isset($_POST['edit'])) {
+      ?>
+    </form>
+
+
+    <form action="editCategories.php" method="POST">
+      <input type="text" name="cat" id="cat" placeholder="Add Categories">
+      <button type="submit" name="add" id="add" value="add">Add New</button>
+
+        <table>
+          <tr>
+            <th>Category</th>
+            <th>Remove</th>
+          </tr>
+
+
+          <?php
+          $row = mysqli_num_rows($query);
+          if($row > 0) {
+            while($res = mysqli_fetch_array($query)) {
+              echo "<tr>
+                <td>".$res['categories']."</td>
+                <td><a href='editCategories.php?categories=".$res['categories']."'>Delete</a></td>
+              </tr>";
+            }
+          }
+          ?>
+        </table>
+        </form>
+      <?php
+}
+      ?>

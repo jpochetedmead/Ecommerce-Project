@@ -30,37 +30,6 @@ $ans = $result->fetch_assoc();
 $a = $ans['answer'];
 ?>
 
-<!--This needs to be merged with the table below-->
-<table>
-  <tr>
-    <th>Question</th>
-    <th>Answer</th>
-  </tr>
-
-  <?php
-      echo "<tr>";
-      echo "<td>".$q."</td>";
-      echo "<td>".$a."</td>";
-  ?>
-
-  <?php
-  $sql = "SELECT *
-  FROM FAQ";
-  $result = $conn->query($sql);
-  $res = $result->fetch_assoc();
-  ?>
-
-<?php
-while($res = mysqli_fetch_array($result)) {
-    echo "<tr>";
-    echo "<td>".$res['question']."</td>";
-    echo "<td>".$res['answer']."</td>";
-  }
-?>
-</table>
-<!-------------->
-
-
   <main class="flex w-full">
     <section class="w-full p-4">
       <div class="w-full text-md">
@@ -96,16 +65,56 @@ while($res = mysqli_fetch_array($result)) {
                       <tbody>
                         <tr>
                           <!--Qustion-->
+                          <?php
+                          $sql = "SELECT question
+                          FROM FAQ";
+                          $result = $conn->query($sql);
+                          $res = $result->fetch_assoc();
+                          ?>
                           <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                             <p class="text-gray-900 whitespace-no-wrap">
-                              Random text: jcjsabbuabvubvubvbvsvsvdvbsvhddhv
+                            <?php
+                             echo $q;
+                             ?>
+                             </p>
+
+                            <?php
+                            while($res = mysqli_fetch_array($result)) {
+                            ?>
+                            <p class="text-gray-900 whitespace-no-wrap">
+                              <?php
+                               echo $res['question'];
+                            ?>
                             </p>
+                            <?php
+                            }
+                            ?>
                           </td>
                           <!--Answer-->
+                          <?php
+                          $sql = "SELECT answer
+                          FROM FAQ";
+                          $result = $conn->query($sql);
+                          $res = $result->fetch_assoc();
+                          ?>
                           <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                             <p class="text-gray-900 whitespace-no-wrap">
-                              Random text: jbchavyvavcvchvcgvcvcalvhsvcuvcvchscvhsvchcvcvhchscvhvchdvcvdcvc
+                            <?php
+                             echo $a;
+                             ?>
+                             </p>
+
+                            <?php
+                            while($res = mysqli_fetch_array($result)) {
+                            ?>
+                            <p class="text-gray-900 whitespace-no-wrap">
+                              <?php
+                               echo $res['answer'];
+                            ?>
                             </p>
+                            <?php
+                            }
+                            ?>
                           </td>
                         </tr>
                       </tbody>

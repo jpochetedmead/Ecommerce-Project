@@ -10,6 +10,9 @@
                     <a href="seller_sold.php">Sold</a>
                 </div>
                 <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">
+                    <a href="seller_payouts.php">Payouts</a>
+                </div>
+                <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">
                     <a href="seller_new_listing.php">List new item</a>
                 </div>
                 <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">

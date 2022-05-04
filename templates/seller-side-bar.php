@@ -1,10 +1,14 @@
+<?php
+    session_start();
+?>
+
 <!--seller side bar-->
 <aside class="w-80 bg-white shadow-md w-fulll">
         <div class="flex flex-col justify-between p-4 bg-white">
             <div class="text-sm">
-                <div class="bg-gray-900 text-white p-5 rounded">User Name</div>
+                <div class="bg-gray-900 text-white p-5 rounded"><?php echo $_SESSION['firstName'] . " " . $_SESSION['lastName'] ?></div>
                 <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">
-                    <a href="seller_account.php">Selling</a>
+                    <a href="seller_account.php">Inventory</a>
                 </div>
                 <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">
                     <a href="seller_sold.php">Sold</a>

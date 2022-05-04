@@ -2,7 +2,8 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
       <div class="flex items-center">
-        <h1><a href="index.php" class="text-white hover:bg-gray-500 hover:text-white px-3 py-2 rounded-md text-lg font-medium">Ecommerce Project</a></h1>
+        <h1><a href="index.php" class="px-3 py-2">
+        <img class="w-20 hover:bg-gray-500" src="images/buymerca.png" alt="BuyMerca-logo"/></a></h1>
         <div>
           <div class="ml-10 flex items-baseline space-x-4">
 

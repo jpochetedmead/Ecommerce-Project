@@ -27,6 +27,7 @@ session_start();
         $result = $conn->query($sql);
         $totalPrice = 0;
         while($res = mysqli_fetch_array($result)) {
+          $date = date_create($res['purchase_date']);
           echo "<div class='bg-white shadow sm:rounded'>";
             echo "<div class='px-4 py-5 sm:px-6'>";
               echo "<h3 class='text-lg leading-6 font-medium text-gray-900'>Order number:". $res['transaction_ID'] . "</h3>";
@@ -61,8 +62,17 @@ session_start();
                     echo "<dd class='mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2'>$" . sprintf("%.2f", $totalPrice) ."</dd>";
                 echo "</div>";
                 echo "<div class='bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>";
+                    echo "<dt class='text-sm font-medium text-gray-500'>Date of Purchase</dt>";
+                    echo "<dd class='mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2'>" . date_format($date, 'F d, Y') ."</dd>";
+                echo "</div>";
+
+                $sql = "SELECT * FROM Transactions WHERE transaction_ID=$res[transaction_ID] LIMIT 1";
+                $resu = $conn->query($sql);
+                $t = $resu->fetch_assoc();
+
+                echo "<div class='bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>";
                     echo "<dt class='text-sm font-medium text-gray-500'>Status</dt>";
-                    echo "<dd class='mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2'>" . ($row['shipped']==0)? 'Processing' : 'Shipped' . "</dd>";
+                    echo "<dd class='mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2'>" . (($t['shipped']==0)? 'Processing' : 'Shipped') . "</dd>";
                 echo "</div>";
               echo "</dl>";
             echo "</div>";

@@ -1,12 +1,17 @@
 <?php
     include 'db_connection.php';
-?>
-
-<?php
 session_start();
-?>
 
-<?php
+if(isset($_POST['change'])){
+    $sql = "UPDATE Transactions SET shipped=1 WHERE transaction_ID=$_POST[change]";
+    if ($conn->query($sql) === TRUE) {
+        echo "Record updated successfully";
+    }else{
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+}
+
+
 //TEMPLATES
     include 'templates/head.html';
     include 'templates/nav-bar.php';
@@ -21,46 +26,85 @@ session_start();
 
     <section class="w-full p-4">
         <div class="w-full text-md">
-            <div class="container mx-auto mt-10">
-                <div class="flex shadow-md my-10">
-                    <div class="w-full bg-white px-10 py-10">
-                        <div class="flex justify-between border-b pb-8">
-                            <h1 class="font-semibold text-2xl">Sold</h1>
-                            <h2 class="font-semibold text-2xl">1 Items</h2>
-                        </div>
-                        <div class="flex mt-10 mb-5">
-                            <h3 class="font-semibold text-gray-600 text-xs uppercase w-2/5">Product Details</h3>
-                            <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Quantity</h3>
-                            <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Price</h3>
-                            <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Total</h3>
-                        </div>
-                        <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
-                            <div class="flex w-2/5"> <!-- product -->
-                                <div class="w-20">
-                                    <img src="https://via.placeholder.com/150" alt="placeholder">
-                                </div>
-                                <div class="flex flex-col justify-between ml-4 flex-grow">
-                                    <span class="font-bold text-sm">Product 1</span>
-                                    <span class="text-blue-500 text-xs">Brand</span>
-                                    <a href="#" class="font-semibold text-left hover:text-red-500 text-gray-500 text-xs">Remove</a>
-                                </div>
-                            </div>
-                            <div class="flex justify-center w-1/5">
-                                <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
-                                </svg>
 
-                                <input class="mx-2 border text-center w-8" type="text" value="1">
+            <?php
 
-                                <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512">
-                                <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/>
-                                </svg>
-                            </div>
-                            <span class="text-center w-1/5 font-semibold text-sm">$400.00</span>
-                            <span class="text-center w-1/5 font-semibold text-sm">$400.00</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                $sql="SELECT * FROM Transactions t INNER JOIN products p on t.product_ID=p.product_ID  WHERE p.seller_ID=$_SESSION[ID] GROUP BY transaction_ID ORDER BY purchase_date DESC";
+                $result = $conn->query($sql);
+                $totalPrice = 0;
+                $counter = 0;
+                while($res = mysqli_fetch_array($result)) {
+
+                    $sql = "SELECT * FROM Users WHERE user_ID=$res[user_ID]";
+                    $resul = $conn->query($sql);
+                    $thing = $resul->fetch_assoc();
+                    $date = date_create($res['purchase_date']);
+                    
+                    echo "<div class='bg-white shadow sm:rounded mb-5'>";
+                    echo "<div class='px-4 py-5 sm:px-6'>";
+                    echo "<h3 class='text-lg leading-6 font-medium text-gray-900'>Order number:". $res['transaction_ID'] . "</h3>";
+                    echo "</div>";
+                    echo "<div class='border-t border-gray-200'>";
+                    echo "<dl>";
+                        echo "<div class='bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>";
+                            echo "<dt class='text-sm font-medium text-gray-500'>Full name</dt>";
+                            echo "<dd class='mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2'>" . $thing['first_name'] . " " . $thing['last_name'] . "</dd>";
+                        echo "</div>";
+                        echo "<div class='bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>";
+                            echo "<dt class='text-sm font-medium text-gray-500'>Shipping address</dt>";
+                            echo "<dd class='mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2'>" . $thing['address_first_line'] . " " . $thing['addres_second_line'] . " " . $thing['city'] . " " . $thing['state_abbreviation'] . ", " . $thing['zip_code'] . "</dd>";
+                        echo "</div>";
+                        echo "<div class='bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>";
+                            echo "<dt class='text-sm font-medium text-gray-500'>Items purchased</dt>";
+                            echo "<dd class='mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2'>";
+                            echo "<div>";
+                            
+                            $sql = "SELECT * FROM Transactions t INNER JOIN products p ON t.product_ID = p.product_ID WHERE t.transaction_ID=$res[transaction_ID]";
+                            $count = $conn->query($sql);
+                            while($row = mysqli_fetch_array($count)) {
+                                echo "<p>" . $row['product_quantity'] . "X   " . $row['title'] . "</p>";
+                                $totalPrice += ($row['product_quantity'] * $row['price_at_purchase']);
+                            }
+                            echo "</div>";
+
+                            echo "</dd>";
+                        echo "</div>";
+                        echo "<div class='bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>";
+                            echo "<dt class='text-sm font-medium text-gray-500'>Total payment</dt>";
+                            echo "<dd class='mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2'>$" . sprintf("%.2f", $totalPrice) ."</dd>";
+                        echo "</div>";
+                        echo "<div class='bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>";
+                            echo "<dt class='text-sm font-medium text-gray-500'>Date of Purchase</dt>";
+                            echo "<dd class='mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2'>" . date_format($date, 'F d, Y') ."</dd>";
+                        echo "</div>";
+                        
+                        $sql = "SELECT * FROM Transactions WHERE transaction_ID=$res[transaction_ID] LIMIT 1";
+                        $resu = $conn->query($sql);
+                        $t = $resu->fetch_assoc();
+
+
+                        echo "<div class='bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>";
+                            echo "<dt class='text-sm font-medium text-gray-500'>Status</dt>";
+                            echo "<dd class='mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2'>" . (($t['shipped']==0)? 'Processing' : 'Shipped') . "</dd>";
+                        echo "</div>";
+                        if($t['shipped']==0){
+                            echo "<form action='seller_sold.php' method='POST' id='form" . $counter . "'>";
+                            echo "<div class='bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6'>";
+                                echo "<dt class='text-sm font-medium text-gray-500'>Change Status</dt>";
+                                echo "<dd class='mt-1 text-sm text-blue-600 sm:mt-0 sm:col-span-2'><button name='change' id='change' form='form" . $counter . "' value='" . $res['transaction_ID'] . "'>Order Shipped</button></dd>";
+                            echo "</div>";
+                            echo "</form>";
+                        }
+                        
+                    echo "</dl>";
+                    echo "</div>";
+                echo "</div>";
+                $counter++;
+                }
+
+            ?>
+            
+
         </div>
     </section>
 

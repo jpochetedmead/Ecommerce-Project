@@ -7,10 +7,7 @@ session_start();
 ?>
 
 <?php
-//TEMPLATES
-    include 'templates/head.html';
-    include 'templates/nav-bar.php';
-    include 'templates/search-bar.php';
+
 
     $totalQuantity = 0;
     $sql="SELECT * FROM Wishlist WHERE user_ID=$_SESSION[ID]";
@@ -83,6 +80,11 @@ session_start();
             //"echo Error: " . $sql . "<br>" . $conn->error;
         }
     }
+
+    //TEMPLATES
+    include 'templates/head.html';
+    include 'templates/nav-bar.php';
+    include 'templates/search-bar.php';
 ?>
 
 <main class="flex w-full">

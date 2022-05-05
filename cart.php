@@ -4,10 +4,7 @@
 ?>
 
 <?php
-//TEMPLATES
-    include 'templates/head.html';
-    include 'templates/nav-bar.php';
-    include 'templates/search-bar.php';
+
 
 
 if(isset($_POST['delete'])){
@@ -60,6 +57,11 @@ $sql="SELECT * FROM Cart WHERE user_ID=$_SESSION[ID]";
         while($res = mysqli_fetch_array($result)) {
           $totalQuantity += $res['quantity'];
         }
+
+        //TEMPLATES
+    include 'templates/head.html';
+    include 'templates/nav-bar.php';
+    include 'templates/search-bar.php';
 ?>
 
 <!--shopping cart-->

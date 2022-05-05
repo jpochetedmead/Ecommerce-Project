@@ -2,6 +2,8 @@
 <?php
   include 'db_connection.php';
   session_start();
+  $total = 0;
+
 ?>
 <!-- Nav Bar -->
 <nav class="bg-blue-800">
@@ -32,11 +34,22 @@
             </div>
           </div>
         </div>
+        <?php
+          if(isset($_SESSION['ID'])){
+            $sql = "SELECT * FROM Cart WHERE user_ID=$_SESSION[ID]";
+            $quan = $conn->query($sql);
+            while($use = mysqli_fetch_array($quan)) {
+              $total = $total + $use['quantity'];
+            }
+          }
+          
+        ?>
 
         <div>
             <a href="cart.php" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                 Cart
-                <span>0</span>
+                
+                <span><?php echo $total ?></span>
             </a>
             <a href="user_account.php" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">My Account</a>
         </div>

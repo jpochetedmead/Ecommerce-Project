@@ -7,7 +7,7 @@
       header("location:editCategories.php");
     }
 
-    $table = "select * from categories";
+    $table = "SELECT * FROM categories";
     $query = mysqli_query($conn, $table);
 ?>
 
@@ -23,6 +23,17 @@ include 'templates/nav-admin.php';
   <?php
   include 'templates/admin-side-bar.php';
   ?>
+  <?php
+  if(isset($_POST['add'])) {
+    $sql = "INSERT INTO categories (categories) VALUES ('$_POST[cat]')";
+    if ($conn->query($sql) === TRUE) {
+      //echo "Updated";
+    } else {
+      //echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+    header("location:editCategories.php");
+  }
+  ?>
     <section class="w-full p-4">
         <div class="w-full text-md">
             <div class="bg-white shadow sm:rounded">
@@ -33,14 +44,17 @@ include 'templates/nav-admin.php';
                                 <h2 class="text-gray-600 font-semibold">Add/Edit Categories</h2>
                             </div>
 		                    <div class="flex items-center">
-                                <form action="editCategires.php" method="POST" class="flex">
+                                <form action="editCategories.php" method="POST" class="flex">
                                     <button type="submit" name="edit" id="edit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-900 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Edit</button>
+                                    <?php
+                                    if(isset($_POST['edit'])) {
+                                    ?>
                                 </form>
                             </div>
                         </div>
 
               <!--Table-->
-                        <form action="editCategires.php" method="POST">
+                        <form action="editCategories.php" method="POST">
                             <div class="flex w-1/3">
                                 <input type="text" name="cat" id="cat" placeholder="New Category" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                 <button type="submit" name="add" id="add" value="add" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-900 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Add</button>
@@ -63,25 +77,30 @@ include 'templates/nav-admin.php';
                                         </thead>
                             <!--Table Body-->
                                         <tbody>
-                                            <tr>
-                                            <!--Category-->
-                                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                <p class="text-gray-900 whitespace-no-wrap">
-                                                Random text:
-                                                </p>
-                                            </td>
-                                            <!--Remove-->
+                                          <?php
+                                          $row = mysqli_num_rows($query);
+                                          if($row > 0) {
+                                            while($res = mysqli_fetch_array($query)) {
+                                            echo "<tr>
+                                            <td class='px-5 py-5 border-b border-gray-200 bg-white text-sm'><p class='text-gray-900 whitespace-no-wrap'>"
+                                                .$res['categories'].
+                                            "</p></td>
+
                                             <td class='px-5 py-5 border-b border-gray-200 bg-white text-xs text-gray-500 font-semibold hover:text-red-500'>
-                                                <a href='editCategories.php'>
-                                                    Delete 
-                                                </a>
+                                                <a href='editCategories.php?categories=".$res['categories']."'>Delete</a>
                                             </td>
-                                            </tr>
+                                            </tr>";
+                                          }
+                                        }
+                                        ?>
                                         </tbody>
                                     </table>
                                 </div>
 			                    </div>
                         </form>
+                        <?php
+                        }
+                        ?>
               <!------>
 	                </div>
                 </div>
@@ -89,55 +108,6 @@ include 'templates/nav-admin.php';
         </div>
     </section>
 </main>
-
-<!--Merge-->
-    <?php
-    if(isset($_POST['add'])) {
-      $sql = "INSERT INTO categories (categories) VALUES ('$_POST[cat]')";
-      if ($conn->query($sql) === TRUE) {
-        //echo "Updated";
-      } else {
-        //echo "Error: " . $sql . "<br>" . $conn->error;
-      }
-      header("location:editCategories.php");
-    }
-    ?>
-
-    <form action="editCategories.php" method="POST">
-      <button type="submit" name="edit" id="edit">Edit</button>
-      <?php
-      if(isset($_POST['edit'])) {
-      ?>
-    </form>
-
-
-    <form action="editCategories.php" method="POST">
-      <input type="text" name="cat" id="cat" placeholder="Add Categories">
-      <button type="submit" name="add" id="add" value="add">Add New</button>
-
-        <table>
-          <tr>
-            <th>Category</th>
-            <th>Remove</th>
-          </tr>
-
-
-          <?php
-          $row = mysqli_num_rows($query);
-          if($row > 0) {
-            while($res = mysqli_fetch_array($query)) {
-              echo "<tr>
-                <td>".$res['categories']."</td>
-                <td><a href='editCategories.php?categories=".$res['categories']."'>Delete</a></td>
-              </tr>";
-            }
-          }
-          ?>
-        </table>
-        </form>
-      <?php
-}
-      ?>
 
 <?php
 include 'templates/footer.html';

@@ -44,12 +44,6 @@ include 'templates/nav-admin.php';
                                 <h2 class="text-gray-600 font-semibold">Add/Edit Categories</h2>
                             </div>
 		                    <div class="flex items-center">
-                                <form action="editCategories.php" method="POST" class="flex">
-                                    <button type="submit" name="edit" id="edit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-900 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Edit</button>
-                                    <?php
-                                    if(isset($_POST['edit'])) {
-                                    ?>
-                                </form>
                             </div>
                         </div>
 
@@ -98,9 +92,6 @@ include 'templates/nav-admin.php';
                                 </div>
 			                    </div>
                         </form>
-                        <?php
-                        }
-                        ?>
               <!------>
 	                </div>
                 </div>

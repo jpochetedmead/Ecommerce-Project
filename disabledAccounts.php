@@ -37,9 +37,6 @@ include 'templates/nav-admin.php';
                                 <h2 class="text-gray-600 font-semibold">Disabled Accounts</h2>
                             </div>
 		                    <div class="flex items-center justify-between">
-                                <form action="disabledAccounts.php" method="POST">
-                                    <input type="submit" value="View All" name="search" class="px-5 py-5 border-b border-gray-200 bg-white cursor-pointer text-xs text-gray-600 font-semibold hover:text-gray-400">
-                                </form>
                             </div>
                         </div>
 
@@ -48,10 +45,6 @@ include 'templates/nav-admin.php';
                             <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                                 <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
                                     <!--Table Header-->
-
-                                    <?php
-                                    if(isset($_POST['search'])){
-                                    ?>
 
                                     <table class="min-w-full leading-normal">
                                         <thead>
@@ -127,9 +120,6 @@ include 'templates/nav-admin.php';
                                 </div>
                             </div>
                         </div>
-                        <?php
-                      }
-                        ?>
                         <!------>
 	                </div>
                 </div>

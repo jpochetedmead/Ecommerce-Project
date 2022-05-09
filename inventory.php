@@ -4,6 +4,9 @@
 
 <?php
 session_start();
+
+$table = "SELECT * FROM Products";
+$query = mysqli_query($conn, $table);
 ?>
 
 <?php
@@ -24,9 +27,6 @@ include 'templates/nav-admin.php';
                                 <h2 class="text-gray-600 font-semibold">Inventory</h2>
                             </div>
 		                    <div class="flex items-center justify-between">
-                                <form action="buyerAccounts.php" method="POST">
-                                    <input type="submit" value="View All" name="search" class="px-5 py-5 border-b border-gray-200 bg-white cursor-pointer text-xs text-gray-600 font-semibold hover:text-gray-400">
-                                </form>
                             </div>
                         </div>
 
@@ -74,56 +74,65 @@ include 'templates/nav-admin.php';
                                         </thead>
                                         <!--Table Body-->
                                         <tbody>
+                                          <?php
+                                          $row = mysqli_num_rows($query);
+                                          if($row > 0) {
+                                          while($res = mysqli_fetch_array($query)) {
+                                            ?>
                                             <tr>
                                             <!--Product name-->
                                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                                 <p class="text-gray-900 overflow-wrap:break-words">
-                                                Random text:
+                                                <?php echo $res['product_name'] ?>
                                                 </p>
                                             </td>
                                             <!--Description-->
                                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                                 <p class="text-gray-900 overflow-wrap:break-words">
-                                                Random text: sncnjcnnc ncjdnjdn cjndccdnj cnjdnc jdnj dcncjndncjn cjsnncjsnjn sjcnjsdnccjnjc njddiuhu uuh uh
+                                                <?php echo $res['description'] ?>
                                                 </p>
                                             </td>
                                             <!--Category-->
                                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                                 <p class="text-gray-900 whitespace-no-wrap">
-                                                Random text: 
+                                                <?php echo $res['category'] ?>
                                                 </p>
                                             </td>
                                             <!--Brand-->
                                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                                 <p class="text-gray-900 whitespace-no-wrap">
-                                                Random text: 
+                                                <?php echo $res['brand'] ?>
                                                 </p>
                                             </td>
                                             <!--Price-->
                                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                                 <p class="text-gray-900 whitespace-no-wrap">
-                                                Random text: 
+                                                <?php echo $res['unit_price'] ?>
                                                 </p>
                                             </td>
                                             <!--Quantity-->
                                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                                 <p class="text-gray-900 whitespace-no-wrap">
-                                                Random text: 
+                                                <?php echo $res['quantity'] ?>
                                                 </p>
                                             </td>
                                             <!--Size-->
                                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                                 <p class="text-gray-900 whitespace-no-wrap">
-                                                Random text: 
+                                                <?php echo $res['sizes'] ?>
                                                 </p>
                                             </td>
                                             <!--Date-->
                                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                                 <p class="text-gray-900 whitespace-no-wrap">
-                                                Random text: 
+                                                <?php echo $res['create_date'] ?>
                                                 </p>
                                             </td>
                                             </tr>
+                                            <?php
+                                            }
+                                          }
+                                            ?>
                                         </tbody>
                                     </table>
                                 </div>

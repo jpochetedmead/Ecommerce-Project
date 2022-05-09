@@ -26,9 +26,6 @@ include 'templates/nav-admin.php'
                 </div>
 		            <div class="flex items-center justify-between">
                   <!---View All-->
-                  <form action="buyerAccounts.php" method="POST">
-                    <input type="submit" value="View All" name="search" class="px-5 py-5 border-b border-gray-200 bg-white cursor-pointer text-xs text-gray-600 font-semibold hover:text-gray-400">
-                </form>
                 </div>
               </div>
 
@@ -38,8 +35,6 @@ include 'templates/nav-admin.php'
                   <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
                     <!--Table Header-->
                     <?php
-                    if(isset($_POST['search'])){
-                      $search = $_POST['search'];
                       $sql = "SELECT *
                       FROM Users";
                       $result = $conn->query($sql);
@@ -102,7 +97,6 @@ include 'templates/nav-admin.php'
                       <?php
                           }
                         }
-                      }
                       ?>
 					          </table>
 				          </div>

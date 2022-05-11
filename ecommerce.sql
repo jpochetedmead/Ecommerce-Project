@@ -125,18 +125,23 @@ DROP TABLE IF EXISTS `products`;
 CREATE TABLE `products` (
   `product_ID` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
+  `customLabel` varchar(255) NULL,
   `price` decimal(10,2) NOT NULL,
   `list_price` decimal(10,2) NOT NULL,
   `brand` int(11) NOT NULL,
-  `categories` int(11) NOT NULL,
-  `image` varchar(255) NOT NULL,
+  `category` int(11) NOT NULL,
+  `subCategory` int(11) NOT NULL,
+  `productCondition` varchar(255) NOT NULL,
   `description` text NOT NULL,
-  `featured` tinyint(4) NOT NULL DEFAULT 0,
   `sizes` text NOT NULL,
+  `weight` text NOT NULL,
   `seller_ID` int(11) NOT NULL,
   `quantity` int(8) NOT NULL,
-  `create_date` timestamp NOT NULL DEFAULT current_timestamp(),
-  `discount_percent` int(3) DEFAULT NULL
+  `discount_percent` int(3) DEFAULT NULL,
+  `comment` text NOT NULL,
+  `image` longblob NOT NULL,
+  `created` datetime NOT NULL DEFAULT current_timestamp()
+
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --

@@ -41,48 +41,49 @@
   */
   ?>
 
-<form class="form-horizontal">
+<form name="listNewProduct" class="form-horizontal" action="seller-list-a-product.php" method="POST" enctype="multipart/form-data">
+
 <fieldset>
 
-<legend class="h2 text-center p-10 text-primary">LIST A PRODUCT</legend>
+<legend class="h2 text-center p-10 text-primary">Tell us what you're selling</legend>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="seller_ID">SELLER ID</label>
+  <label class="col-md-4 control-label" for="seller_ID">Seller ID</label>
   <div class="col-md-4">
-  <input id="seller_ID" name="seller_ID" placeholder="SELLER ID" class="form-control input-md" required="" type="text">
+  <input id="seller_ID" name="seller_ID" placeholder="Seller ID" class="form-control input-md" required="" type="text">
   </div>
 </div>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="product_ID">PRODUCT ID</label>
+  <label class="col-md-4 control-label" for="product_ID">Product ID</label>
   <div class="col-md-4">
-  <input id="product_ID" name="product_ID" placeholder="PRODUCT ID" class="form-control input-md" required="" type="text">
+  <input id="product_ID" name="product_ID" placeholder="Product ID" class="form-control input-md" required="" type="text">
   </div>
 </div>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="title">PRODUCT NAME</label>
+  <label class="col-md-4 control-label" for="title">Title</label>
   <div class="col-md-4">
-  <input id="title" name="title" placeholder="PRODUCT NAME" class="form-control input-md" required="" type="text">
+  <input id="title" name="title" placeholder="Title" class="form-control input-md" required="" type="text">
   </div>
 </div>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="brand">BRAND</label>
+  <label class="col-md-4 control-label" for="customLabel">Custom Label (SKU)</label>
   <div class="col-md-4">
-  <input id="brand" name="brand" placeholder="BRAND" class="form-control input-md" required="" type="text">
+  <input id="customLabel" name="customLabel" placeholder="Custom Label (SKU)" class="form-control input-md" type="text">
   </div>
 </div>
 
 <!-- Select Basic -->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="categories">PRODUCT CATEGORY</label>
+  <label class="col-md-4 control-label" for="category">Category</label>
   <div class="col-md-4">
-    <select id="categories" name="categories" class="form-control">
+    <select id="category" name="category" class="form-control">
       <option value=""></option>
       <option value="Clothing">Clothing</option>
       <option value="Shoes">Shoes</option>
@@ -95,59 +96,92 @@
   </div>
 </div>
 
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="subCategory">Sub-Category</label>
+  <div class="col-md-4">
+    <select id="subCategory" name="subCategory" class="form-control">
+      <option value=""></option>
+      <option value="Clothing">Clothing</option>
+      <option value="Shoes">Shoes</option>
+      <option value="Fine Art">Fine Art</option>
+      <option value="Sports">Sports</option>
+      <option value="Handbags">Handbags</option>
+      <option value="Sunglasses">Sunglasses</option>
+      <option value="Books">Books</option>
+    </select>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="productCondition">Condition</label>
+  <div class="col-md-4">
+  <input id="productCondition" name="productCondition" placeholder="Condition" class="form-control input-md" required="" type="text">
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="brand">Brand</label>
+  <div class="col-md-4">
+  <input id="brand" name="brand" placeholder="Brand" class="form-control input-md" required="" type="text">
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="size">Product Size</label>
+  <div class="col-md-4">
+  <input id="size" name="size" placeholder="Product Size" class="form-control input-md" required="" type="text">
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="weight">Product Weight</label>
+  <div class="col-md-4">
+  <input id="weight" name="weight" placeholder="Product Weight" class="form-control input-md" required="" type="text">
+  </div>
+</div>
+
 <!-- Textarea -->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="description">PRODUCT DESCRIPTION</label>
+  <label class="col-md-4 control-label" for="description">Description</label>
   <div class="col-md-4">
-    <textarea id="description" name="description" placeholder="PRODUCT DESCRIPTION" class="form-control input-md" required="" type="text"></textarea>
+    <textarea id="description" name="description" placeholder="Description" class="form-control input-md" required="" type="text"></textarea>
   </div>
 </div>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="size">PRODUCT SIZE</label>
+  <label class="col-md-4 control-label" for="price">Price</label>
   <div class="col-md-4">
-  <input id="size" name="size" placeholder="PRODUCT SIZE" class="form-control input-md" required="" type="text">
+  <input id="price" name="price" placeholder="Price" class="form-control input-md" required="" type="text">
   </div>
 </div>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="weight">PRODUCT WEIGHT</label>
+  <label class="col-md-4 control-label" for="price">List Price</label>
   <div class="col-md-4">
-  <input id="weight" name="weight" placeholder="PRODUCT WEIGHT" class="form-control input-md" required="" type="text">
+  <input id="list_price" name="list_price" placeholder="List Price" class="form-control input-md" required="" type="text">
   </div>
 </div>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="quantity">AVAILABLE QUANTITY</label>
+  <label class="col-md-4 control-label" for="quantity">Quantity</label>
   <div class="col-md-4">
-  <input id="quantity" name="quantity" placeholder="AVAILABLE QUANTITY" class="form-control input-md" required="" type="text">
+  <input id="quantity" name="quantity" placeholder="Quantity" class="form-control input-md" required="" type="text">
   </div>
 </div>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="discount_percent">PERCENTAGE DISCOUNT</label>
+  <label class="col-md-4 control-label" for="discount_percent">Discount</label>
   <div class="col-md-4">
-  <input id="discount_percent" name="discount_percent" placeholder="PERCENTAGE DISCOUNT" class="form-control input-md" required="" type="text">
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="price">PRICE</label>
-  <div class="col-md-4">
-  <input id="price" name="price" placeholder="PRICE" class="form-control input-md" required="" type="text">
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="online_date">LIST PRICE</label>
-  <div class="col-md-4">
-  <input id="list_price" name="list_price" placeholder="LIST PRICE" class="form-control input-md" required="" type="text">
+  <input id="discount_percent" name="discount_percent" placeholder="Discount" class="form-control input-md" required="" type="text">
   </div>
 </div>
 
@@ -161,17 +195,17 @@
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="comment">COMMENT</label>
+  <label class="col-md-4 control-label" for="comment">Comments</label>
   <div class="col-md-4">
-  <input id="comment" name="comment" placeholder="COMMENT" class="form-control input-md" type="text">
+  <input id="comment" name="comment" placeholder="Comments" class="form-control input-md" type="text">
   </div>
 </div>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="create_date">CREATION DATE</label>
+  <label class="col-md-4 control-label" for="create_date">Date Listed</label>
   <div class="col-md-4">
-  <input id="create_date" name="create_date" placeholder="CREATION DATE" class="form-control input-md" required="" type="date">
+  <input id="create_date" name="create_date" placeholder="Date Listed" class="form-control input-md" required="" type="date">
   </div>
 </div>
 
@@ -179,17 +213,21 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="image">Main Image</label>
   <div class="col-md-4">
-    <input id="image" name="image" class="input-file" type="file">
+    <input id="image" name="image" class="input-file" type="file" accept=".jpeg,.jpg,.png" required>
   </div>
 </div>
 <!-- File Button -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="extraImage">Extra Images</label>
   <div class="col-md-4">
-    <input id="extraImage" name="extraImage" class="input-file" type="file">
+    <input id="extraImage1" name="extraImage1" class="input-file" type="file">
+    <input id="extraImage2" name="extraImage2" class="input-file" type="file">
+    <input id="extraImage3" name="extraImage3" class="input-file" type="file">
+    <input id="extraImage4" name="extraImage4" class="input-file" type="file">
+    <input id="extraImage5" name="extraImage5" class="input-file" type="file">
+    <input id="extraImage6" name="extraImage6" class="input-file" type="file">
   </div>
 </div>
-
 <!-- Button -->
 <div class="form-group">
   <div class="col-md-4 control-label">

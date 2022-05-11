@@ -4,14 +4,9 @@
 ?>
 
 <?php
-//TEMPLATES
-    include 'templates/head.html';
-    include 'templates/nav-bar.php';
-    include 'templates/search-bar.php';
 
-if(isset($_POST['checkout'])){
-  header("location:checkout.php");
-}
+
+
 if(isset($_POST['delete'])){
   $sql = "DELETE FROM Cart WHERE product_ID=$_POST[delete]";
   if ($conn->query($sql) === TRUE) {
@@ -62,6 +57,11 @@ $sql="SELECT * FROM Cart WHERE user_ID=$_SESSION[ID]";
         while($res = mysqli_fetch_array($result)) {
           $totalQuantity += $res['quantity'];
         }
+
+        //TEMPLATES
+    include 'templates/head.html';
+    include 'templates/nav-bar.php';
+    include 'templates/search-bar.php';
 ?>
 
 <!--shopping cart-->
@@ -111,8 +111,8 @@ $sql="SELECT * FROM Cart WHERE user_ID=$_SESSION[ID]";
 
               echo "<button form='form1' name='plus' type='submit' value='". $thing['product_ID'] ."'>+</button>";
             echo "</div>";
-            echo "<span class='text-center w-1/5 font-semibold text-sm'>" . $thing['price'] . "</span>";
-            echo "<span class='text-center w-1/5 font-semibold text-sm'>" . $thing['price'] * $res['quantity'] . "</span>";
+            echo "<span class='text-center w-1/5 font-semibold text-sm'>" . sprintf("%.2f", $thing['price']) . "</span>";
+            echo "<span class='text-center w-1/5 font-semibold text-sm'>" . sprintf("%.2f", $thing['price'] * $res['quantity']) . "</span>";
           echo "</div>";
         }
         ?>
@@ -128,34 +128,16 @@ $sql="SELECT * FROM Cart WHERE user_ID=$_SESSION[ID]";
         <div class="border-t mt-8">
           <div class="flex font-semibold justify-between py-6 text-sm uppercase">
             <span>Total cost</span>
-            <span><?php echo $totalPrice ?></span>
+            <span><?php echo sprintf("%.2f", $totalPrice) ?></span>
           </div>
-          <button name='checkout' type="submit" class="rounded bg-gray-900 font-semibold hover:bg-gray-700 py-3 text-sm text-white uppercase w-full">Checkout</button>
+          <div <?php if($totalQuantity == 0) echo 'hidden' ?> class="rounded bg-gray-900 font-semibold hover:bg-gray-700 py-3 text-sm text-white uppercase w-full text-center">
+            <a href="checkout.php">Checkout</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!--If Cart is Empty-->
-  <div <?php //hidden if item is added?>>
-    <div class="flex shadow-md my-10">
-      <div class="w-3/4 bg-white px-10 py-10">
-        <div class="flex justify-between border-b pb-8">
-          <h1 class="font-semibold text-2xl">Your Cart is Empty</h1>
-        </div>
-      </div>
-      <div id="summary" class="w-1/4 px-8 py-10">
-        <h1 class="font-semibold text-2xl border-b pb-8">Order Summary</h1>
-        <div class="flex justify-between mt-10 mb-5">
-        </div>
-        <div class="border-t mt-8">
-          <div class="flex font-semibold justify-between py-6 text-sm uppercase">
-          </div>
-          <button hidden name='submit' type="submit" class="rounded bg-gray-900 font-semibold hover:bg-gray-700 py-3 text-sm text-white uppercase w-full">Checkout</button>
-        </div>
-      </div>
-    </div>
-  </div>
 </form>
 <?php // TEMPLATES
   include 'templates/footer.html';

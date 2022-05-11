@@ -7,10 +7,7 @@ session_start();
 ?>
 
 <?php
-//TEMPLATES
-    include 'templates/head.html';
-    include 'templates/nav-bar.php';
-    include 'templates/search-bar.php';
+
 
     $totalQuantity = 0;
     $sql="SELECT * FROM Wishlist WHERE user_ID=$_SESSION[ID]";
@@ -83,6 +80,11 @@ session_start();
             //"echo Error: " . $sql . "<br>" . $conn->error;
         }
     }
+
+    //TEMPLATES
+    include 'templates/head.html';
+    include 'templates/nav-bar.php';
+    include 'templates/search-bar.php';
 ?>
 
 <main class="flex w-full">
@@ -135,8 +137,8 @@ session_start();
 
                             echo "<button form='form2' name='plus' type='submit' value='". $thing['product_ID'] ."'>+</button>";
                         echo "</div>";
-                        echo "<span class='text-center w-1/5 font-semibold text-sm'>" . $thing['price'] . "</span>";
-                        echo "<span class='text-center w-1/5 font-semibold text-sm'>" . $thing['price'] * $res['quantity'] . "</span>";
+                        echo "<span class='text-center w-1/5 font-semibold text-sm'>$" . $thing['price'] . "</span>";
+                        echo "<span class='text-center w-1/5 font-semibold text-sm'>$" . sprintf("%.2f", $thing['price'] * $res['quantity']) . "</span>";
                     echo "</div>";
                     }
                     ?>

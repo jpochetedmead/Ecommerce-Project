@@ -24,9 +24,11 @@
                 <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">
                     <a href="user_change_password.php">Change Password</a>
                 </div>
+                <!--not ready for this
                 <div class="bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300">
                     <a href="user_change_payment.php">Change Payment</a>
                 </div>
+                -->
                 <?php
                     if($_SESSION['role'] == 'seller'){
                         echo "<div class='bg-gray-900 text-white p-2 rounded mt-2 cursor-pointer hover:bg-gray-700 hover:text-blue-300'>";

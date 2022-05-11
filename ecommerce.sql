@@ -183,9 +183,9 @@ INSERT INTO `products` (`product_ID`, `title`, `price`, `list_price`, `brand`, `
 (1, 'Levi\'s Jeans', '29.00', '39.99', 1, 2, 'images/levisjeans.jpg', 'These Levi\'s Jeans are great. Buy them now!', 1, '28:3,39:5,36:1', 12345, 35, '2022-03-30 16:43:29', NULL),
 (2, 'T-Shirt', '15.99', '15.99', 2, 2, 'images/shirt.png', 'A comfortable T-shirt from your favorite vendor', 0, 'S M L XL XXL', 12345, 40, '2022-04-04 12:37:07', 0),
 (3, 'Moonlight Sword', '1500.00', '1500.00', 3, 6, 'images/sword.jpeg', 'A greatsword powered by moonlight', 0, '', 12345, 5, '2022-04-06 13:31:37', NULL),
-(4, 'Ford Model T', '13000.00', '15000.00', 4, 5, 'images/car.jpg', 'Released on October 1, 1908, the Ford Model T was a self-starting vehicle with a left-sided steering wheel, featuring an enclosed four-cylinder engine with a detachable cylinder head and a one-piece cylinder block. Fashioned from vanadium alloy steel, it offered superior strength despite its light weight.', 0, '', 12345, 8, '2022-04-15 12:20:10', NULL),
+(4, 'Ford Model T', '13000.00', '15000.00', 4, 5, 'images/car.jpg', 'Released on October 1, 1908, the Ford Model T was a self-starting vehicle with a left-sided steering wheel, featuring an enclosed four-cylinder engine with a detachable cylinder head and a one-piece cylinder block. Fashioned from vanadium alloy steel, it offered superior strength despite its light weight.', 2, '', 12345, 8, '2022-04-15 12:20:10', NULL),
 (5, 'Honeycrisp Apples', '5.45', '5.45', 5, 4, 'images/apples.jpeg', 'Honeycrisp apples are a refreshing fruit that is moderately sweet and is great for baking.', 0, '', 12345, 134, '2022-04-15 12:25:39', NULL),
-(6, 'Apple MacBook Pro M1', '2400.00', '2400.00', 6, 3, 'images/laptop.jpg', 'Apple MacBook Pro M1 13.3inch; Silver 16GB/512GB (MYDC2FN/A-16GB)', 0, '', 12345, 23, '2022-04-15 12:31:14', NULL),
+(6, 'Apple MacBook Pro M1', '2400.00', '2400.00', 6, 3, 'images/laptop.jpg', 'Apple MacBook Pro M1 13.3inch; Silver 16GB/512GB (MYDC2FN/A-16GB)', 3, '', 12345, 23, '2022-04-15 12:31:14', NULL),
 (7, 'Deer Park Spring Water', '25.00', '27.00', 7, 4, 'images/water.jpeg', 'Deer Park 100% Natural Spring Water, 16.9 Fl Oz, 35 Pack Bottles', 0, '', 12345, 65, '2022-04-15 12:36:06', NULL);
 
 -- --------------------------------------------------------

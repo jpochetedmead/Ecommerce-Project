@@ -111,38 +111,31 @@ echo $statusMsg;
             <div class="mt-10 sm:mt-0">
                 <div class="md:grid md:grid-cols-3 md:gap-6">
                     <div class="mt-5 md:mt-0 md:col-span-2">
-                      <form name="listNewProduct" class="form-horizontal" action="seller_new_listing.php" method="POST" enctype="multipart/form-data">
-                        <fieldset>
-                        <div class="shadow overflow-hidden sm:rounded-md">
+                    <?php
+                    if($check == 1) echo "<div class='text-gray-500 text-center font-bold'>Succesfully listed your product!</div>";
+                    ?>
+                        <form action="seller_new_listing.php" method="POST">
+                            <div class="shadow overflow-hidden sm:rounded-md">
                                 <div class="px-4 py-5 bg-white sm:p-6">
-                                  <legend class="h1 text-center p-10 text-primary">Tell us what you're selling</legend>
-                                  <small>' * ' Fields are required.</small>
-                                  <br><br>
+                                    <div class="px-4 py-5 sm:px-6">
+                                        <h3 class="text-lg leading-6 font-medium text-gray-900">List a new Product</h3>
+                                    </div>
                                     <div class="grid grid-cols-6 gap-6">
-
                                         <!--Product title-->
                                         <div class="col-span-6 sm:col-span-3">
-                                            <label for="title" class="block text-sm font-medium text-gray-700">Product Name *</label>
-                                            <input required type="text" id="title" name="title" placeholder="Product Name *" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                            <label for="title" class="block text-sm font-medium text-gray-700">Product Name</label>
+                                            <input required type="text" id="title" name="title" placeholder="Product name" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                         </div>
-
-                                        <!--Product customLabel-->
-                                        <div class="col-span-6 sm:col-span-3">
-                                            <label for="customLabel" class="block text-sm font-medium text-gray-700">Custom Label (SKU)</label>
-                                            <input type="text" id="customLabel" name="customLabel" placeholder="Custom Label (SKU)" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
-                                        </div>
-
                                         <!--Product brand-->
                                         <div class="col-span-6 sm:col-span-3">
-                                            <label for="brand" class="block text-sm font-medium text-gray-700">Brand *</label>
-                                            <input type="number" id="brand" name="brand" placeholder="Brand *" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                            <label for="brand" class="block text-sm font-medium text-gray-700">Brand</label>
+                                            <input required type="text" id="brand" name="brand" placeholder="Brand" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                         </div>
-
-                                        <!--Product categories-->
+                                        <!--Product category-->
                                         <div class="col-span-6 sm:col-span-3">
-                                            <label for="categories" class="block text-sm font-medium text-gray-700">Categories *</label>
-                                            <select type="number" id="categories" name="categories" class="appearance-none rounded relative block w-1/2 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
-                                                <option value="categories">------------------</option>
+                                            <label for="catagory" class="block text-sm font-medium text-gray-700">Product Category</label>
+                                            <select required id="categories" name="categories" class="appearance-none rounded relative block w-1/2 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">>
+                                                <option value="Category">------------------</option>
                                                 <option value="Clothing">Clothing</option>
                                                 <option value="Shoes">Shoes</option>
                                                 <option value="Fine Art">Fine Art</option>
@@ -152,122 +145,95 @@ echo $statusMsg;
                                                 <option value="Books">Books</option>
                                             </select>
                                         </div>
-
-                                        <!-- Product productCondition-->
-                                        <div class="form-group">
-                                          <label class="col-md-4 control-label" for="productCondition">Condition *</label>
-                                          <div class="col-md-4">
-                                          <select required type="text" id="productCondition" name="productCondition" class="appearance-none rounded relative block w-1/2 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">>
-                                              <option value="productCondition">---</option>
+                                        <!--product condition-->
+                                        <div class="col-span-6 sm:col-span-3">
+                                            <label for="productCondition" class="block text-sm font-medium text-gray-700">Condition</label>
+                                            <select required type="text" id="productCondition" name="productCondition" class="appearance-none rounded relative block w-1/2 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">>
+                                              <option value="productCondition">--------------</option>
                                               <option value="New">New</option>
                                               <option value="Used">Used</option>
                                           </select>
-                                          </div>
                                         </div>
-
+                                        <!--Product price-->
+                                        <div class="col-span-6 sm:col-span-3">
+                                            <label for="price" class="block text-sm font-medium text-gray-700">Price</label>
+                                            <input required type="text" id="price" name="price" placeholder="Price" class="appearance-none rounded relative block w-1/3 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                        </div>
+                                        <!--Product discount percent-->
+                                        <div class="col-span-6 sm:col-span-3">
+                                            <label for="discount_percent" class="block text-sm font-medium text-gray-700">Discount</label>
+                                            <input type="number" id="discount_percent" name="discount_percent" placeholder="Discount" class="appearance-none rounded relative block w-1/3 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                        </div>
                                         <!--Product size-->
                                         <div class="col-span-6 sm:col-span-3">
                                             <label for="size" class="block text-sm font-medium text-gray-700">Size</label>
                                             <input type="text" id="size" name="size" placeholder="Size" class="appearance-none rounded relative block w-1/3 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                         </div>
-
                                         <!--Product weight-->
                                         <div class="col-span-6 sm:col-span-3">
                                             <label for="weight" class="block text-sm font-medium text-gray-700">Weight</label>
                                             <input type="text" id="weight" name="weight" placeholder="Weight" class="appearance-none rounded relative block w-1/3 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                         </div>
-
-                                        <!--Product description-->
-                                        <div class="col-span-6">
-                                            <label for="description" class="block text-sm font-medium text-gray-700">Description *</label>
-                                            <textarea required type="text" id="description" name="description" row="20" cols="40" wrap="soft" placeholder="Description *" class="resize-none h-40 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"></textarea>
-                                        </div>
-
-                                        <!--Product price-->
-                                        <div class="col-span-6 sm:col-span-3">
-                                            <label for="price" class="block text-sm font-medium text-gray-700">Price *</label>
-                                            <input required type="number" id="price" name="price" placeholder="Price *" class="appearance-none rounded relative block w-1/3 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
-                                        </div>
-
-                                        <!--Product list_price-->
-                                        <div class="col-span-6 sm:col-span-3">
-                                            <label for="list_price" class="block text-sm font-medium text-gray-700">List Price *</label>
-                                            <input required type="number" id="list_price" name="list_price" placeholder="List Price *" class="appearance-none rounded relative block w-1/3 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
-                                        </div>
-
                                         <!--Product quantity-->
                                         <div class="col-span-6 sm:col-span-3">
-                                            <label for="quantity" class="block text-sm font-medium text-gray-700">Quantity *</label>
-                                            <input required type="number" id="quantity" name="quantity" placeholder="Quantity *" class="appearance-none rounded relative block w-1/3 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                            <label for="quantity" class="block text-sm font-medium text-gray-700">Quantity</label>
+                                            <input required type="text" id="quantity" name="quantity" placeholder="Quantity" class="appearance-none rounded relative block w-1/3 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                         </div>
 
-                                        <!--Product discount_percent-->
-                                        <div class="col-span-6 sm:col-span-3">
-                                            <label for="discount_percent" class="block text-sm font-medium text-gray-700">Discount</label>
-                                            <input type="number" id="discount_percent" name="discount_percent" placeholder="Discount" class="appearance-none rounded relative block w-1/3 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
-                                        </div>
-
-                                        <!--Product comment-->
-                                        <div class="col-span-6 sm:col-span-3">
-                                            <label for="comment" class="block text-sm font-medium text-gray-700">Comments</label>
-                                            <input type="text" id="comment" name="comment" placeholder="Comments (Only for You to see)" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
-                                        </div>
-
-                                        <!--Product create_date-->
-                                        <!--
+                                        <!--listing date-->
                                         <div class="col-span-6 sm:col-span-3">
                                             <label for="create_date" class="block text-sm font-medium text-gray-700">Listing Date</label>
                                             <input required type="date" id="create_date" name="create_date" placeholder="Listing Date" class="appearance-none rounded relative block w-1/2 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                         </div>
-                                        -->
-
-                                        <!-- Image File Button -->
+                                        <!--Product description-->
                                         <div class="col-span-6">
-                                            <label class="block text-sm font-medium text-gray-700" for="image">Main Image *</label>
-                                            <div class="col-md-4">
-                                                <input required id="image" name="image" type="file" class="appearance-none rounded relative block w-1/2 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
-                                            </div>
+                                            <label for="description" class="block text-sm font-medium text-gray-700">Product Description</label>
+                                            <textarea required id="description" name="description" row="20" cols="40" wrap="soft" placeholder="Product Description" class="resize-none h-40 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"></textarea>
                                         </div>
 
-                                        <!--Images File Button
-                                        <div class="col-span-6">
-                                            <label class="block text-sm font-medium text-gray-700" for="extraImage">Extra Images</label>
-                                            <div class="col-md-4">
-                                                <input id="extraImage" name="extraImage" type="file" class="appearance-none rounded relative block w-1/2 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
-                                            </div>
-                                        </div>
-                                        -->
-
-                                        <!-- Images File Button (6 different Images)
-                                        <div class="col-span-6">
-                                            <label class="block text-sm font-medium text-gray-700" for="extraImage">Extra Images</label>
-                                            <div class="col-md-4">
-                                                <input id="extraImage1" name="extraImage1" type="file" class="appearance-none rounded relative block w-1/2 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
-                                                <input id="extraImage2" name="extraImage2" type="file" class="appearance-none rounded relative block w-1/2 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
-                                                <input id="extraImage3" name="extraImage3" type="file" class="appearance-none rounded relative block w-1/2 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
-                                                <input id="extraImage4" name="extraImage4" type="file" class="appearance-none rounded relative block w-1/2 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
-                                                <input id="extraImage5" name="extraImage5" type="file" class="appearance-none rounded relative block w-1/2 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
-                                                <input id="extraImage6" name="extraImage6" type="file" class="appearance-none rounded relative block w-1/2 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
-                                            </div>
-                                        </div>
-                                        -->
-
-                                      </div>
                                     </div>
-
-                                    <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                                      <button id="publish_Item" name="publish_Item" type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-900 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">List</button>
+                                </div>
+                                 <!-- File Button -->
+                                <div class="col-span-6">
+                                    <label class="block text-sm font-medium text-gray-700" for="image">Main Image</label>
+                                    <div class="col-md-4">
+                                        <input id="image" name="image" type="file" class="appearance-none rounded relative block w-1/2 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                     </div>
-                                  </div>
+                                </div>
 
-                                </fieldset>
-                              </form>
+                                <!--Images File Button
+                                <div class="col-span-6">
+                                    <label class="block text-sm font-medium text-gray-700" for="extraImage">Extra Images</label>
+                                    <div class="col-md-4">
+                                        <input id="extraImage" name="extraImage" type="file" class="appearance-none rounded relative block w-1/2 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                    </div>
+                                </div>
+                                -->
+
+                                <!-- Images File Button (6 different Images)
+                                <div class="col-span-6">
+                                    <label class="block text-sm font-medium text-gray-700" for="extraImage">Extra Images</label>
+                                    <div class="col-md-4">
+                                        <input id="extraImage1" name="extraImage1" type="file" class="appearance-none rounded relative block w-1/2 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                        <input id="extraImage2" name="extraImage2" type="file" class="appearance-none rounded relative block w-1/2 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                        <input id="extraImage3" name="extraImage3" type="file" class="appearance-none rounded relative block w-1/2 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                        <input id="extraImage4" name="extraImage4" type="file" class="appearance-none rounded relative block w-1/2 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                        <input id="extraImage5" name="extraImage5" type="file" class="appearance-none rounded relative block w-1/2 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                        <input id="extraImage6" name="extraImage6" type="file" class="appearance-none rounded relative block w-1/2 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                    </div>
+                                </div>
+                                -->
+                                <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                                    <button id="publish_Item" name="publish_Item" type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-900 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">List</button>
+                                </div>
                             </div>
-                          </div>
-                        </div>
-                      </div>
-                    </section>
-                  </main>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
 
 <?php // TEMPLATES
 include 'templates/footer.html';

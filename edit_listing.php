@@ -59,18 +59,19 @@
 
     <section class="w-full p-4">
         <div class="w-full text-md">
-            <?php
-                if($check == 1) echo "<p class='text-green-500'>Product updated!</p>";
-            ?>
+
             <div class="mt-10 sm:mt-0">
                 <div class="md:grid md:grid-cols-3 md:gap-6">
                     <div class="mt-5 md:mt-0 md:col-span-2">
-                        <div class="px-4 py-5 sm:px-6">
-                            <h3 class="text-lg leading-6 font-medium text-gray-900">Edit Listing</h3>
-                        </div>
+                    <?php
+                    if($check == 1) echo "<div class='text-gray-500 text-center font-bold'>Succesfully updated your product!</div>";
+                    ?>
                         <form action="edit_listing.php" method="POST">
                             <div class="shadow overflow-hidden sm:rounded-md">
                                 <div class="px-4 py-5 bg-white sm:p-6">
+                                    <div class="px-4 py-5 sm:px-6">
+                                        <h3 class="text-lg leading-6 font-medium text-gray-900">Edit Product</h3>
+                                    </div>
                                     <div class="grid grid-cols-6 gap-6">
                                     <?php
                                         $sql = "SELECT * FROM products INNER JOIN brand ON products.brand=brand.brand_ID WHERE products.product_ID=$productID";
@@ -88,21 +89,6 @@
                                         <div class="col-span-6 sm:col-span-3">
                                             <label for="brand" class="block text-sm font-medium text-gray-700">Brand</label>
                                             <input required type="text" id="brand" name="brand" value='<?php echo $res['brand'] ?>' class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
-                                        </div>
-                                        <!--Product price-->
-                                        <div class="col-span-6 sm:col-span-3">
-                                            <label for="price" class="block text-sm font-medium text-gray-700">Price</label>
-                                            <input required type="text" id="price" pattern='[0-9.$]+' name="price" value='$<?php echo $res['price'] ?>' class="appearance-none rounded relative block w-1/3 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
-                                        </div>
-                                        <!--Product list price-->
-                                        <div class="col-span-6 sm:col-span-3">
-                                            <label for="listPrice" class="block text-sm font-medium text-gray-700">List Price</label>
-                                            <input required type="text" id="listPrice" pattern='[0-9.$]+' name="listPrice" value='$<?php echo $res['list_price'] ?>' class="appearance-none rounded relative block w-1/3 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
-                                        </div>
-                                        <!--Product quantity-->
-                                        <div class="col-span-6 sm:col-span-3">
-                                            <label for="quantity" class="block text-sm font-medium text-gray-700">Quantity</label>
-                                            <input required type="text" id="quantity" pattern='[0-9]+' name="quantity" value='<?php echo $res['quantity'] ?>' class="appearance-none rounded relative block w-1/3 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                         </div>
                                         <!--Product category-->
                                         <div class="col-span-6 sm:col-span-3">
@@ -123,6 +109,45 @@
                                                 ?>
                                             </select>
                                         </div>
+                                        <!--product condition-->
+                                        <div class="col-span-6 sm:col-span-3">
+                                            <label for="productCondition" class="block text-sm font-medium text-gray-700">Condition</label>
+                                            <select required type="text" id="productCondition" name="productCondition" class="appearance-none rounded relative block w-1/2 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">>
+                                              <option value="productCondition">--------------</option>
+                                              <option value="New">New</option>
+                                              <option value="Used">Used</option>
+                                          </select>
+                                        </div>
+                                        <!--Product price-->
+                                        <div class="col-span-6 sm:col-span-3">
+                                            <label for="price" class="block text-sm font-medium text-gray-700">Price</label>
+                                            <input required type="text" id="price" pattern='[0-9.$]+' name="price" value='$<?php echo $res['price'] ?>' class="appearance-none rounded relative block w-1/3 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                        </div>
+                                        <!--Product list price-->
+                                        <div class="col-span-6 sm:col-span-3">
+                                            <label for="listPrice" class="block text-sm font-medium text-gray-700">List Price</label>
+                                            <input required type="text" id="listPrice" pattern='[0-9.$]+' name="listPrice" value='$<?php echo $res['list_price'] ?>' class="appearance-none rounded relative block w-1/3 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                        </div>
+                                        <!--Product discount percent-->
+                                        <div class="col-span-6 sm:col-span-3">
+                                            <label for="discount_percent" class="block text-sm font-medium text-gray-700">Discount</label>
+                                            <input type="number" id="discount_percent" name="discount_percent" placeholder="Discount" class="appearance-none rounded relative block w-1/3 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                        </div>
+                                        <!--Product quantity-->
+                                        <div class="col-span-6 sm:col-span-3">
+                                            <label for="quantity" class="block text-sm font-medium text-gray-700">Quantity</label>
+                                            <input required type="text" id="quantity" pattern='[0-9]+' name="quantity" value='<?php echo $res['quantity'] ?>' class="appearance-none rounded relative block w-1/3 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                        </div>
+                                        <!--Product size-->
+                                        <div class="col-span-6 sm:col-span-3">
+                                            <label for="size" class="block text-sm font-medium text-gray-700">Size</label>
+                                            <input type="text" id="size" name="size" placeholder="Size" class="appearance-none rounded relative block w-1/3 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                        </div>
+                                        <!--Product weight-->
+                                        <div class="col-span-6 sm:col-span-3">
+                                            <label for="weight" class="block text-sm font-medium text-gray-700">Weight</label>
+                                            <input type="text" id="weight" name="weight" placeholder="Weight" class="appearance-none rounded relative block w-1/3 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                        </div>
                                         <!--Product description-->
                                         <div class="col-span-6">
                                             <label for="description" class="block text-sm font-medium text-gray-700">Product Description</label>
@@ -138,13 +163,14 @@
                                         <input id="image" name="image" type="file" class="appearance-none rounded relative block w-1/2 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                     </div>
                                 </div>
-                                <!-- File Button -->
+                                <!-- File Button
                                 <div class="col-span-6">
                                     <label class="block text-sm font-medium text-gray-700" for="extraImage">Extra Images</label>
                                     <div class="col-md-4">
                                         <input id="extraImage" name="extraImage" type="file" class="appearance-none rounded relative block w-1/2 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                     </div>
                                 </div>
+                                                -->
                                 <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
                                     <button id="submit" name="submit" type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-900 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Update</button>
                                 </div>

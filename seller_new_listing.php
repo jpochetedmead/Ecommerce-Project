@@ -22,7 +22,7 @@ if(isset($_POST["submit"])){
             $imgContent = addslashes(file_get_contents($image));
 
             // Insert image content into database
-            //$sql = $conn->query("INSERT into images (image, created) VALUES ('$imgContent', NOW())");
+            //$sql = $conn->query("INSERT into images (image, create_date) VALUES ('$imgContent', NOW())");
 
             $product_ID = $_POST[product_ID];
             $title = $_POST[title];
@@ -30,23 +30,27 @@ if(isset($_POST["submit"])){
             $price = $_POST[price];
             $list_price = $_POST[list_price];
             $brand = $_POST[brand];
-            $category = $_POST[category];
-            $subCategory = $_POST[subCategory];
+            $categories = $_POST[categories];
             $productCondition = $_POST[productCondition];
             $description = $_POST[description];
-            $sizes = $_POST[sizes];
+            $featured = $_POST[featured]; ////
+            $size = $_POST[size];
             $weight = $_POST[weight];
             $seller_ID = $_POST[seller_ID];
             $quantity = $_POST[quantity];
             $discount_percent = $_POST[discount_percent];
             $comment = $_POST[comment];
-            //$image = $_POST[image];
-            //$created = $_POST[NOW()];
 
             // Get all the submitted data from the form
-            //$sql = "INSERT into images (image, created) VALUES ('$imgContent', NOW())";
-            $sql = "INSERT into products (product_ID, title, customLabel, price, list_price, brand, category, subCategory, productCondition, description, sizes, weight, seller_ID, quantity, discount_percent, comment, image, created)
-            VALUES ($product_ID, '$title', '$customLabel', $price, $list_price, '$brand', '$category', '$subCategory', '$productCondition', '$description', '$sizes', '$weight', $seller_ID, $quantity, $discount_percent, '$comment', '$imgContent', NOW())";
+            //$sql = "INSERT into images (image, create_date) VALUES ('$imgContent', NOW())";
+            $sql = $conn->query("INSERT into products (product_ID, title, customLabel, price, list_price, brand, categories, productCondition, description, featured, size, weight, seller_ID, quantity, discount_percent, comment, image, create_date)
+            VALUES ($product_ID, '$title', '$customLabel', $price, $list_price, $brand, $categories, '$productCondition', '$description', $featured, '$size', '$weight', $seller_ID, $quantity, $discount_percent, '$comment', '$imgContent', NOW())");
+
+            //VALUES ($product_ID, '$title', '$customLabel', $price, $list_price, $brand, $categories, '$productCondition', '$description', 0, '$size', '$weight', $seller_ID, $quantity, $discount_percent, '$comment', '$imgContent', NOW())");
+
+
+            //$sql = "INSERT into products (product_ID, title, customLabel, price, list_price, brand, categories, subcategories, productCondition, description, size, weight, seller_ID, quantity, discount_percent, comment, image, create_date)
+            //VALUES ($product_ID, '$title', '$customLabel', $price, $list_price, $brand, $categories, $subcategories, '$productCondition', '$description', '$size', '$weight', $seller_ID, $quantity, $discount_percent, '$comment', '$imgContent', NOW())";
 
             /*
             `product_ID` int(11) NOT NULL,
@@ -55,28 +59,27 @@ if(isset($_POST["submit"])){
             `price` decimal(10,2) NOT NULL,
             `list_price` decimal(10,2) NOT NULL,
             `brand` int(11) NOT NULL,
-            `category` int(11) NOT NULL,
-            `subCategory` int(11) NOT NULL,
+            `categories` int(11) NOT NULL,
             `productCondition` varchar(255) NOT NULL,
             `description` text NOT NULL,
-            `sizes` text NOT NULL,
+            `size` text NOT NULL,
             `weight` text NOT NULL,
             `seller_ID` int(11) NOT NULL,
             `quantity` int(8) NOT NULL,
             `discount_percent` int(3) DEFAULT NULL,
             `comment` text NOT NULL,
             `image` longblob NOT NULL,
-            `created` datetime NOT NULL DEFAULT current_timestamp()
+            `create_date` datetime NOT NULL DEFAULT current_timestamp()
             */
 
             // Execute query
-            mysqli_query($conn, $sql);
+            //mysqli_query($conn, $sql);
 
             if($sql){
                 $status = 'success';
-                $statusMsg = "File uploaded successfully.";
+                $statusMsg = "Item uploaded successfully.";
             }else{
-                $statusMsg = "File upload failed, please try again.";
+                $statusMsg = "Item upload failed, please try again.";
             }
         }else{
             $statusMsg = 'Sorry, only JPG, JPEG, & PNG files are allowed to upload.';
@@ -132,29 +135,14 @@ echo $statusMsg;
                                         <!--Product brand-->
                                         <div class="col-span-6 sm:col-span-3">
                                             <label for="brand" class="block text-sm font-medium text-gray-700">Brand *</label>
-                                            <input required type="text" id="brand" name="brand" placeholder="Brand *" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                            <input type="number" id="brand" name="brand" placeholder="Brand *" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                         </div>
 
-                                        <!--Product category-->
+                                        <!--Product categories-->
                                         <div class="col-span-6 sm:col-span-3">
-                                            <label for="category" class="block text-sm font-medium text-gray-700">Category *</label>
-                                            <select required type="text" id="category" name="category" class="appearance-none rounded relative block w-1/2 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
-                                                <option value="Category">------------------</option>
-                                                <option value="Clothing">Clothing</option>
-                                                <option value="Shoes">Shoes</option>
-                                                <option value="Fine Art">Fine Art</option>
-                                                <option value="Sports">Sports</option>
-                                                <option value="Handbags">Handbags</option>
-                                                <option value="Sunglasses">Sunglasses</option>
-                                                <option value="Books">Books</option>
-                                            </select>
-                                        </div>
-
-                                        <!--Product subCategory-->
-                                        <div class="col-span-6 sm:col-span-3">
-                                            <label for="subCategory" class="block text-sm font-medium text-gray-700">Sub-Category</label>
-                                            <select type="text" id="subCategory" name="subCategory" class="appearance-none rounded relative block w-1/2 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
-                                                <option value="Category">------------------</option>
+                                            <label for="categories" class="block text-sm font-medium text-gray-700">Categories *</label>
+                                            <select type="number" id="categories" name="categories" class="appearance-none rounded relative block w-1/2 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
+                                                <option value="categories">------------------</option>
                                                 <option value="Clothing">Clothing</option>
                                                 <option value="Shoes">Shoes</option>
                                                 <option value="Fine Art">Fine Art</option>
@@ -170,9 +158,9 @@ echo $statusMsg;
                                           <label class="col-md-4 control-label" for="productCondition">Condition *</label>
                                           <div class="col-md-4">
                                           <select required type="text" id="productCondition" name="productCondition" class="appearance-none rounded relative block w-1/2 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">>
-                                              <option value="Category">---</option>
-                                              <option value="Clothing">New</option>
-                                              <option value="Shoes">Used</option>
+                                              <option value="productCondition">---</option>
+                                              <option value="New">New</option>
+                                              <option value="Used">Used</option>
                                           </select>
                                           </div>
                                         </div>

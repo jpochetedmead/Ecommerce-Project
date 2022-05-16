@@ -5,7 +5,7 @@
 <?php
 session_start();
 
-$table = "SELECT * FROM Products";
+$table = "SELECT * FROM products";
 $query = mysqli_query($conn, $table);
 ?>
 
@@ -83,7 +83,7 @@ include 'templates/nav-admin.php';
                                             <!--Product name-->
                                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                                 <p class="text-gray-900 overflow-wrap:break-words">
-                                                <?php echo $res['product_name'] ?>
+                                                <?php echo $res['title'] ?>
                                                 </p>
                                             </td>
                                             <!--Description-->
@@ -95,7 +95,7 @@ include 'templates/nav-admin.php';
                                             <!--Category-->
                                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                                 <p class="text-gray-900 whitespace-no-wrap">
-                                                <?php echo $res['category'] ?>
+                                                <?php echo $res['categories'] ?>
                                                 </p>
                                             </td>
                                             <!--Brand-->
@@ -107,7 +107,7 @@ include 'templates/nav-admin.php';
                                             <!--Price-->
                                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                                 <p class="text-gray-900 whitespace-no-wrap">
-                                                <?php echo $res['unit_price'] ?>
+                                                <?php echo $res['price'] ?>
                                                 </p>
                                             </td>
                                             <!--Quantity-->

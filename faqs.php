@@ -61,62 +61,25 @@ $a = $ans['answer'];
                           </th>
                         </tr>
                       </thead>
+                      <?php
+                        $sql = "SELECT *
+                        FROM FAQ";
+                        $result = $conn->query($sql);
+                        while($row = mysqli_fetch_array($result)) {
+                      ?>
                       <!--Table Body-->
                       <tbody>
                         <tr>
                           <!--Qustion-->
-                          <?php
-                          $sql = "SELECT question
-                          FROM FAQ";
-                          $result = $conn->query($sql);
-                          $res = $result->fetch_assoc();
-                          ?>
                           <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            <p class="text-gray-900 whitespace-no-wrap">
-                            <?php
-                             echo $q;
-                             ?>
-                             </p>
-
-                            <?php
-                            while($res = mysqli_fetch_array($result)) {
-                            ?>
-                            <p class="text-gray-900 whitespace-no-wrap">
-                              <?php
-                               echo $res['question'];
-                            ?>
-                            </p>
-                            <?php
-                            }
-                            ?>
+                            <p class="text-gray-900 whitespace-no-wrap"><?php echo $row['question']?></p>
                           </td>
                           <!--Answer-->
-                          <?php
-                          $sql = "SELECT answer
-                          FROM FAQ";
-                          $result = $conn->query($sql);
-                          $res = $result->fetch_assoc();
-                          ?>
                           <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                            <p class="text-gray-900 whitespace-no-wrap">
-                            <?php
-                             echo $a;
-                             ?>
-                             </p>
-
-                            <?php
-                            while($res = mysqli_fetch_array($result)) {
-                            ?>
-                            <p class="text-gray-900 whitespace-no-wrap">
-                              <?php
-                               echo $res['answer'];
-                            ?>
-                            </p>
-                            <?php
-                            }
-                            ?>
+                            <p class="text-gray-900 whitespace-no-wrap"><?php echo $row['answer']?></p>
                           </td>
                         </tr>
+                        <?php } ?>
                       </tbody>
 					          </table>
 				          </div>

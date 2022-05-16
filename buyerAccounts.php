@@ -64,7 +64,7 @@ include 'templates/nav-admin.php'
                       while($res = mysqli_fetch_array($query)) {
                         $row = mysqli_num_rows($query);
                         if($row > 0) {
-                          if($res['role'] == 'buyer' && $res['approval'] == '0'){
+                          if($res['role'] == 'buyer' || ($res['role'] == 'seller' && $res['approval'] == '0')){
                       ?>
                       <tbody>
                         <tr>

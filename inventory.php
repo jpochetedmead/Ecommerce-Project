@@ -64,10 +64,6 @@ include 'templates/nav-admin.php';
                                             </th>
                                             <th
                                                 class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                                Size
-                                            </th>
-                                            <th
-                                                class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                                 Date
                                             </th>
                                             </tr>
@@ -116,16 +112,14 @@ include 'templates/nav-admin.php';
                                                 <?php echo $res['quantity'] ?>
                                                 </p>
                                             </td>
-                                            <!--Size-->
-                                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                <p class="text-gray-900 whitespace-no-wrap">
-                                                <?php echo $res['sizes'] ?>
-                                                </p>
-                                            </td>
                                             <!--Date-->
-                                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                            <td class="px-2 py-5 border-b border-gray-200 bg-white text-sm">
                                                 <p class="text-gray-900 whitespace-no-wrap">
-                                                <?php echo $res['create_date'] ?>
+                                                <?php 
+                                                $currDate = $res['create_date'];
+                                                $changeDate = date("F-d-Y", strtotime($currDate));
+                                                echo $changeDate;
+                                                ?>
                                                 </p>
                                             </td>
                                             </tr>

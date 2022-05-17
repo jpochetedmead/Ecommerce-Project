@@ -11,8 +11,6 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-
-
 /* To show the list a product data in another page...
 $sql = "SELECT id, yourname, email, phone, sponsorname, sponsorshiplevel, logofile FROM Products";
 $result = $conn->query($sql);

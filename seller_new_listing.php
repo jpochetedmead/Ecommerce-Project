@@ -8,7 +8,7 @@ require_once 'db_connection.php';
 
 // If file upload form is submitted
 $status = $statusMsg = '';
-if(isset($_POST["submit"])){
+if(isset($_POST["publish_Item"])){
     $status = 'error';
     if(!empty($_FILES["image"]["name"])) {
         // Get file info
@@ -23,35 +23,39 @@ if(isset($_POST["submit"])){
 
             // Insert image content into database
             //$sql = $conn->query("INSERT into images (image, create_date) VALUES ('$imgContent', NOW())");
+            $title = $_POST['title'];
+            //$customLabel = $_POST['customLabel'];
+            $price = $_POST['price'];
+            //$list_price = $_POST['list_price'];
+            $brand = $_POST['brand'];
+            $categories = $_POST['categories'];
+            //$productCondition = $_POST['productCondition'];
+            $description = $_POST['description'];
+            //$featured = $_POST['featured']; ////
+            //$size = $_POST['size'];
+            //$weight = $_POST['weight'];
+            $seller_ID = $_SESSION['ID'];
+            $quantity = $_POST['quantity'];
 
-            $product_ID = $_POST[product_ID];
-            $title = $_POST[title];
-            $customLabel = $_POST[customLabel];
-            $price = $_POST[price];
-            $list_price = $_POST[list_price];
-            $brand = $_POST[brand];
-            $categories = $_POST[categories];
-            $productCondition = $_POST[productCondition];
-            $description = $_POST[description];
-            $featured = $_POST[featured]; ////
-            $size = $_POST[size];
-            $weight = $_POST[weight];
-            $seller_ID = $_POST[seller_ID];
-            $quantity = $_POST[quantity];
-            $discount_percent = $_POST[discount_percent];
-            $comment = $_POST[comment];
+
+
+
+
+            //$discount_percent = $_POST['discount_percent'];
+            //$comment = $_POST['comment'];
 
             // Get all the submitted data from the form
             //$sql = "INSERT into images (image, create_date) VALUES ('$imgContent', NOW())";
-            $sql = $conn->query("INSERT into products (product_ID, title, customLabel, price, list_price, brand, categories, productCondition, description, featured, size, weight, seller_ID, quantity, discount_percent, comment, image, create_date)
+/*
+            $sql = $conn->query("INSERT into products (product_IDjj, title, customLabel, price, list_price, brand, categories, productCondition, description, featured, size, weight, seller_ID, quantity, discount_percent, comment, image, create_date)
             VALUES ($product_ID, '$title', '$customLabel', $price, $list_price, $brand, $categories, '$productCondition', '$description', $featured, '$size', '$weight', $seller_ID, $quantity, $discount_percent, '$comment', '$imgContent', NOW())");
-
             //VALUES ($product_ID, '$title', '$customLabel', $price, $list_price, $brand, $categories, '$productCondition', '$description', 0, '$size', '$weight', $seller_ID, $quantity, $discount_percent, '$comment', '$imgContent', NOW())");
-
-
-            //$sql = "INSERT into products (product_ID, title, customLabel, price, list_price, brand, categories, subcategories, productCondition, description, size, weight, seller_ID, quantity, discount_percent, comment, image, create_date)
-            //VALUES ($product_ID, '$title', '$customLabel', $price, $list_price, $brand, $categories, $subcategories, '$productCondition', '$description', '$size', '$weight', $seller_ID, $quantity, $discount_percent, '$comment', '$imgContent', NOW())";
-
+            */
+            $sql = $conn->query("INSERT into products (title, price, list_price, brand, categories, description, seller_ID, quantity,image)
+            VALUES ('$title', $price, $price, $brand, $categories, '$description', $seller_ID, $quantity, $imgContent)");
+            //echo $sql;
+            /
+            $sql ="Update products SET images= $imgContent"
             /*
             `product_ID` int(11) NOT NULL,
             `title` varchar(255) NOT NULL,
@@ -73,20 +77,26 @@ if(isset($_POST["submit"])){
             */
 
             // Execute query
-            //mysqli_query($conn, $sql);
+            mysqli_query($conn, $sql);
+            //mysqli_query($conn, $sql) or trigger_error("Query Failed! SQL: $sql - Error: ".mysqli_error($conn), E_USER_ERROR);
 
+            //echo mysqli_error();
+/*
             if($sql){
                 $status = 'success';
                 $statusMsg = "Item uploaded successfully.";
             }else{
                 $statusMsg = "Item upload failed, please try again.";
             }
+            */
         }else{
             $statusMsg = 'Sorry, only JPG, JPEG, & PNG files are allowed to upload.';
         }
-    }else{
+    }
+    else{
         $statusMsg = 'Please select an image file to upload.';
     }
+
 }
 
 // Display status message
@@ -104,8 +114,8 @@ echo $statusMsg;
     <?php
     //TEMPLATES
         include 'templates/seller-side-bar.php';
-    ?>
 
+    ?>
     <section class="w-full p-4">
         <div class="w-full text-md">
             <div class="mt-10 sm:mt-0">
@@ -118,7 +128,7 @@ echo $statusMsg;
                                   <legend class="h1 text-center p-10 text-primary">Tell us what you're selling</legend>
                                   <small>' * ' Fields are required.</small>
                                   <br><br>
-                                    <div class="grid grid-cols-6 gap-6">
+                                    <div class="grid grid-cols-6 gap-6">c
 
                                         <!--Product title-->
                                         <div class="col-span-6 sm:col-span-3">
@@ -126,11 +136,12 @@ echo $statusMsg;
                                             <input required type="text" id="title" name="title" placeholder="Product Name *" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                         </div>
 
-                                        <!--Product customLabel-->
+                                        <!--Product customLabel
                                         <div class="col-span-6 sm:col-span-3">
                                             <label for="customLabel" class="block text-sm font-medium text-gray-700">Custom Label (SKU)</label>
                                             <input type="text" id="customLabel" name="customLabel" placeholder="Custom Label (SKU)" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                         </div>
+                                        -->
 
                                         <!--Product brand-->
                                         <div class="col-span-6 sm:col-span-3">
@@ -138,11 +149,11 @@ echo $statusMsg;
                                             <input type="number" id="brand" name="brand" placeholder="Brand *" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                         </div>
 
-                                        <!--Product categories-->
+                                        <!--Product categories
                                         <div class="col-span-6 sm:col-span-3">
                                             <label for="categories" class="block text-sm font-medium text-gray-700">Categories *</label>
                                             <select type="number" id="categories" name="categories" class="appearance-none rounded relative block w-1/2 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
-                                                <option value="categories">------------------</option>
+                                                <option value="categories"></option>
                                                 <option value="Clothing">Clothing</option>
                                                 <option value="Shoes">Shoes</option>
                                                 <option value="Fine Art">Fine Art</option>
@@ -152,30 +163,34 @@ echo $statusMsg;
                                                 <option value="Books">Books</option>
                                             </select>
                                         </div>
+                                        -->
 
-                                        <!-- Product productCondition-->
+                                        <!-- Product productCondition
                                         <div class="form-group">
                                           <label class="col-md-4 control-label" for="productCondition">Condition *</label>
                                           <div class="col-md-4">
                                           <select required type="text" id="productCondition" name="productCondition" class="appearance-none rounded relative block w-1/2 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">>
-                                              <option value="productCondition">---</option>
+                                              <option value="productCondition"></option>
                                               <option value="New">New</option>
                                               <option value="Used">Used</option>
                                           </select>
                                           </div>
                                         </div>
+                                        -->
 
-                                        <!--Product size-->
+                                        <!--Product size
                                         <div class="col-span-6 sm:col-span-3">
                                             <label for="size" class="block text-sm font-medium text-gray-700">Size</label>
                                             <input type="text" id="size" name="size" placeholder="Size" class="appearance-none rounded relative block w-1/3 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                         </div>
+                                        -->
 
-                                        <!--Product weight-->
+                                        <!--Product weight
                                         <div class="col-span-6 sm:col-span-3">
                                             <label for="weight" class="block text-sm font-medium text-gray-700">Weight</label>
                                             <input type="text" id="weight" name="weight" placeholder="Weight" class="appearance-none rounded relative block w-1/3 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                         </div>
+                                        -->
 
                                         <!--Product description-->
                                         <div class="col-span-6">
@@ -189,11 +204,13 @@ echo $statusMsg;
                                             <input required type="number" id="price" name="price" placeholder="Price *" class="appearance-none rounded relative block w-1/3 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                         </div>
 
-                                        <!--Product list_price-->
+                                        <!--Product list_price
                                         <div class="col-span-6 sm:col-span-3">
                                             <label for="list_price" class="block text-sm font-medium text-gray-700">List Price *</label>
                                             <input required type="number" id="list_price" name="list_price" placeholder="List Price *" class="appearance-none rounded relative block w-1/3 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                         </div>
+                                        -->
+
 
                                         <!--Product quantity-->
                                         <div class="col-span-6 sm:col-span-3">
@@ -201,17 +218,19 @@ echo $statusMsg;
                                             <input required type="number" id="quantity" name="quantity" placeholder="Quantity *" class="appearance-none rounded relative block w-1/3 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                         </div>
 
-                                        <!--Product discount_percent-->
+                                        <!--Product discount_percent
                                         <div class="col-span-6 sm:col-span-3">
                                             <label for="discount_percent" class="block text-sm font-medium text-gray-700">Discount</label>
                                             <input type="number" id="discount_percent" name="discount_percent" placeholder="Discount" class="appearance-none rounded relative block w-1/3 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                         </div>
+                                        -->
 
-                                        <!--Product comment-->
+                                        <!--Product comment
                                         <div class="col-span-6 sm:col-span-3">
                                             <label for="comment" class="block text-sm font-medium text-gray-700">Comments</label>
                                             <input type="text" id="comment" name="comment" placeholder="Comments (Only for You to see)" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm">
                                         </div>
+                                        -->
 
                                         <!--Product create_date-->
                                         <!--

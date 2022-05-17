@@ -34,10 +34,8 @@ include 'templates/nav-admin.php';
                                 <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
                                     <!--Table Header-->
                                     <?php
-                                      $sql = "SELECT *
-                                      FROM Users";
-                                      $result = $conn->query($sql);
-                                      $res = $result->fetch_assoc();
+                                    $sql = "SELECT * FROM Users";
+                                    $query = mysqli_query($conn, $sql);
                                     ?>
                                     <table class="min-w-full leading-normal">
                                         <thead>
@@ -62,8 +60,10 @@ include 'templates/nav-admin.php';
                                         </thead>
                                         <!--Table Body-->
                                         <?php
-                                        while($res = mysqli_fetch_array($result)) {
-                                          if($res['role'] == 'seller' && $res['approval'] == '1'){
+                                        while($res = mysqli_fetch_array($query)) {
+                                          $row = mysqli_num_rows($query);
+                                          if($row > 0) {
+                                            if($res['role'] == 'seller' && $res['approval'] == '1'){
                                         ?>
                                         <tbody>
                                             <tr>
@@ -96,6 +96,7 @@ include 'templates/nav-admin.php';
                                         <?php
                                             }
                                           }
+                                        }
                                         ?>
                                     </table>
                                 </div>

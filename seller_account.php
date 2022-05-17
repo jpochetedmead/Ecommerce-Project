@@ -2,6 +2,10 @@
 include 'db_connection.php';
 session_start();
 
+if($_SESSION['role'] == 'seller' && $_SESSION['approval'] == 0) {
+  header('location:home.php');
+}
+
 //TEMPLATES
 include 'templates/head.html';
 include 'templates/nav-bar.php';
@@ -26,7 +30,7 @@ if(isset($_POST['delete'])){
 if(isset($_POST['save'])){
     $price = str_replace('$', ' ', $_POST['price']);
     $listPrice = str_replace('$', ' ', $_POST['listPrice']);
-    
+
     $sql = "UPDATE products SET price=$price, list_price=$listPrice, quantity=$_POST[quantity] WHERE product_ID=$_POST[productID]";
     if ($conn->query($sql) === TRUE) {
         //echo "Record updated successfully";
@@ -66,8 +70,8 @@ if(isset($_POST['save'])){
                             <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">List Price</h3>
                             <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Total Sold</h3>
                             <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">  </h3>
-                        </div>                            
-                        <?php 
+                        </div>
+                        <?php
 
                         $sql = "SELECT * FROM products INNER JOIN brand ON products.brand=brand.brand_ID WHERE products.seller_ID=$_SESSION[ID]";
                         $result = $conn->query($sql);

@@ -23,12 +23,6 @@
               ?>
               <a href="logout.php" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Log Out</a>
               <?php
-            } else if(!isset($_SESSION['ID'])) {
-              ?>
-              <a href="login.php" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Sign In</a>
-
-              <a href="register.php" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Sign Up</a>
-              <?php
             }
               ?>
             </div>
@@ -46,12 +40,24 @@
         ?>
 
         <div>
+          <?php
+          if(isset($_SESSION['ID'])) {
+            ?>
             <a href="cart.php" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                 Cart
                 
                 <span><?php echo $total ?></span>
             </a>
             <a href="user_account.php" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">My Account</a>
+          <?php
+          }else if(!isset($_SESSION['ID'])) {
+              ?>
+              <a href="login.php" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Sign In</a>
+
+              <a href="register.php" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Sign Up</a>
+              <?php
+          }
+          ?>
         </div>
       </div>
     </div>
@@ -65,12 +71,6 @@
         if (isset($_SESSION['ID'])) {
         ?>
         <a href="logout.php" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Log Out</a>
-        <?php
-        } else if(!isset($_SESSION['ID'])) {
-        ?>
-        <a href="login.php" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Sign In</a>
-
-        <a href="register.php" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Sign Up</a>
         <?php
         }
         ?>

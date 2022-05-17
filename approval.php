@@ -51,6 +51,10 @@
               </div>
 
               <!--Table-->
+              <?php
+              $sql = "SELECT * FROM Users WHERE role='seller' && approval=0";
+              $result = $conn->query($sql);
+              ?>
               <form action="approval.php" id="form1" method="POST">
                 <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                   <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
@@ -78,22 +82,25 @@
                       </thead>
                       <!--Table Body-->
                       <tbody>
+                        <?php
+                        while($res = mysqli_fetch_array($result)) {
+                        ?>
                         <tr>
                           <!--Qustion-->
                           <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                             <p class="text-gray-900 whitespace-no-wrap">
-                              Random text:
+                              <input type="text" name="name" readonly value=" <?php echo $res['first_name'] . " " . $res['last_name'] ?> ">
                             </p>
                           </td>
                           <!--Answer-->
                           <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                             <p class="text-gray-900 whitespace-no-wrap">
-                              Random text: 
+                              <input type="text" name="name" readonly value=" <?php echo $res['user_ID'] ?> ">
                             </p>
                           </td>
                           <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                             <p class="text-gray-900 whitespace-no-wrap">
-                              Random text: 
+                              <input type="text" name="name" readonly value=" <?php echo $res['email'] ?> ">
                             </p>
                           </td>
                           <td class="px-5 py-5 border-b border-gray-200 bg-white flex justify-evenly">
@@ -101,6 +108,9 @@
                             <button type="submit" name="decline" form="form1" id="decline" value="<?php echo $res['user_ID']?>">❌</button>
                           </td>
                         </tr>
+                        <?php
+                      }
+                      ?>
                       </tbody>
 					          </table>
 				          </div>

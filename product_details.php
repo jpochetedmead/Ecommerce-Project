@@ -188,9 +188,24 @@ if(isset($_POST['cart'])){
                                             <div class="border-b border-gray-200 py-6">
                                                 <h3 class="-my-3 flow-root">
                                                 <div class="py-3 bg-white w-full flex items-center justify-between text-sm">
-                                                    <a href="product_details.php?recipient=<?php echo $sell['user_ID'] ?>" class="font-medium text-blue-500 hover:text-blue-300">Contact Seller</a>
+                                                    <?php
+                                                    if(isset($_SESSION['ID'])){
+                                                    ?>
+                                                        <a href="product_details.php?recipient=<?php echo $sell['user_ID'] ?>" class="font-medium text-blue-500 hover:text-blue-300">Contact Seller</a>
+                                                    <?php
+                                                    }else{
+                                                    ?>
+                                                        <p><a href="login.php" class="font-medium text-blue-500 hover:text-blue-300">Sign in</a>
+                                                        /<a href="register.php" class="font-medium text-blue-500 hover:text-blue-300">Sign up</a> to start adding to your cart!</p>
+                                                    <?php
+                                                    }
+                                                    ?>
+
                                                 </div>
                                                 </h3>
+                                                <?php
+                                                if(isset($_SESSION['ID'])){
+                                                    ?>
                                                 <!--add to cart / add to wishlist-->
                                                 <div class="pt-6" id="filter-section-1">
                                                     <div class="space-y-4">
@@ -202,6 +217,9 @@ if(isset($_POST['cart'])){
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <?php
+                                                }
+                                                ?>
                                             </div>
                                             <!--size or whatever we want
                                             <div class="border-b border-gray-200 py-6">
